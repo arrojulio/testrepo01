@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Data;
+using System.Data.Common;
 using System.Text;
+using Bladex.Garantias.DomainModel.DomainBase.Summary;
 using Bladex.Garantias.DomainModel.Repositories;
 using Bladex.Garantias.DomainModel.Services;
 using Bladex.Garantias.Infrastructure.RepositoryFramework;
@@ -203,6 +205,46 @@ namespace Bladex.Garantias.Infrastructure.Repositories.GarantiaMueble
             return GarantiaMuebleFactory.FieldNames.Id;
         }
 
+
+        public List<GarantiaMuebleSummary> GetAllMuebleSQL()
+        {
+            var list = new List<GarantiaMuebleSummary>();
+            var sql = new StringBuilder();
+            sql.Append("SELECT G.ID AS [Key],");
+            sql.Append(" ISNULL(G.getIdentificacionDocumentoGarantia,'(vacio)') AS [IdentificacionDocumentoGarantia],");
+            sql.Append(" C.Nombre AS [Cliente],");
+            sql.Append(" G.CategoriaSuperId AS [CategoriaSuper],");
+            sql.Append(" GS.Nombre AS [TipoGarantiaSuper],");
+            sql.Append(" G.ValorPolizaSeguro, G.ValorInicial,");
+            sql.Append(" G.InternalStatus, CS.IsReadOnly");
+            sql.Append(" FROM GarantiaBase G");
+            sql.Append(" INNER JOIN GarantiaMueble M ON G.ID = M.ID");
+            sql.Append(" INNER JOIN Customer C ON G.Cliente = C.ID");
+            sql.Append(" INNER JOIN TipoGarantiaSuper GS ON G.TipoGarantiaSuper = GS.ID");
+            sql.Append(" INNER JOIN CategoriaSuper CS ON G.CategoriaSuperId = CS.ID");
+            sql.Append(" WHERE G.InternalStatus <> '2'");
+
+            using (DbCommand cmd = this.Database.GetSqlStringCommand(sql.ToString()))
+            using (IDataReader reader = this.Database.ExecuteReader(cmd))
+            {
+                while (reader.Read())
+                {
+                    list.Add(new GarantiaMuebleSummary
+                    {
+                        Key = DataHelper.GetNullableInteger(reader["Key"]),
+                        IdentificacionDocumentoGarantia = DataHelper.GetString(reader["IdentificacionDocumentoGarantia"]),
+                        Cliente = DataHelper.GetString(reader["Cliente"]),
+                        CategoriaSuper = DataHelper.GetString(reader["CategoriaSuper"]),
+                        TipoGarantiaSuper = DataHelper.GetString(reader["TipoGarantiaSuper"]),
+                        ValorInicial = DataHelper.GetDecimal(reader["ValorInicial"]),
+                        ValorPolizaSeguro = DataHelper.GetDecimal(reader["ValorPolizaSeguro"]),
+                        InternalStatus = DataHelper.GetInteger(reader["InternalStatus"]),
+                        IsReadOnly = DataHelper.GetBoolean(reader["IsReadOnly"])
+                    });
+                }
+            }
+            return list;
+        }
 
         #region IGarantiaBaseRepository<GarantiaMueble> Members
 

@@ -1,52 +1,47 @@
-﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<Bladex.Garantias.DomainModel.DomainBase.GarantiaBase>" %>
+﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<Bladex.Garantias.DomainModel.DomainBase.Summary.GarantiaMuebleSummary>" %>
 <tr>
     <td>
         <%: Model.Key %>
     </td>
     <td>
-        <%: string.IsNullOrEmpty(Model.GetIdentificacionDocumentoGarantia()) ? string.IsNullOrEmpty(Model.FCCReference) ? "(vacio)" : Model.FCCReference : Model.GetIdentificacionDocumentoGarantia()%>        
-    </td>
-    
-    <td>
-        <%: Model.Cliente != null ? Model.Cliente.Nombre : string.Empty%>
+        <%: Model.IdentificacionDocumentoGarantia %>
     </td>
     <td>
-        <%: Model.TipoGarantiaSuper != null ? Model.TipoGarantiaSuper.Nombre : string.Empty%>
+        <%: Model.Cliente %>
+    </td>
+    <td>
+        <%: Model.TipoGarantiaSuper %>
     </td>
     <td>
         <%: Model.ValorInicial.ToString("c")%>
     </td>
     <td>
-        <%// TODO Agregar "Valor de Cobertura de la Póliza " %>
         <%: Model.ValorPolizaSeguro.ToString("c")%>
     </td>
     <td class="action" style="text-align: center;">
-        <% if (!Model.CategoriaSuper.IsReadOnly) {%>
+        <% if (!Model.IsReadOnly) {%>
             <%if (Context.User.Identity.IsAuthenticated && Context.User.IsInRole("Power User") && !Context.User.IsInRole("Checker")){%>
-                <%:Html.ActionLink("Ver", "Edit", new { garantiaId = Model.Key, categoriaSuperId = Model.CategoriaSuper.Key.ToString(), useRepository = true, isReadOnly = true })%>
-                <% if (Convert.ToInt32(Model.InternalStatus.Key) != 3)
-                {%>                    
-                    <%:Html.ActionLink("Editar", "Edit", new { garantiaId = Model.Key, categoriaSuperId = Model.CategoriaSuper.Key.ToString(), useRepository = true, isReadOnly = false })%>                        
-                    <%:Html.ActionLink("Borrar", "Delete", new {id = Model.Key, categoriaSuperId = Model.CategoriaSuper.Key.ToString()})%>
+                <%:Html.ActionLink("Ver", "Edit", new { garantiaId = Model.Key, categoriaSuperId = Model.CategoriaSuper, useRepository = true, isReadOnly = true })%>
+                <% if (Model.InternalStatus != 3) {%>
+                    <%:Html.ActionLink("Editar", "Edit", new { garantiaId = Model.Key, categoriaSuperId = Model.CategoriaSuper, useRepository = true, isReadOnly = false })%>
+                    <%:Html.ActionLink("Borrar", "Delete", new { id = Model.Key, categoriaSuperId = Model.CategoriaSuper })%>
                     <a id="changeTypeFor_<%:Model.Key.ToString()%>" href="#" class="changeType">Cambiar Tipo</a>
                     <script type="text/javascript">
                         $(document).ready(function () {
                             $("#changeTypeFor_" + '<%:Model.Key.ToString()%>').click(function () {
                                 var garantiaId = '<%:Model.Key%>';
-                                var currentType = '<%:Model.CategoriaSuper.Key.ToString()%>';
+                                var currentType = '<%:Model.CategoriaSuper%>';
                                 changeTypeGarantia(garantiaId, currentType);
-
                                 return false;
                             });
                         });
                     </script>
-                <% }%>                
-                
+                <% }%>
             <%} else {%>
-                <%:Html.ActionLink("Ver", "Edit", new { garantiaId = Model.Key, categoriaSuperId = Model.CategoriaSuper.Key.ToString(), useRepository = true, isReadOnly = true  })%>
+                <%:Html.ActionLink("Ver", "Edit", new { garantiaId = Model.Key, categoriaSuperId = Model.CategoriaSuper, useRepository = true, isReadOnly = true })%>
             <%}%>
         <%} else {%>
-        <%:Html.ActionLink("Ver", "Edit", new { garantiaId = Model.Key, categoriaSuperId = Model.CategoriaSuper.Key.ToString(), useRepository = true, isReadOnly = true  })%>
+            <%:Html.ActionLink("Ver", "Edit", new { garantiaId = Model.Key, categoriaSuperId = Model.CategoriaSuper, useRepository = true, isReadOnly = true })%>
         <%}%>
     </td>
 </tr>

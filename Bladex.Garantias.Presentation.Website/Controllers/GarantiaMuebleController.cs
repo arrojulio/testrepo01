@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Bladex.Garantias.Application.Facades;
 using Bladex.Garantias.DomainModel.DomainBase;
+using Bladex.Garantias.DomainModel.DomainBase.Summary;
 using Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker;
 using Bladex.Garantias.Infrastructure.Logging;
 using Bladex.Garantias.Presentation.Website.Components.Attributes;
@@ -44,7 +45,7 @@ namespace Bladex.Garantias.Presentation.Website.Controllers
         {
             ViewData["CategoriaSuper"] = ServiceFacade.Instance.CategoriaSuperService.GetById(categoriaSuperId);
 
-            List<GarantiaMueble> list = ServiceFacade.Instance.GarantiaMuebleService.GetAll(null).ToList();
+            List<GarantiaMuebleSummary> list = ServiceFacade.Instance.GarantiaMuebleService.GetAllMuebleSQL();
             ViewData.Model = list;
             return View(list);
         }

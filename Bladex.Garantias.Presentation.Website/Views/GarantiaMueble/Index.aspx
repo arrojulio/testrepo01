@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" Inherits="System.Web.Mvc.ViewPage<System.Collections.Generic.List<Bladex.Garantias.DomainModel.DomainBase.GarantiaMueble>>" MasterPageFile="~/Views/Shared/Site.Master" %>
+﻿<%@ Page Title="" Language="C#" Inherits="System.Web.Mvc.ViewPage<System.Collections.Generic.List<Bladex.Garantias.DomainModel.DomainBase.Summary.GarantiaMuebleSummary>>" MasterPageFile="~/Views/Shared/Site.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Listado de Garantías
 </asp:Content>
@@ -26,7 +26,7 @@
         </thead>
         <tbody>
         <%foreach(var garantia in Model){ %>
-            <%Html.RenderPartial("DisplayTemplates/GarantiaMuebleTableRow", garantia as Bladex.Garantias.DomainModel.DomainBase.GarantiaBase);%>
+            <%Html.RenderPartial("DisplayTemplates/GarantiaMuebleTableRow", garantia);%>
         <%} %>
         </tbody>
     </table>
