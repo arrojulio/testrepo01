@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B2ED2201-B025-48F8-9018-078E12451074}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bladex.Garantias.Infrastructure.Repositories</RootNamespace>
+    <AssemblyName>Bladex.Garantias.Infrastructure.Repositories</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Bladex.Garantias.Infrastructure.Repositories.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=1.1.0.188, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\Bladex.Garantias.Infrastructure\Libraries\AutoMapper\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bladex.Garantias.Infrastructure\Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bladex.Garantias.Infrastructure\Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Actor\ActorFactory.cs" />
+    <Compile Include="Actor\ActorSqlRepository.cs" />
+    <Compile Include="Aseguradoras\AseguradorasFactory.cs" />
+    <Compile Include="Aseguradoras\AseguradorasSqlRepository.cs" />
+    <Compile Include="Avaluadoras\AvaluadorasFactory.cs" />
+    <Compile Include="Avaluadoras\AvaluadorasSqlRepository.cs" />
+    <Compile Include="Aval\AvalFactory.cs" />
+    <Compile Include="Aval\AvalSqlRepository.cs" />
+    <Compile Include="Bancos\BancosFactory.cs" />
+    <Compile Include="Bancos\BancosSqlRepository.cs" />
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="CalificacionesRiesgo\CalificacionesRiesgoFactory.cs" />
+    <Compile Include="CalificacionesRiesgo\CalificacionesRiesgoSqlRepository.cs" />
+    <Compile Include="CategoriaRiesgoGarantia\CategoriaRiesgoGarantiaFactory.cs" />
+    <Compile Include="CategoriaRiesgoGarantia\CategoriaRiesgoGarantiaSqlRepository.cs" />
+    <Compile Include="CategoriaSuper\CategoriaSuperFactory.cs" />
+    <Compile Include="CategoriaSuper\CategoriaSuperInMemoryRepository.cs" />
+    <Compile Include="CategoriaSuper\CategoriaSuperSqlRepository.cs" />
+    <Compile Include="Cliente\ClienteFactory.cs" />
+    <Compile Include="Cliente\ClienteSqlRepository.cs" />
+    <Compile Include="Components\MakerChecker\MakerCheckerOperationSqlRepository.cs" />
+    <Compile Include="Components\MakerChecker\MakerCheckerOperationFactory.cs" />
+    <Compile Include="Components\MakerChecker\MakerCheckerChangesetSqlRepository.cs" />
+    <Compile Include="Components\MakerChecker\MakerCheckerChangesetFactory.cs" />
+    <Compile Include="Components\MakerChecker\MakerCheckerOperationStatusFactory.cs" />
+    <Compile Include="Components\MakerChecker\MakerCheckerOperationStatusSqlRepository.cs" />
+    <Compile Include="Components\MakerChecker\MakerCheckerEmailTemplateFactory.cs" />
+    <Compile Include="Components\MakerChecker\MakerCheckerUserFactory.cs" />
+    <Compile Include="Components\MakerChecker\MakerCheckerRoleFactory.cs" />
+    <Compile Include="Components\MakerChecker\MakerCheckerEmailTemplateSqlRepository.cs" />
+    <Compile Include="Components\MakerChecker\MakerCheckerRoleSqlRepository.cs" />
+    <Compile Include="Components\MakerChecker\MakerCheckerUserSqlRepository.cs" />
+    <Compile Include="AutocompleteValue\AutocompleteValueFactory.cs" />
+    <Compile Include="AutocompleteValue\AutocompleteValueSqlRepository.cs" />
+    <Compile Include="GarantiaContratoDealReference\GarantiaContratoDealReferenceFactory.cs" />
+    <Compile Include="GarantiaContratoDealReference\GarantiaContratoDealReferenceSqlRepository.cs" />
+    <Compile Include="DataHelper.cs" />
+    <Compile Include="Fiduciarias\FiduciariasFactory.cs" />
+    <Compile Include="Fiduciarias\FiduciariasSqlRepository.cs" />
+    <Compile Include="Frecuencias\FrecuenciasFactory.cs" />
+    <Compile Include="Frecuencias\FrecuenciasSqlrepository.cs" />
+    <Compile Include="GarantiaBase\GarantiaBaseFactory.cs" />
+    <Compile Include="GarantiaBase\GarantiaBaseSqlRepository.cs" />
+    <Compile Include="GarantiaContrato\GarantiaContratoFactory.cs" />
+    <Compile Include="GarantiaContrato\GarantiaContratoSqlRepository.cs" />
+    <Compile Include="GarantiaDepositoOtroBanco\GarantiaDepositoOtroBancoFactory.cs" />
+    <Compile Include="GarantiaDepositoOtroBanco\GarantiaDepositoOtroBancoSqlRepository.cs" />
+    <Compile Include="GarantiaDeposito\GarantiaDepositoFactory.cs" />
+    <Compile Include="GarantiaDeposito\GarantiaDepositoSqlRepository.cs" />
+    <Compile Include="GarantiaInmueble\GarantiaInmuebleFactory.cs" />
+    <Compile Include="GarantiaInmueble\GarantiaInmuebleSqlRepository.cs" />
+    <Compile Include="GarantiaMueble\GarantiaMuebleFactory.cs" />
+    <Compile Include="GarantiaMueble\GarantiaMuebleSqlRepository.cs" />
+    <Compile Include="GarantiaOtra\GarantiaOtraFactory.cs" />
+    <Compile Include="GarantiaOtra\GarantiaOtraSqlRepository.cs" />
+    <Compile Include="GarantiaPrenda\GarantiaPrendaFactory.cs" />
+    <Compile Include="GarantiaPrenda\GarantiaPrendaSqlRepository.cs" />
+    <Compile Include="GrupoRiesgoGarantia\GrupoRiesgoGarantiaFactory.cs" />
+    <Compile Include="GrupoRiesgoGarantia\GrupoRiesgoGarantiaSqlRepository.cs" />
+    <Compile Include="IMPORT_TH_ATOMO_GARANTIAS\IMPORT_TH_ATOMO_GARANTIASFactory.cs" />
+    <Compile Include="IMPORT_TH_ATOMO_GARANTIAS\IMPORT_TH_ATOMO_GARANTIASSqlRepository.cs" />
+    <Compile Include="InstrumentoFinanciero\InstrumentoFinancieroFactory.cs" />
+    <Compile Include="InstrumentoFinanciero\InstrumentoFinancieroSqlRepository.cs" />
+    <Compile Include="LimitInformation\LimitInformationFactory.cs" />
+    <Compile Include="LimitInformation\LimitInformationSqlRepository.cs" />
+    <Compile Include="Monedas\MonedasFactory.cs" />
+    <Compile Include="Monedas\MonedasSqlRepository.cs" />
+    <Compile Include="PaisResolver.cs" />
+    <Compile Include="Pais\PaisFactory.cs" />
+    <Compile Include="Pais\PaisSqlRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Region\RegionSqlRepository.cs" />
+    <Compile Include="Region\RegionFactory.cs" />
+    <Compile Include="Role\RoleFactory.cs" />
+    <Compile Include="Role\RoleSqlRepository.cs" />
+    <Compile Include="SqlMappers\ISqlQueryBuilder.cs" />
+    <Compile Include="SqlMappers\SqlQueryBuilder.cs" />
+    <Compile Include="SqlRepositoryBase.cs" />
+    <Compile Include="InternalStatus\InternalStatusFactory.cs" />
+    <Compile Include="InternalStatus\InternalStatusSqlRepository.cs" />
+    <Compile Include="Status\StatusFactory.cs" />
+    <Compile Include="Status\StatusSqlRepository.cs" />
+    <Compile Include="SyncLog\SyncLogFactory.cs" />
+    <Compile Include="SyncLog\SyncLogSqlRepository.cs" />
+    <Compile Include="TipoAval\TipoAvalFactory.cs" />
+    <Compile Include="TipoAval\TipoAvalSqlRepository.cs" />
+    <Compile Include="TipoGarantiaBladex\TipoGarantiaBladexSqlRepository.cs" />
+    <Compile Include="TipoGarantiaBladex\TipoGarantiaBladexFactory.cs" />
+    <Compile Include="TipoGarantiaSuper\TipoGarantiaSuperFactory.cs" />
+    <Compile Include="TipoGarantiaSuper\TipoGarantiaSuperSqlRepository.cs" />
+    <Compile Include="TipoPoliza\TipoPolizaFactory.cs" />
+    <Compile Include="TipoPoliza\TipoPolizaSqlRepository.cs" />
+    <Compile Include="Tooltip\TooltipFactory.cs" />
+    <Compile Include="Tooltip\TooltipSqlRepository.cs" />
+    <Compile Include="User\UserFactory.cs" />
+    <Compile Include="User\UserSqlRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bladex.Garantias.DomainModel\Bladex.Garantias.DomainModel.csproj">
+      <Project>{14028DC5-D571-434D-AE07-92FFCA59B551}</Project>
+      <Name>Bladex.Garantias.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bladex.Garantias.Infrastructure\Bladex.Garantias.Infrastructure.csproj">
+      <Project>{5143B2ED-E747-415E-B1AA-63187D67EC87}</Project>
+      <Name>Bladex.Garantias.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="..\ModelingProject1\LayerDiagram1.layerdiagram">
+      <Link>LayerDiagram1.layerdiagram</Link>
+      <Visible>False</Visible>
+    </AdditionalFiles>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.9.0\analyzers\dotnet\cs\Microsoft.DependencyValidation.Analyzers.resources.dll" />
+    <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.9.0\analyzers\dotnet\Microsoft.DependencyValidation.Analyzers.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties BuildVersion_UseGlobalSettings="True" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

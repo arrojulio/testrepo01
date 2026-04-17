@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bladex.Garantias.Application</name>
+    </assembly>
+    <members>
+        <member name="T:Bladex.Garantias.Application.Facades.ServiceFacade">
+            <summary>
+            Singleton Service Facade used to access to all application services.
+            </summary>
+        </member>
+        <member name="F:Bladex.Garantias.Application.Facades.ServiceFacade.instance">
+            <summary>
+            ServiceFacade Instance 
+            </summary>
+        </member>
+        <member name="F:Bladex.Garantias.Application.Facades.ServiceFacade.syncRoot">
+            <summary>
+              <see cref="T:System.Object"/> used to synchronize the access.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Application.Facades.ServiceFacade.#ctor">
+            <summary>
+            Prevents a default instance of the <see cref="T:Bladex.Garantias.Application.Facades.ServiceFacade"/> class from being created.
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.Instance">
+            <summary>
+            Gets Propiedad para acceder a la instancia
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.AutocompleteValueService">
+            <summary>
+            Gets the autocomplete value service.
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.GarantiaContratoService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.GarantiaContratoService"/> Gets GarantiaContratoService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.ClienteService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.ClienteService"/> Gets ClienteService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.GarantiaService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.GarantiaService"/> Gets GarantiaService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.ActorService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.ActorService"/> Gets ActorService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.AvalService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.AvalService"/> Gets AvalService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.PaisService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.PaisService"/> Gets PaisService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.AseguradorasService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.AseguradorasService"/> Gets AseguradorasService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.AvaluadoraService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.AvaluadoraService"/> Gets AvaluadoraService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.BancosService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.BancosService"/> Gets BancosService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.CalificacionesRiesgoService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.CalificacionesRiesgoService"/> Gets CalificacionesRiesgoService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.CategoriaSuperService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.CategoriaSuperService"/> Gets CategoriaSuperService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.FiduciariasService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.FiduciariasService"/> Gets FiduciariasService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.FrecuenciasService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.FrecuenciasService"/> Gets FrecuenciasService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.GarantiaDepositoOtroBancoService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.GarantiaDepositoOtroBancoService"/> Gets GarantiaDepositoOtroBancoService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.GarantiaDepositoService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.GarantiaDepositoService"/> Gets GarantiaDepositoService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.GarantiaInmuebleService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.GarantiaInmuebleService"/> Gets GarantiaInmuebleService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.GarantiaMuebleService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.GarantiaMuebleService"/> Gets GarantiaMuebleService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.GarantiaOtraService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.GarantiaOtraService"/> Gets GarantiaOtraService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.GarantiaPrendaService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.GarantiaPrendaService"/> Gets GarantiaPrendaService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.GrupoRiesgoGarantiaService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.GrupoRiesgoGarantiaService"/> Gets GrupoRiesgoGarantiaService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.InstrumentoFinancieroService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.InstrumentoFinancieroService"/> Gets InstrumentoFinancieroService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.MonedasService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.MonedasService"/> Gets MonedasService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.InternalStatusService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.StatusService"/> Gets StatusService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.StatusService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.StatusService"/> Gets StatusService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.TipoAvalService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.TipoAvalService"/> Gets TipoAvalService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.TipoGarantiaBladexService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.TipoGarantiaBladexService"/> Gets TipoGarantiaBladexService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.TipoGarantiaSuperService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.TipoGarantiaSuperService"/> Gets TipoGarantiaSuperService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.CategoriaRiesgoGarantiaService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.CategoriaRiesgoGarantiaService"/> Gets CategoriaRiesgoGarantiaService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.IMPORT_TH_ATOMO_GARANTIASService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.IMPORT_TH_ATOMO_GARANTIASService"/> Gets IMPORT_TH_ATOMO_GARANTIASService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.SyncLogService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.SyncLogService"/> Gets SyncLogService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.LimitInformationService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.LimitInformationService"/> Gets LimitInformationService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.TooltipService">
+            <summary>
+              <see cref="P:Bladex.Garantias.Application.Facades.ServiceFacade.TooltipService"/> Gets TooltipService
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.MakerCheckerService">
+            <summary>
+            Gets the maker checker service.
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.UserService">
+            <summary>
+            Gets the user service.
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Application.Facades.ServiceFacade.RoleService">
+            <summary>
+            Gets the role service.
+            </summary>
+        </member>
+    </members>
+</doc>

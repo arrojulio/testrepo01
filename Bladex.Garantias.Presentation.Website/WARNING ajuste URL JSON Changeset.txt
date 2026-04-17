@@ -1,0 +1,4 @@
+﻿Editar archivo ChangeSetViewer.ascx 
+
+baseUrl en request. //url: baseUrl + "/MakerChecker/Commit",
+                    url: "/MakerChecker/Commit",

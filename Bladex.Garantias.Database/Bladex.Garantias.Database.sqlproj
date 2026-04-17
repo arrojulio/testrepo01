@@ -1,0 +1,894 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+    <PostConversionRemoveFromScc>
+    </PostConversionRemoveFromScc>
+    <PostConversionAddToScc>
+    </PostConversionAddToScc>
+    <PostConversionCheckOutFromScc>
+    </PostConversionCheckOutFromScc>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>Bladex.Garantias.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql90DatabaseSchemaProvider</DSP>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ShowWizard>True</ShowWizard>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <RootNamespace>Bladex.Garantias.Database</RootNamespace>
+    <DefaultSchema>dbo</DefaultSchema>
+    <PreviousProjectVersion>4.1</PreviousProjectVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <ValidateCasingOnIdentifiers>False</ValidateCasingOnIdentifiers>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2725d085-919e-4de5-8f00-2b6e556bceda}</ProjectGuid>
+    <GenerateDatabaseFile>False</GenerateDatabaseFile>
+    <GenerateCreateScript>False</GenerateCreateScript>
+    <TargetLanguage>CS</TargetLanguage>
+    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+    <AnsiNullDefault>True</AnsiNullDefault>
+    <AnsiNulls>True</AnsiNulls>
+    <AnsiPadding>True</AnsiPadding>
+    <AnsiWarnings>True</AnsiWarnings>
+    <ArithAbort>True</ArithAbort>
+    <AutoClose>False</AutoClose>
+    <AutoCreateStatistics>True</AutoCreateStatistics>
+    <AutoShrink>True</AutoShrink>
+    <AutoUpdateStatistics>True</AutoUpdateStatistics>
+    <AutoUpdateStatisticsAsynchronously>False</AutoUpdateStatisticsAsynchronously>
+    <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
+    <CompatibilityMode>90</CompatibilityMode>
+    <ConcatNullYieldsNull>True</ConcatNullYieldsNull>
+    <DatabaseAccess>MULTI_USER</DatabaseAccess>
+    <DatabaseChaining>False</DatabaseChaining>
+    <DatabaseState>ONLINE</DatabaseState>
+    <DateCorrelationOptimizationOn>False</DateCorrelationOptimizationOn>
+    <DefaultCollation>Modern_Spanish_CI_AS</DefaultCollation>
+    <DefaultCursor>LOCAL</DefaultCursor>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <EnableFullTextSearch>True</EnableFullTextSearch>
+    <NumericRoundAbort>False</NumericRoundAbort>
+    <PageVerify>NONE</PageVerify>
+    <Parameterization>SIMPLE</Parameterization>
+    <QuotedIdentifier>True</QuotedIdentifier>
+    <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
+    <Recovery>FULL</Recovery>
+    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
+    <ServiceBrokerOption>DisableBroker</ServiceBrokerOption>
+    <SupplementalLoggingOn>False</SupplementalLoggingOn>
+    <TornPageDetection>False</TornPageDetection>
+    <Trustworthy>False</Trustworthy>
+    <UpdateOptions>READ_WRITE</UpdateOptions>
+    <VardecimalStorageFormatOn>False</VardecimalStorageFormatOn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>.\sql\release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>BLX_GARANTIAS</TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>.\sql\debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>BLX_GARANTIAS</TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+  </PropertyGroup>
+  <Import Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" Condition="'$(SQLDBExtensionsRefPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" Condition="'$(SQLDBExtensionsRefPath)' == ''" />
+  <!--Import the settings-->
+  <ItemGroup>
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Pre-Deployment" />
+    <Folder Include="Scripts\Post-Deployment" />
+    <Folder Include="Data Generation Plans" />
+    <Folder Include="Schema Comparisons" />
+    <Folder Include="Properties\" />
+    <Folder Include="Schema Objects\" />
+    <Folder Include="Schema Objects\Schemas\" />
+    <Folder Include="Schema Objects\Schemas\dbo\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Service Broker\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Service Broker\Queues\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Statistics\" />
+    <Folder Include="Schema Objects\Database Level Objects\" />
+    <Folder Include="Schema Objects\Database Level Objects\Assemblies\" />
+    <Folder Include="Schema Objects\Database Level Objects\Database Triggers\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Schemas\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Users\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Certificates\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Asymmetric Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Master Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Signatures\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Symmetric Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\Application Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\Database Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Contracts\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Event Notifications\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Message Types\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Remote Service Binding\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Routes\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Services\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Filegroups\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Files\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Catalogs\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Functions\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Schemes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BuildContributorArgument Include="OutDir=$(OutDir)" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Permissions.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_Monedas.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_Fiduciarias.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_Frecuencias.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_TipoGarantiaSuper.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_TipoGarantiaBladex.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_Cliente.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\TipoGarantiaBladex.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Customer.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Monedas.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Fiduciarias.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Frecuencias.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\CategoriaSuper.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\TipoGarantiaSuper.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Service Broker\Routes\AutoCreatedLocal.route.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\GrupoRiesgoGarantias.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\InstrumentoFinanciero.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\TipoAval.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_TipoAval.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_InstrumentoFinanciero.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_GrupoRiesgoGarantias.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\ETL_Parameter.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_ETL_Parameter.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\GarantiaBase.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_GarantiaBase.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_GarantiaMueble.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\GarantiaMueble.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Constraints\FK_GarantiaMueble_GarantiaBase.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Import_TH_ATOMO_GARANTIAS.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_IMPORT_TH_ATOMO_GARANTIAS.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaPrenda_GarantiaBase.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaOtra_Actor.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaInmueble_GarantiaBase.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaDepositoOtroBanco_GarantiaBase.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaDeposito_GarantiaBase.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_GarantiaPrenda.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_GarantiaOtra.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_GarantiaInmueble_1.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_GarantiaDepositoOtroBanco.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_GarantiaDeposito.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\GarantiaPrenda.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\GarantiaOtra.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\GarantiaInmueble.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\GarantiaDepositoOtroBanco.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\GarantiaDeposito.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_CategoriaSuper.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_Pais.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_Actor.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Pais.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Actor.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Import_Oracle_Param_BusinessDate.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Aseguradoras.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_Aseguradoras.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Avaluadoras.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_Avaluadoras.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\CalificacionesRiesgo.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_CalificacionesRiesgo.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\CategoriaRiesgoGarantia.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_CategoriaRiesgoGarantia.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Status.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_Status.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Bancos.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_Bancos.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Aval.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_Aval.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\GarantiaContrato.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_SyncLog.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\SyncLog.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_GarantiaContrato.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\ApplicationLog.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\ELMAH_Error.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ELMAH_GetErrorsXml.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ELMAH_GetErrorXml.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ELMAH_LogError.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\LimitInformation.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_ELMAH_Error.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_ApplicationLog.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Views\VW_Garantias_GarantiaGarantiaContrato.view.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaPrenda_Pais.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaPrenda_InstrumentoFinanciero.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaPrenda_Actor.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaOtra_GarantiaBase.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaOtra_Actor_1.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaDepositoOtroBanco_Bancos.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaDeposito_Bancos.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaBase_Status.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaBase_Monedas.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaBase_GarantiaBase2.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaBase_GarantiaBase1.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaBase_GarantiaBase.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaBase_CustomerGarante.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaBase_Customer.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaBase_CategoriaSuper.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaBase_Actor3.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaBase_Actor2.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaBase_Actor1.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaBase_Actor.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_Aval_GarantiaBase.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_Actor_Pais.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Functions\UDF_Garantias_ValorGarantia.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Tooltip.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_Tooltip.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\IMPORT_FCC_DEAL_HISTORY_H.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_TipoGarantiaSuper_CategoriaSuper.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaPrenda_CalificacionesRiesgo1.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaPrenda_CalificacionesRiesgo.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaMueble_Aseguradoras.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaInmueble_Avaluadoras.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaBase_TipoGarantiaSuper.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaBase_TipoGarantiaBladex.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaBase_Frecuencias.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Views\VW_Garantias_GarantiaBaseFT.view.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaContrato_GarantiaBase.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Indexes\IX_Actor.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SP_Garantias_ImportTeinsa_RTRIM.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Bladex.Garantias.Database.rolememberships.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Users\BLADEX_npascual.user.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Views\VW_Garantias_GarantiaContratoFT.view.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Views\VW_Garantias_Report_Vencidas30.view.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Views\VW_Garantias_Report_Revision30.view.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Views\VW_Garantias_Report_Insuficiencia.view.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Views\VW_Garantias_Report_Incompletas.view.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_TH_ATOMO_GARANTIAS_History.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_GarantiaPrenda_History.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_GarantiaOtra_History.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_GarantiaMueble_History.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_GarantiaInmueble_History.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_GarantiaDepositoOtroBanco_History.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_GarantiaDeposito_History.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_GarantiaContrato_History.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_GarantiaBase_History.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SP_MasterRefresh_Garantias_Period.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SP_MasterRefresh_Garantias.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SP_ETL_BusinessDate.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Functions\UDF_Datetime_Format.function.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Views\VW_Garantias_Report_SuperIntendencia.view.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\TH_ATOMO_GARANTIAS_History.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\GarantiaPrenda_History.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\GarantiaOtra_History.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\GarantiaMueble_History.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\GarantiaInmueble_History.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\GarantiaDepositoOtroBanco_History.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\GarantiaDeposito_History.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\GarantiaContrato_History.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\GarantiaBase_History.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Functions\UDF_Garantias_ValorPorcCoberturaGarantia.function.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Views\VW_Garantias_GarantiaContratoFT_Source.view.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Views\VW_Garantias_GarantiaBaseFT_Source.view.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Views\VW_Garantias_ProcessDates.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_APP_MakerChecker_User_APP_MAKERCHECKER_Role.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_APP_MakerChecker_RoleTemplate_APP_MAKERCHECKER_Role.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_APP_MakerChecker_RoleTemplate_APP_MakerChecker_EmailTemplate.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_APP_MakerChecker_Core_APP_MakerChecker_OperationStatus.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_APP_MakerChecker_Core_APP_MakerChecker_Changeset.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_APP_MakerChecker_User.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_APP_MakerChecker_RoleTemplate.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_APP_MAKERCHECKER_Role.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_APP_MakerChecker_OperationStatus.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_APP_MakerChecker_Core.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_APP_MakerChecker_EmailTemplate.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_APP_MakerChecker_Changeset_1.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\APP_MakerChecker_User.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\APP_MakerChecker_RoleTemplate.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\APP_MakerChecker_Role.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\APP_MakerChecker_OperationStatus.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\APP_MakerChecker_Operation.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\APP_MakerChecker_EmailTemplate.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\APP_MakerChecker_Changeset.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SP_APP_MakerChecker_ChangesetSummary.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Views\VW_APP_MakerChecker_GetCheckerList.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_Status_1.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\InternalStatus.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_Status_ID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Status_1.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_GarantiaBase_InternalStatus.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_APP_MakerChecker_User_Application_User.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_Application_User_Application_User.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_Application_User_Application_Role.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_Application_User.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_Application_Role.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Application_User.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Application_Role.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Indexes\SearchIndex.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_GarantiaContrato_ProductFilter.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Views\vw_GarantiaContrato_DealReference.view.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\IMPORT_Finance_TransactionalInfo_FT.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\GarantiaContrato_ProductFilter.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_InternalStatus.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_Autocomplete_Values.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Views\vw_ApplicationLog_Errors.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Autocomplete_Values.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\BATCH_GarantiaContrato_Log.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\BATCH_GarantiaContrato_Import.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SP_BATCH_Truncate_GarantiaContrato_Import.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SP_BATCH_Update_GarantiaContrato.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Schema Objects\Schemas\dbo\SchemaComparison1.scmp">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Scripts\Post-Deployment\Fill-Aseguradoras.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Scripts\Post-Deployment\Fill-Avaluadoras.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Scripts\Post-Deployment\Fill-Fiduciarias.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Scripts\Post-Deployment\Fill-CategoriaSuper.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Scripts\Post-Deployment\Fill-TipoGarantiaSuper.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Scripts\Post-Deployment\Fill-Pais.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Scripts\Post-Deployment\Fill-InstrumentoFinanciero.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Scripts\Post-Deployment\Fill-TipoAval.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Scripts\Post-Deployment\Fill-Status.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Scripts\Post-Deployment\Fill-Frecuencias.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Scripts\Post-Deployment\Fill-CategoriaRiesgoGarantia.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Scripts\Post-Deployment\Fill-GrupoRiesgoGarantias.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Scripts\Post-Deployment\Fill-CalificacionesRiesgo.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Scripts\Post-Deployment\Fill-Monedas.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Scripts\Post-Deployment\Fill-Bancos.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Scripts\Post-Deployment\Setup_ELMAH.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Schema Comparisons\SchemaComparison.scmp">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Scripts\Post-Deployment\Fill-Actor.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Scripts\Post-Deployment\Fill-Tooltip.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Debug.publish.xml" />
+    <None Include="Release.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="Scripts\Pre-Deployment\Script.PreDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Post-Deployment\Script.PostDeployment.sql" />
+  </ItemGroup>
+</Project>

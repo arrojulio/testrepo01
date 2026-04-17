@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[IMPORT_Finance_TransactionalInfo_FT] (
+    [FIC_MIS_DATE]      DATETIME      NOT NULL,
+    [DEAL_REF]          VARCHAR (20)  NOT NULL,
+    [PRODUCT_GROUP]     VARCHAR (50)  NOT NULL,
+    [CUSTOMER_NO]       VARCHAR (50)  NOT NULL,
+    [DEAL_STAT_FROM_DT] DATETIME      NULL,
+    [DEAL_CLOSURE_DATE] DATETIME      NULL,
+    [NET_BALANCE]       MONEY         NULL,
+    [EFFECTIVE_DATE]    DATETIME      NULL,
+    [GLOBAL_LINE_DESC]  VARCHAR (100) NULL
+);
+
+
+

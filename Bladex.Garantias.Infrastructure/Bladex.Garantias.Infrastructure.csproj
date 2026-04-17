@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5143B2ED-E747-415E-B1AA-63187D67EC87}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bladex.Garantias.Infrastructure</RootNamespace>
+    <AssemblyName>Bladex.Garantias.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Bladex.Garantias.Infrastructure.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\libs\Microsoft.Practices.EnterpriseLibrary.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\libs\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder, Version=1.0.51206.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\libs\Microsoft.Practices.ObjectBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Caching\CacheManager.cs" />
+    <Compile Include="Caching\ICacheableService.cs" />
+    <Compile Include="Caching\ICacheManager.cs" />
+    <Compile Include="Constants\InfrastructureConstants.cs" />
+    <Compile Include="DomainBase\EntityBase.cs" />
+    <Compile Include="DomainBase\Pagination\IPaged.cs" />
+    <Compile Include="DomainBase\Serialization\IMakerCheckerObject.cs" />
+    <Compile Include="Emailing\EmailerComponent.cs" />
+    <Compile Include="EntityFactoryFramework\Configuration\EntityMappingCollection.cs" />
+    <Compile Include="EntityFactoryFramework\Configuration\EntityMappingConstants.cs" />
+    <Compile Include="EntityFactoryFramework\Configuration\EntityMappingElement.cs" />
+    <Compile Include="EntityFactoryFramework\Configuration\EntitySettings.cs" />
+    <Compile Include="EntityFactoryFramework\EntityFactoryBuilder.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
+    <Compile Include="IUnitOfWork.cs" />
+    <Compile Include="Logging\ApplicationLogger.cs" />
+    <Compile Include="Logging\BaseLogger.cs" />
+    <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="Logging\LogUtility.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\InMemoryRepositoryBase.cs" />
+    <Compile Include="RepositoryFramework\Configuration\RepositoryMappingCollection.cs" />
+    <Compile Include="RepositoryFramework\Configuration\RepositoryMappingConstants.cs" />
+    <Compile Include="RepositoryFramework\Configuration\RepositoryMappingElement.cs" />
+    <Compile Include="RepositoryFramework\Configuration\RepositorySettings.cs" />
+    <Compile Include="EntityFactoryFramework\IEntityFactory.cs" />
+    <Compile Include="RepositoryFramework\IUnitOfWorkRepository.cs" />
+    <Compile Include="RepositoryFramework\IRepository.cs" />
+    <Compile Include="RepositoryFramework\RepositoryBase.cs" />
+    <Compile Include="RepositoryFramework\RepositoryFactory.cs" />
+    <Compile Include="Serialization\IEntityBaseSerializer.cs" />
+    <Compile Include="Serialization\JsonSerializer.cs" />
+    <Compile Include="Serialization\SerializableDictionary.cs" />
+    <Compile Include="Serialization\XmlSerializer.cs" />
+    <Compile Include="Services\IService.cs" />
+    <Compile Include="Services\ServiceBase.cs" />
+    <Compile Include="UnitOfWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="..\ModelingProject1\LayerDiagram1.layerdiagram">
+      <Link>LayerDiagram1.layerdiagram</Link>
+      <Visible>False</Visible>
+    </AdditionalFiles>
+    <None Include="EntityFactoryFramework\Configuration\EntityFactoryFramework.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="InfrastructureClassDiagram.cd" />
+    <Compile Include="Repositories\UniqueKeyGenerator.cs" />
+    <None Include="packages.config" />
+    <None Include="RepositoryFramework\Configuration\RepositoryFactory.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GeneratedCode\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Libraries\AutoMapper\AutoMapper.dll" />
+    <Content Include="Libraries\Bladex.Garantias.Infrastructure.pdb" />
+    <Content Include="Libraries\Elmah\x32\Elmah.dll" />
+    <Content Include="Libraries\Elmah\x32\Elmah.pdb" />
+    <Content Include="Libraries\Elmah\x32\Elmah.xml" />
+    <Content Include="Libraries\Elmah\x32\System.Data.SQLite.DLL" />
+    <Content Include="Libraries\Elmah\x32\VistaDB.NET20.dll" />
+    <Content Include="Libraries\Elmah\x64\Elmah.dll" />
+    <Content Include="Libraries\Elmah\x64\Elmah.pdb" />
+    <Content Include="Libraries\Elmah\x64\Elmah.xml" />
+    <Content Include="Libraries\Elmah\x64\System.Data.SQLite.DLL" />
+    <Content Include="Libraries\Elmah\x64\VistaDB.NET20.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.AppSettings.Configuration.Design.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.AppSettings.Configuration.Design.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Caching.Configuration.Design.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Caching.Configuration.Design.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.Design.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.Design.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.Design.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.Design.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Caching.Database.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Caching.Database.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Caching.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Caching.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Common.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Configuration.Design.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Configuration.Design.HostAdapter.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Configuration.Design.UI.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Configuration.Design.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Configuration.EnvironmentalOverrides.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Data.Configuration.Design.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Data.Configuration.Design.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Data.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Data.SqlCe.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Data.SqlCe.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Data.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Configuration.Design.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Configuration.Design.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.Configuration.Design.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.Configuration.Design.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.Configuration.Design.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.Configuration.Design.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.Design.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.Design.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Logging.Database.Configuration.Design.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Logging.Database.Configuration.Design.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Logging.Database.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Logging.Database.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Logging.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Logging.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.PolicyInjection.Configuration.Design.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.PolicyInjection.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Security.AzMan.Configuration.Design.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Security.AzMan.Configuration.Design.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Security.AzMan.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Security.AzMan.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Security.Cache.CachingStore.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Security.Cache.CachingStore.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Security.Cache.Configuration.Design.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Security.Cache.Configuration.Design.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Design.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Design.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.Configuration.Design.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.Configuration.Design.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Security.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Security.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Validation.Configuration.Design.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Validation.Configuration.Design.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Validation.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.AspNet.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.AspNet.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WCF.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WCF.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WinForms.dll" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WinForms.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Validation.xml" />
+    <Content Include="Libraries\EnterpriseLibrary\Microsoft.Practices.ObjectBuilder.dll" />
+    <Content Include="Libraries\Isis\Isis.dll" />
+    <Content Include="Libraries\Json.Net\Newtonsoft.Json.dll" />
+    <Content Include="Libraries\Json.Net\Newtonsoft.Json.pdb" />
+    <Content Include="Libraries\Json.Net\Newtonsoft.Json.xml" />
+    <Content Include="Libraries\Log4Net\log4net.dll" />
+    <Content Include="Libraries\Log4Net\log4net.xml" />
+    <Content Include="Libraries\Moq\Moq.dll" />
+    <Content Include="Libraries\Moq\Moq.pdb" />
+    <Content Include="Libraries\Moq\Moq.xml" />
+    <Content Include="Libraries\NuGet.Core.dll" />
+    <Content Include="Libraries\System.ComponentModel.DataAnnotations.dll" />
+    <Content Include="Libraries\System.Web.Helpers.dll" />
+    <Content Include="Libraries\System.Web.Helpers.xml" />
+    <Content Include="Libraries\System.Web.Mvc.dll" />
+    <Content Include="Libraries\System.Web.Mvc.xml" />
+    <Content Include="Libraries\Telerik\Telerik.Web.Mvc.dll" />
+    <Content Include="Libraries\Telerik\Telerik.Web.Mvc.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.9.0\analyzers\dotnet\cs\Microsoft.DependencyValidation.Analyzers.resources.dll" />
+    <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.9.0\analyzers\dotnet\Microsoft.DependencyValidation.Analyzers.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties BuildVersion_UseGlobalSettings="True" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

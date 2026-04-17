@@ -1,0 +1,90 @@
+
+
+/*** ESSENTIAL STYLES ***/
+.sf-menu, .sf-menu * {
+	margin:			0;
+	padding:		0;
+	list-style:		none;
+}
+.sf-menu {
+	line-height:	1.0;
+}
+.sf-menu ul {
+	position:		absolute;
+	top:			-999em;
+	width:			10em;
+	font:normal 12px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	width:100%;
+}
+
+.sf-menu li:hover {
+	visibility:	inherit; /* fixes IE7 'sticky bug' */
+}
+.sf-menu li {
+	float:left;
+	position:relative;
+	width:215px;
+	font:normal 12px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+.sf-menu a {
+	display:block;
+	position:relative;
+}
+.sf-menu li:hover ul,
+.sf-menu li.sfHover ul {
+	left:0;
+	top:35px; /* match top ul list item height */
+	z-index:99;
+}
+ul.sf-menu li:hover li ul,
+ul.sf-menu li.sfHover li ul {
+	top:-999em;
+}
+ul.sf-menu li li:hover ul,
+ul.sf-menu li li.sfHover ul {
+	left:215px; /* match ul width */
+	top:0;
+}
+
+
+/*** DEMO SKIN ***/
+.sf-menu {
+	float:left; margin-left:25px
+}
+.sf-menu a {
+	padding:3px 10px 0 10px;
+	text-decoration:none;
+	margin-right:1px;
+}
+.sf-menu a, .sf-menu a:visited  { /* visited pseudo selector so IE6 applies text colour*/
+	color:#FFF;
+}
+.sf-menu li {
+	background:url(../images/button.jpg) repeat-x;
+	height:35px;
+	padding-top:1px;
+}
+/*primer estado del menu secundario*/
+.sf-menu li li {
+	background: url(../images/2nd.jpg) repeat-x;
+	height:31px;
+	padding-top:4px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCC;
+	border-bottom-width: thin
+}
+/*end primer estado del menu secundario*/
+
+/*menu terciario*/
+.sf-menu li li li {
+	background: url(../images/3rd.jpg) repeat-x;
+	height:31px;
+	padding-top:4px;
+}
+/*end menu terciario*/
+.sf-menu li:hover, .sf-menu li.sfHover,
+.sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active {
+	background: url(../images/menu.jpg) repeat-x;
+	outline:0;
+	color: #666
+}

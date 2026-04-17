@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[Aval]
+	ADD CONSTRAINT [PK_Aval]
+	PRIMARY KEY (ID)

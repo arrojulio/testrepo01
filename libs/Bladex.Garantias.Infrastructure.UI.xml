@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bladex.Garantias.Infrastructure.UI</name>
+    </assembly>
+    <members>
+        <member name="M:Bladex.Garantias.Infrastructure.UI.AutoMapper.CurrencyResolver.ResolveCore(System.String)">
+            <summary>Parses source value as currency</summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.UI.AutoMapper.CurrencyFormatter.FormatValue(AutoMapper.ResolutionContext)">
+            <summary>Formats source value as currency</summary>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.UI.IGarantiaView">
+            <summary>
+            Defines the behavior of GarantiaView
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.UI.IGarantiaView.Save">
+            <summary>
+            Saves the view
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.UI.IGarantiaView.Reset">
+            <summary>
+            Reset the state of the view.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.UI.IGarantiaView.Init">
+            <summary>
+            Initialize the view
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.UI.IGarantiaView.Load(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase)">
+            <summary>
+            Loads the view with the guarantee specified by the key.
+            </summary>
+            <param name="garantia"><see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[APP_MakerChecker_User]
+    ADD CONSTRAINT [FK_APP_MakerChecker_User_APP_MAKERCHECKER_Role] FOREIGN KEY ([RoleId]) REFERENCES [dbo].[APP_MakerChecker_Role] ([RoleId]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
