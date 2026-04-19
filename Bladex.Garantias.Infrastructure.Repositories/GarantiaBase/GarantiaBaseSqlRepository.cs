@@ -633,8 +633,8 @@ namespace Bladex.Garantias.Infrastructure.Repositories.GarantiaBase
         /// <param name="statusId">The status id of type <see cref="System.Object"/></param>
         private void AppendStatus(DomainModel.DomainBase.GarantiaBase garantia, object statusId)
         {
-            IStatusRepository repository = RepositoryFactory.GetRepository<IStatusRepository, DomainModel.DomainBase.Status>(this.UnitOfWork);
-            garantia.Status = repository.FindBy(statusId) ?? new StatusService().GetNormalStatus();
+            garantia.Status = new StatusService().GetById(Convert.ToString(statusId))
+                ?? new StatusService().GetNormalStatus();
         }
 
         /// <summary>
@@ -644,8 +644,8 @@ namespace Bladex.Garantias.Infrastructure.Repositories.GarantiaBase
         /// <param name="internalStatusId">The internal status id of type <see cref="System.Object"/></param>
         private void AppendInternalStatus(DomainModel.DomainBase.GarantiaBase garantia, object internalStatusId)
         {
-            IInternalStatusRepository repository = RepositoryFactory.GetRepository<IInternalStatusRepository, DomainModel.DomainBase.InternalStatus>(this.UnitOfWork);
-            garantia.InternalStatus = repository.FindBy(internalStatusId) ?? new InternalStatusService().GetActiveStatus();
+            garantia.InternalStatus = new InternalStatusService().GetById(Convert.ToString(internalStatusId))
+                ?? new InternalStatusService().GetActiveStatus();
         }
 
         /// <summary>
@@ -655,8 +655,7 @@ namespace Bladex.Garantias.Infrastructure.Repositories.GarantiaBase
         /// <param name="CalificacionesRiesgoId">The calificaciones riesgo id of type <see cref="System.Object"/></param>
         private void AppendCalificacionesRiesgo(DomainModel.DomainBase.GarantiaBase garantia, object CalificacionesRiesgoId)
         {
-            ICalificacionesRiesgoRepository repository = RepositoryFactory.GetRepository<ICalificacionesRiesgoRepository, DomainModel.DomainBase.CalificacionesRiesgo>(this.UnitOfWork);
-            garantia.RatingGarante = repository.FindBy(CalificacionesRiesgoId);
+            garantia.RatingGarante = new CalificacionesRiesgoService().GetById(Convert.ToString(CalificacionesRiesgoId));
         }
 
         /// <summary>
@@ -666,8 +665,7 @@ namespace Bladex.Garantias.Infrastructure.Repositories.GarantiaBase
         /// <param name="MonedasId">The monedas id of type <see cref="System.Object"/></param>
         private void AppendMonedas(DomainModel.DomainBase.GarantiaBase garantia, object MonedasId)
         {
-            IMonedasRepository repository = RepositoryFactory.GetRepository<IMonedasRepository, DomainModel.DomainBase.Monedas>(this.UnitOfWork);
-            garantia.Moneda = repository.FindBy(MonedasId);
+            garantia.Moneda = new MonedasService().GetById(Convert.ToString(MonedasId));
         }
 
         /// <summary>
@@ -677,8 +675,7 @@ namespace Bladex.Garantias.Infrastructure.Repositories.GarantiaBase
         /// <param name="CategoriaRiesgoGarantiaId">The categoria riesgo garantia id of type <see cref="System.Object"/></param>
         private void AppendCategoriaRiesgoGarantia(DomainModel.DomainBase.GarantiaBase garantia, object CategoriaRiesgoGarantiaId)
         {
-            ICategoriaRiesgoGarantiaRepository repository = RepositoryFactory.GetRepository<ICategoriaRiesgoGarantiaRepository, DomainModel.DomainBase.CategoriaRiesgoGarantia>(this.UnitOfWork);
-            garantia.CategoriaRiesgoGarantia = repository.FindBy(CategoriaRiesgoGarantiaId);
+            garantia.CategoriaRiesgoGarantia = new CategoriaRiesgoGarantiaService().GetById(Convert.ToString(CategoriaRiesgoGarantiaId));
         }
 
         /// <summary>
@@ -688,8 +685,7 @@ namespace Bladex.Garantias.Infrastructure.Repositories.GarantiaBase
         /// <param name="FrecuenciasId">The frecuencias id of type <see cref="System.Object"/></param>
         private void AppendFrequencias(DomainModel.DomainBase.GarantiaBase garantia, object FrecuenciasId)
         {
-            IFrecuenciasRepository repository = RepositoryFactory.GetRepository<IFrecuenciasRepository, DomainModel.DomainBase.Frecuencias>(this.UnitOfWork);
-            garantia.FrecuenciaRevision = repository.FindBy(FrecuenciasId);
+            garantia.FrecuenciaRevision = new FrecuenciasService().GetById(Convert.ToString(FrecuenciasId));
         }
 
         /// <summary>
@@ -699,8 +695,7 @@ namespace Bladex.Garantias.Infrastructure.Repositories.GarantiaBase
         /// <param name="TipoGarantiaSuperId">The tipo garantia super id of type <see cref="System.Object"/></param>
         private void AppendTipoGarantiaSuper(DomainModel.DomainBase.GarantiaBase garantia, object TipoGarantiaSuperId)
         {
-            ITipoGarantiaSuperRepository repository = RepositoryFactory.GetRepository<ITipoGarantiaSuperRepository, DomainModel.DomainBase.TipoGarantiaSuper>(this.UnitOfWork);
-            garantia.TipoGarantiaSuper = repository.FindBy(TipoGarantiaSuperId);
+            garantia.TipoGarantiaSuper = new TipoGarantiaSuperService().GetById(Convert.ToString(TipoGarantiaSuperId));
         }
 
         /// <summary>
@@ -710,8 +705,7 @@ namespace Bladex.Garantias.Infrastructure.Repositories.GarantiaBase
         /// <param name="TipoGarantiaBladexId">The tipo garantia bladex id of type <see cref="System.Object"/></param>
         private void AppendTipoGarantiaBladex(DomainModel.DomainBase.GarantiaBase garantia, object TipoGarantiaBladexId)
         {
-            ITipoGarantiaBladexRepository repository = RepositoryFactory.GetRepository<ITipoGarantiaBladexRepository, DomainModel.DomainBase.TipoGarantiaBladex>(this.UnitOfWork);
-            garantia.TipoGarantiaBladex = repository.FindBy(TipoGarantiaBladexId);
+            garantia.TipoGarantiaBladex = new TipoGarantiaBladexService().GetById(Convert.ToString(TipoGarantiaBladexId));
         }
 
         /// <summary>
@@ -793,8 +787,7 @@ namespace Bladex.Garantias.Infrastructure.Repositories.GarantiaBase
         /// <param name="CodigoPais">The codigo pais of type <see cref="System.Object"/></param>
         private void AppendPais(DomainModel.DomainBase.GarantiaBase garantia, object CodigoPais)
         {
-            IPaisRepository repository = RepositoryFactory.GetRepository<IPaisRepository, DomainModel.DomainBase.Pais>(this.UnitOfWork);
-            garantia.PaisGarantia = repository.FindBy(CodigoPais);
+            garantia.PaisGarantia = new PaisService().GetById(Convert.ToString(CodigoPais));
         }
 
         /// <summary>
@@ -804,8 +797,7 @@ namespace Bladex.Garantias.Infrastructure.Repositories.GarantiaBase
         /// <param name="CodigoRegion">The codigo Region of type <see cref="System.Object"/></param>
         private void AppendRegion(DomainModel.DomainBase.GarantiaBase garantia, object CodigoRegion)
         {
-            IRegionRepository repository = RepositoryFactory.GetRepository<IRegionRepository, DomainModel.DomainBase.Region>(this.UnitOfWork);
-            garantia.Region = repository.FindBy(CodigoRegion);
+            garantia.Region = new RegionService().GetById(Convert.ToString(CodigoRegion));
         }
 
         /// <summary>
@@ -815,8 +807,7 @@ namespace Bladex.Garantias.Infrastructure.Repositories.GarantiaBase
         /// <param name="IdTipoPoliza">The codigo TipoPoliza of type <see cref="System.Object"/></param>
         private void AppendTipoPoliza(DomainModel.DomainBase.GarantiaBase garantia, object IdTipoPoliza)
         {
-            ITipoPolizaRepository repository = RepositoryFactory.GetRepository<ITipoPolizaRepository, DomainModel.DomainBase.TipoPoliza>(this.UnitOfWork);
-            garantia.TipoPoliza = repository.FindBy(IdTipoPoliza);
+            garantia.TipoPoliza = new TipoPolizaService().GetById(Convert.ToString(IdTipoPoliza));
         }
 
         /// <summary>
