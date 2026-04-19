@@ -137,7 +137,7 @@ namespace Bladex.Garantias.Presentation.Website
         protected void Application_Start()
         {
             // ✅ INICIALIZAR LOG4NET PRIMERO
-            log4net.Config.XmlConfigurator.Configure();
+            log4net.Config.XmlConfigurator.Configure(new System.IO.FileInfo(Server.MapPath("~/log4net.config")));
             
             AreaRegistration.RegisterAllAreas();
             RegisterGlobalFilters(GlobalFilters.Filters);
@@ -177,6 +177,11 @@ namespace Bladex.Garantias.Presentation.Website
                 this.Application.Logger().Error("Error running WebBootstrapper.", ex);
                 throw;
             }
+        }
+
+        protected void Application_End()
+        {
+            log4net.LogManager.Shutdown();
         }
 
         /// <summary>

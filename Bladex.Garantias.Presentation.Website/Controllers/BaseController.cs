@@ -24,10 +24,7 @@ namespace Bladex.Garantias.Presentation.Website.Controllers
         /// </summary>
         protected virtual ILogger Logger
         {
-            get
-            {
-                return this.HttpContext.Application.Logger();
-            }
+            get { return ApplicationLogger.For(this.GetType()); }
         }
 
         /// <summary>
@@ -131,6 +128,7 @@ namespace Bladex.Garantias.Presentation.Website.Controllers
         {
             bool logoff = false;
             var currentUser = User.Identity.Name;
+            log4net.MDC.Set("UserId", currentUser);
             var proposedUser = Request.QueryString["UserId"] != null ? Request.QueryString["UserId"] : string.Empty;
 
             if (!string.IsNullOrEmpty(proposedUser) && proposedUser != currentUser)

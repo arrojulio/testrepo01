@@ -47,6 +47,16 @@ namespace Bladex.Garantias.Infrastructure.Logging
             this._logger = log4net.LogManager.GetLogger(this.GetType());
         }
 
+        public ApplicationLogger(Type callerType)
+        {
+            this._logger = log4net.LogManager.GetLogger(callerType);
+        }
+
+        public static ILogger For(Type callerType)
+        {
+            return new ApplicationLogger(callerType);
+        }
+
         /// <summary>
         ///   <see cref="log4net.ILog"/>
         /// </summary>
