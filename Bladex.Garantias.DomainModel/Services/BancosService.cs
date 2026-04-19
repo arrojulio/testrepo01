@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,19 +17,29 @@ namespace Bladex.Garantias.DomainModel.Services
         /// <returns>A <see cref="Bancos"/> IList</returns>
         public IList<Bancos> GetAll()
         {
+            if (CacheManager.Instance.Contains(this.GetCacheKey()))
+                return CacheManager.Instance.GetData<List<Bancos>>(this.GetCacheKey());
+
             IBancoRepository repository = RepositoryFactory.GetRepository<IBancoRepository, Bancos>();
-            return repository.GetAll();
+            List<Bancos> result = repository.GetAll().OrderBy(o => o.Nombre).ToList();
+            CacheManager.Instance.Add(this.GetCacheKey(), result, this.GetTimeSpan());
+            return result;
         }
 
         /// <summary>
         /// Return one bank by Id
         /// </summary>
-        /// <param name="customerId">Bank Id</param>
+        /// <param name="bancoId">Bank Id</param>
         /// <returns>A <see cref="Bancos"/> entity.</returns>
         public Bancos GetById(string bancoId)
         {
-            IBancoRepository repository = RepositoryFactory.GetRepository<IBancoRepository, Bancos>();            
-            return repository.FindBy(bancoId);
+            string cacheKey = this.GetCacheKey() + "_" + bancoId;
+            if (!CacheManager.Instance.Contains(cacheKey))
+            {
+                IBancoRepository repository = RepositoryFactory.GetRepository<IBancoRepository, Bancos>();
+                CacheManager.Instance.Add(cacheKey, repository.FindBy(bancoId), this.GetTimeSpan());
+            }
+            return CacheManager.Instance.GetData<Bancos>(cacheKey);
         }
 
         public Bancos GetByName(string name)
@@ -39,7 +49,7 @@ namespace Bladex.Garantias.DomainModel.Services
         }
 
         /// <summary>
-        /// Devuelve una entidad representativa vacia. 
+        /// Devuelve una entidad representativa vacia.
         /// Esto se debe utilizar cuando el id es "vacio" o invalido
         /// </summary>
         /// <returns></returns>
@@ -48,17 +58,16 @@ namespace Bladex.Garantias.DomainModel.Services
             return new Bancos() { Key = "027", Nombre = "NA" };
         }
 
-
         #region ICacheableService Members
 
         public string GetCacheKey()
         {
-            throw new NotImplementedException();
+            return "BancosService.GetAll()";
         }
 
         public TimeSpan GetTimeSpan()
         {
-            throw new NotImplementedException();
+            return new TimeSpan(1, 0, 0);
         }
 
         #endregion

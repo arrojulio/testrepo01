@@ -32,8 +32,13 @@ namespace Bladex.Garantias.DomainModel.Services
         /// <returns>A <see cref="Frecuencias"/> entity.</returns>
         public Frecuencias GetById(string frecuenciasId)
         {
-            IFrecuenciasRepository repository = RepositoryFactory.GetRepository<IFrecuenciasRepository, Frecuencias>();
-            return repository.FindBy(frecuenciasId);
+            string cacheKey = this.GetCacheKey() + "_" + frecuenciasId;
+            if (!CacheManager.Instance.Contains(cacheKey))
+            {
+                IFrecuenciasRepository repository = RepositoryFactory.GetRepository<IFrecuenciasRepository, Frecuencias>();
+                CacheManager.Instance.Add(cacheKey, repository.FindBy(frecuenciasId), this.GetTimeSpan());
+            }
+            return CacheManager.Instance.GetData<Frecuencias>(cacheKey);
         }
 
         /// <summary>
