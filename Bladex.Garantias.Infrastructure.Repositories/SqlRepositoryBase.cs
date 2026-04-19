@@ -294,15 +294,21 @@
         /// <returns></returns>
         protected virtual T BuildEntityFromReader(IDataReader reader)
         {
+            DataTable schemaTable = (this.childCallbacks != null && this.childCallbacks.Count > 0)
+                ? reader.GetSchemaTable()
+                : null;
+            return BuildEntityFromReader(reader, schemaTable);
+        }
+
+        protected virtual T BuildEntityFromReader(IDataReader reader, DataTable schemaTable)
+        {
             T entity = this.entityFactory.BuildEntity(reader);
-            if (this.childCallbacks != null && this.childCallbacks.Count > 0)
+            if (this.childCallbacks != null && this.childCallbacks.Count > 0 && schemaTable != null)
             {
                 object childKeyValue = null;
-                DataTable columnData = reader.GetSchemaTable();
                 foreach (string childKeyName in this.childCallbacks.Keys)
                 {
-                    if (DataHelper.ReaderContainsColumnName(columnData,
-                        childKeyName))
+                    if (DataHelper.ReaderContainsColumnName(schemaTable, childKeyName))
                     {
                         if (reader.IsDBNull(reader.GetOrdinal(childKeyName)))
                         {
@@ -334,19 +340,20 @@
 
             using (IDataReader reader = this.ExecuteReader(this.Database.GetSqlStringCommand(sql)))
             {
+                DataTable schemaTable = (this.childCallbacks != null && this.childCallbacks.Count > 0)
+                    ? reader.GetSchemaTable()
+                    : null;
+
                 while (reader.Read())
                 {
-
-                    try 
-                    { 
-                        entities.Add(this.BuildEntityFromReader(reader));
-                        
+                    try
+                    {
+                        entities.Add(this.BuildEntityFromReader(reader, schemaTable));
                     }
                     catch(Exception ex)
                     {
                         _logger.Error(string.Format("Error building entity of type {0} at SqlRepositoryBase. Omitting entity.", typeof(T)), ex);
                     }
-
                 }
             }
             return entities;
@@ -362,9 +369,13 @@
             List<T> entities = new List<T>();
             using (IDataReader reader = this.ExecuteReader(command))
             {
+                DataTable schemaTable = (this.childCallbacks != null && this.childCallbacks.Count > 0)
+                    ? reader.GetSchemaTable()
+                    : null;
+
                 while (reader.Read())
                 {
-                    entities.Add(this.BuildEntityFromReader(reader));
+                    entities.Add(this.BuildEntityFromReader(reader, schemaTable));
                 }
             }
             return entities;
