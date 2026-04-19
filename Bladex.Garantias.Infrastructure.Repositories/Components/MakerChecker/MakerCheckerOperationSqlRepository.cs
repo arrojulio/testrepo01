@@ -389,14 +389,12 @@ namespace Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker
         /// <returns></returns>
         public List<MakerCheckerOperationSummary> GetPendingSummaryOperations()
         {
-            StringBuilder strBuilder = new StringBuilder();
-            strBuilder.AppendFormat("SELECT * FROM dbo.[UDF_GetPendingOperations](null)");
-
             List<MakerCheckerOperationSummary> operationSummaries = new List<MakerCheckerOperationSummary>();
-            using (DbCommand cmd = this.Database.GetSqlStringCommand(strBuilder.ToString()))
+            using (DbCommand cmd = this.Database.GetSqlStringCommand("SELECT * FROM dbo.[UDF_GetPendingOperations](null)"))
             {
                 using (IDataReader reader = this.Database.ExecuteReader(cmd))
                 {
+                    bool hasChangesetComment = DataHelper.ReaderContainsColumnName(reader.GetSchemaTable(), "ChangesetComment");
                     while (reader.Read())
                     {
                         MakerCheckerOperationSummary operationSummary = new MakerCheckerOperationSummary();
@@ -404,34 +402,27 @@ namespace Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker
                         operationSummary.ChangesetId = DataHelper.GetGuid(reader["ChangesetId"]);
                         operationSummary.OperationId = DataHelper.GetInteger(reader["OperationID"]);
                         operationSummary.MakerUserId = DataHelper.GetString(reader["MakerUserId"]);
-                        //operationSummary.MakerUser = GetCheckerUserById(operationSummary.MakerUserId);
                         operationSummary.GarantiaId = DataHelper.GetInteger(reader["ItemID"]);
                         operationSummary.ChangesetDate = DataHelper.GetDateTime(reader["ChangesetDate"]);
                         operationSummary.ChangesetCommitDate = DataHelper.GetDateTime(reader["ChangesetCommitDate"]);
-                        operationSummary.ChangesetComment = DataHelper.GetString(reader["ChangesetComment"]);
-                        //Add element to the list
-                        operationSummaries.Add(operationSummary); 
-
-
-
+                        if (hasChangesetComment)
+                            operationSummary.ChangesetComment = DataHelper.GetString(reader["ChangesetComment"]);
+                        operationSummaries.Add(operationSummary);
                     }
-
                 }
             }
             return operationSummaries;
-
         }
 
         public List<MakerCheckerOperationSummary> GetPendingSummaryOperationsByUser(string userId)
         {
-            StringBuilder strBuilder = new StringBuilder();
-            strBuilder.AppendFormat("SELECT * FROM dbo.[UDF_GetPendingOperations]('{0}')", userId);
-
             List<MakerCheckerOperationSummary> operationSummaries = new List<MakerCheckerOperationSummary>();
-            using (DbCommand cmd = this.Database.GetSqlStringCommand(strBuilder.ToString()))
+            using (DbCommand cmd = this.Database.GetSqlStringCommand("SELECT * FROM dbo.[UDF_GetPendingOperations](@UserId)"))
             {
+                this.Database.AddInParameter(cmd, "@UserId", DbType.String, userId);
                 using (IDataReader reader = this.Database.ExecuteReader(cmd))
                 {
+                    bool hasChangesetComment = DataHelper.ReaderContainsColumnName(reader.GetSchemaTable(), "ChangesetComment");
                     while (reader.Read())
                     {
                         MakerCheckerOperationSummary operationSummary = new MakerCheckerOperationSummary();
@@ -440,20 +431,13 @@ namespace Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker
                         operationSummary.OperationId = DataHelper.GetInteger(reader["OperationID"]);
                         operationSummary.MakerUserId = DataHelper.GetString(reader["MakerUserID"]);
                         operationSummary.OperationStatus = DataHelper.GetInteger(reader["OperationStatusID"]);
-                        //operationSummary.MakerUser = GetCheckerUserById(operationSummary.MakerUserId);
                         operationSummary.GarantiaId = DataHelper.GetInteger(reader["ItemID"]);
                         operationSummary.ChangesetDate = DataHelper.GetDateTime(reader["ChangesetDate"]);
                         operationSummary.ChangesetCommitDate = DataHelper.GetDateTime(reader["ChangesetCommitDate"]);
-                        operationSummary.ChangesetComment = DataHelper.GetString(reader["ChangesetComment"]);
-
-
-                        //Add element to the list
+                        if (hasChangesetComment)
+                            operationSummary.ChangesetComment = DataHelper.GetString(reader["ChangesetComment"]);
                         operationSummaries.Add(operationSummary);
-
-
-
                     }
-
                 }
             }
             return operationSummaries;
