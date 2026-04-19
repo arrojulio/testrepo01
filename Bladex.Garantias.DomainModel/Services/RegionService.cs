@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,28 +11,28 @@ namespace Bladex.Garantias.DomainModel.Services
 {
     public class RegionService : ICacheableService
     {
-        /// <summary>
-        /// Returns all Pais.
-        /// </summary>
-        /// <returns>A <see cref="Pais"/> IList</returns>
         public IList<Region> GetAll()
         {
-            //if (CacheManager.Instance.Contains("RegionService.GetAll()"))
-            //{
-            //    return CacheManager.Instance.GetData("RegionService.GetAll()") as List<Region>;
-            //}
+            if (CacheManager.Instance.Contains(this.GetCacheKey()))
+                return CacheManager.Instance.GetData<List<Region>>(this.GetCacheKey());
+
             IRegionRepository repository = RepositoryFactory.GetRepository<IRegionRepository, Region>();
             List<Region> result = repository.GetAll().OrderBy(o => o.Nombre).ToList();
-            //CacheManager.Instance.Add(this.GetCacheKey(), result);
+            CacheManager.Instance.Add(this.GetCacheKey(), result, this.GetTimeSpan());
             return result;
-
         }
 
-        /// <summary>
-        /// Devuelve una entidad representativa vacia. 
-        /// Esto se debe utilizar cuando el id es "vacio" o invalido
-        /// </summary>
-        /// <returns></returns>
+        public Region GetById(string regionId)
+        {
+            string cacheKey = this.GetCacheKey() + "_" + regionId;
+            if (!CacheManager.Instance.Contains(cacheKey))
+            {
+                IRegionRepository repository = RepositoryFactory.GetRepository<IRegionRepository, Region>();
+                CacheManager.Instance.Add(cacheKey, repository.FindBy(regionId), this.GetTimeSpan());
+            }
+            return CacheManager.Instance.GetData<Region>(cacheKey);
+        }
+
         public static Region GetEmpty()
         {
             return new Region() { Key = "N/A", Nombre = "NA" };

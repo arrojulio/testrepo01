@@ -1,50 +1,50 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Bladex.Garantias.DomainModel.DomainBase;
-using Bladex.Garantias.Infrastructure.RepositoryFramework;
 using Bladex.Garantias.DomainModel.Repositories;
+using Bladex.Garantias.Infrastructure.Caching;
+using Bladex.Garantias.Infrastructure.RepositoryFramework;
 
 namespace Bladex.Garantias.DomainModel.Services
 {
-    public class TipoPolizaService
+    public class TipoPolizaService : ICacheableService
     {
-        public TipoPolizaService():this(RepositoryFactory.GetRepository<ITipoPolizaRepository, TipoPoliza>())
-        {
-
-        }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RoleService"/> class.
-        /// </summary>
-        /// <param name="roleRepository">The role repository of type <see cref="Bladex.Garantias.DomainModel.Repositories.IRoleRepository"/></param>
-        public TipoPolizaService(ITipoPolizaRepository tipoPolizaRepository)
-        {
-            this.TipoPolizaRepository = tipoPolizaRepository;
-        }
-
-        /// <summary>
-        ///   <see cref="Bladex.Garantias.DomainModel.Repositories.IRoleRepository"/>
-        /// </summary>
-        protected readonly ITipoPolizaRepository TipoPolizaRepository;
-
-        /// <summary>
-        /// Returns all Roles.
-        /// </summary>
-        /// <returns>A <see cref="Role"/> IList</returns>
         public IList<TipoPoliza> GetAll()
         {
-            return this.TipoPolizaRepository.GetAll();
+            if (CacheManager.Instance.Contains(this.GetCacheKey()))
+                return CacheManager.Instance.GetData<List<TipoPoliza>>(this.GetCacheKey());
+
+            ITipoPolizaRepository repository = RepositoryFactory.GetRepository<ITipoPolizaRepository, TipoPoliza>();
+            List<TipoPoliza> result = repository.GetAll().ToList();
+            CacheManager.Instance.Add(this.GetCacheKey(), result, this.GetTimeSpan());
+            return result;
         }
 
-        /// <summary>
-        /// Return one Role by Id
-        /// </summary>
-        /// <param name="roleId">Role Id</param>
-        /// <returns>A <see cref="Role"/> entity.</returns>
         public TipoPoliza GetById(string tipoPolizaId)
         {
-            return this.TipoPolizaRepository.FindBy(tipoPolizaId);
+            string cacheKey = this.GetCacheKey() + "_" + tipoPolizaId;
+            if (!CacheManager.Instance.Contains(cacheKey))
+            {
+                ITipoPolizaRepository repository = RepositoryFactory.GetRepository<ITipoPolizaRepository, TipoPoliza>();
+                CacheManager.Instance.Add(cacheKey, repository.FindBy(tipoPolizaId), this.GetTimeSpan());
+            }
+            return CacheManager.Instance.GetData<TipoPoliza>(cacheKey);
         }
+
+        #region ICacheableService Members
+
+        public string GetCacheKey()
+        {
+            return "TipoPolizaService.GetAll()";
+        }
+
+        public TimeSpan GetTimeSpan()
+        {
+            return new TimeSpan(1, 0, 0);
+        }
+
+        #endregion
     }
 }

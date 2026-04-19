@@ -32,19 +32,18 @@ namespace Bladex.Garantias.DomainModel.Services
         /// <returns>A <see cref="TipoGarantiaBladex"/> entity.</returns>
         public TipoGarantiaBladex GetById(string tipoGarantiaBladexId)
         {
-            ITipoGarantiaBladexRepository repository = RepositoryFactory.GetRepository<ITipoGarantiaBladexRepository, TipoGarantiaBladex>();
-            return repository.FindBy(tipoGarantiaBladexId);
+            string cacheKey = this.GetCacheKey() + "_" + tipoGarantiaBladexId;
+            if (!CacheManager.Instance.Contains(cacheKey))
+            {
+                ITipoGarantiaBladexRepository repository = RepositoryFactory.GetRepository<ITipoGarantiaBladexRepository, TipoGarantiaBladex>();
+                CacheManager.Instance.Add(cacheKey, repository.FindBy(tipoGarantiaBladexId), this.GetTimeSpan());
+            }
+            return CacheManager.Instance.GetData<TipoGarantiaBladex>(cacheKey);
         }
 
-        /// <summary>
-        /// Return one TipoGarantiaBladex by Name
-        /// </summary>
-        /// <param name="tipoGarantiaBladexId">TipoGarantiaBladex Id</param>
-        /// <returns>A <see cref="TipoGarantiaBladex"/> entity.</returns>
         public TipoGarantiaBladex GetByName(string tipoGarantiaBladexName)
         {
-            ITipoGarantiaBladexRepository repository = RepositoryFactory.GetRepository<ITipoGarantiaBladexRepository, TipoGarantiaBladex>();
-            return repository.GetAll().Where(o => o.Nombre == tipoGarantiaBladexName).FirstOrDefault();
+            return GetAll().FirstOrDefault(o => o.Nombre == tipoGarantiaBladexName);
         }
         /// <summary>
         /// Devuelve una entidad representativa vacia. 

@@ -1,52 +1,60 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Bladex.Garantias.DomainModel.DomainBase;
 using Bladex.Garantias.DomainModel.Repositories;
+using Bladex.Garantias.Infrastructure.Caching;
 using Bladex.Garantias.Infrastructure.RepositoryFramework;
 
 namespace Bladex.Garantias.DomainModel.Services
 {
-    public class CategoriaRiesgoGarantiaService
+    public class CategoriaRiesgoGarantiaService : ICacheableService
     {
-        private ICategoriaRiesgoGarantiaRepository repository = RepositoryFactory.GetRepository<ICategoriaRiesgoGarantiaRepository, CategoriaRiesgoGarantia>();
-        /// <summary>
-        /// Returns all CategoriaSuper.
-        /// </summary>
-        /// <returns>A <see cref="CategoriaRiesgoGarantia"/> IList</returns>
         public IList<CategoriaRiesgoGarantia> GetAll()
         {
-            return repository.GetAll();
+            if (CacheManager.Instance.Contains(this.GetCacheKey()))
+                return CacheManager.Instance.GetData<List<CategoriaRiesgoGarantia>>(this.GetCacheKey());
+
+            ICategoriaRiesgoGarantiaRepository repository = RepositoryFactory.GetRepository<ICategoriaRiesgoGarantiaRepository, CategoriaRiesgoGarantia>();
+            List<CategoriaRiesgoGarantia> result = repository.GetAll().ToList();
+            CacheManager.Instance.Add(this.GetCacheKey(), result, this.GetTimeSpan());
+            return result;
         }
 
-        /// <summary>
-        /// Return one CategoriaRiesgoGarantia by Id
-        /// </summary>
-        /// <param name="categoriaSuperId">CategoriaRiesgoGarantia Id</param>
-        /// <returns>A <see cref="CategoriaRiesgoGarantia"/> entity.</returns>
-        public CategoriaRiesgoGarantia GetById(string categoriaSuperId)
+        public CategoriaRiesgoGarantia GetById(string categoriaRiesgoId)
         {
-            return repository.FindBy(categoriaSuperId);
+            string cacheKey = this.GetCacheKey() + "_" + categoriaRiesgoId;
+            if (!CacheManager.Instance.Contains(cacheKey))
+            {
+                ICategoriaRiesgoGarantiaRepository repository = RepositoryFactory.GetRepository<ICategoriaRiesgoGarantiaRepository, CategoriaRiesgoGarantia>();
+                CacheManager.Instance.Add(cacheKey, repository.FindBy(categoriaRiesgoId), this.GetTimeSpan());
+            }
+            return CacheManager.Instance.GetData<CategoriaRiesgoGarantia>(cacheKey);
         }
 
-        /// <summary>
-        /// Return one CategoriaRiesgoGarantia by Name
-        /// </summary>
-        /// <param name="categoriaSuperId">CategoriaRiesgoGarantia Name</param>
-        /// <returns>A <see cref="CategoriaRiesgoGarantia"/> entity.</returns>
         public CategoriaRiesgoGarantia GetByName(string categoriaSuperName)
         {
-            return repository.GetAll().Where(o => o.Nombre == categoriaSuperName).FirstOrDefault();
+            return GetAll().FirstOrDefault(o => o.Nombre == categoriaSuperName);
         }
-        /// <summary>
-        /// Devuelve una entidad representativa vacia. 
-        /// Esto se debe utilizar cuando el id es "vacio" o invalido
-        /// </summary>
-        /// <returns></returns>
+
         public static CategoriaRiesgoGarantia GetEmpty()
         {
             return new CategoriaRiesgoGarantia() { Key = "NA", Nombre = "NA" };
         }
+
+        #region ICacheableService Members
+
+        public string GetCacheKey()
+        {
+            return "CategoriaRiesgoGarantiaService.GetAll()";
+        }
+
+        public TimeSpan GetTimeSpan()
+        {
+            return new TimeSpan(1, 0, 0);
+        }
+
+        #endregion
     }
 }
