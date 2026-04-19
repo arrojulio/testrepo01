@@ -5,7 +5,6 @@ using System.Text;
 using Bladex.Garantias.DomainModel.Repositories;
 using Bladex.Garantias.Infrastructure.DomainBase;
 using System.Data;
-using System.Data.SqlClient;
 using System.Data.Common;
 
 namespace Bladex.Garantias.Infrastructure.Repositories.IMPORT_TH_ATOMO_GARANTIAS
@@ -124,11 +123,10 @@ namespace Bladex.Garantias.Infrastructure.Repositories.IMPORT_TH_ATOMO_GARANTIAS
         public IList<DomainModel.DomainBase.IMPORT_TH_ATOMO_GARANTIAS> GetByFechaCorte(DateTime fechaCorte)
         {
             StringBuilder query = new StringBuilder(this.GetBaseQuery());
-            query = query.Append(" WHERE Fecha_Corte = @FechaCorte");
-            SqlCommand command = new SqlCommand(query.ToString());
-            command.Parameters.AddWithValue("@FechaCorte", fechaCorte);
-            return this.BuildEntitiesFromSql(command);
-
+            query.Append(" WHERE Fecha_Corte = @FechaCorte");
+            DbCommand cmd = this.Database.GetSqlStringCommand(query.ToString());
+            this.Database.AddInParameter(cmd, "@FechaCorte", DbType.DateTime, fechaCorte);
+            return this.BuildEntitiesFromSql(cmd);
         }
         public DateTime GetLastFechaCorte()
         {

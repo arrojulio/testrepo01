@@ -1004,7 +1004,7 @@ namespace Bladex.Garantias.Infrastructure.Repositories.GarantiaBase
             }
             catch (Exception ex)
             {
-
+                _logger.Error("Error en SearchGarantias.", ex);
             }
 
             return listado;
@@ -1049,9 +1049,9 @@ namespace Bladex.Garantias.Infrastructure.Repositories.GarantiaBase
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-            
+                _logger.Error("Error en SearchGarantiasPaged.", ex);
             }
 
             return listado;
@@ -1110,7 +1110,7 @@ namespace Bladex.Garantias.Infrastructure.Repositories.GarantiaBase
             }
             catch (Exception ex)
             {
-
+                _logger.Error("Error en GetAllUnknown.", ex);
             }
 
             return listado;
@@ -1134,7 +1134,7 @@ namespace Bladex.Garantias.Infrastructure.Repositories.GarantiaBase
             }
             catch (Exception ex)
             {
-
+                _logger.Error(string.Format("Error en GetOriginalInternalStatus para GarantiaId={0}.", GarantiaId), ex);
             }
 
             return result;
@@ -1159,7 +1159,7 @@ namespace Bladex.Garantias.Infrastructure.Repositories.GarantiaBase
             }
             catch (Exception ex)
             {
-
+                _logger.Error(string.Format("Error en DisableGuaranteeType para TipoGarantiaSuperId={0}.", TipoGarantiaSuperId), ex);
             }
 
             return result;
