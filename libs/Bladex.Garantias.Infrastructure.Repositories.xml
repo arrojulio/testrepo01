@@ -1,0 +1,2371 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bladex.Garantias.Infrastructure.Repositories</name>
+    </assembly>
+    <members>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1">
+            <summary>
+            Provides the base functionality for all sql repositories
+            </summary>
+            <typeparam name="T">An <see cref="T:Bladex.Garantias.Infrastructure.DomainBase.EntityBase"/> which will be treated by the _repository.</typeparam>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.#ctor(Bladex.Garantias.Infrastructure.IUnitOfWork)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1"/> class.
+            </summary>
+            <param name="unitOfWork">The unit of work.</param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.BuildChildCallbacks">
+            <summary>
+            Builds the child callbacks.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.PersistNewItem(`0)">
+            <summary>
+            Persists the new item.
+            </summary>
+            <param name="item">The item.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.PersistUpdatedItem(`0)">
+            <summary>
+            Persists the updated item.
+            </summary>
+            <param name="item">The item.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.Count">
+            <summary>
+            Counts this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.GetAll">
+            <summary>
+            Gets all.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.FindBy(System.Object)">
+            <summary>
+            Finds the by.
+            </summary>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.ExecuteReader(System.String)">
+            <summary>
+            Executes the reader.
+            </summary>
+            <param name="sql">The SQL.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.ExecuteReader(System.Data.Common.DbCommand)">
+            <summary>
+            Executes the reader.
+            </summary>
+            <param name="command">The command.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.BuildEntityFromSql(System.String)">
+            <summary>
+            Builds the entity from SQL.
+            </summary>
+            <param name="sql">The SQL.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.BuildEntityFromSql(System.Data.Common.DbCommand)">
+            <summary>
+            Builds the entity from SQL.
+            </summary>
+            <param name="command">The SQL.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.BuildEntityFromReader(System.Data.IDataReader)">
+            <summary>
+            Builds the entity from reader.
+            </summary>
+            <param name="reader">The reader.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.BuildEntitiesFromSql(System.String)">
+            <summary>
+            Builds the entities from SQL.
+            </summary>
+            <param name="sql">The SQL.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.BuildEntitiesFromSql(System.Data.Common.DbCommand)">
+            <summary>
+            Builds the entities from SQL.
+            </summary>
+            <param name="command">The command.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.BuildBaseWhereClause(System.Object)">
+            <summary>
+            Builds the base where clause.
+            </summary>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.GetBaseQueryBuilder">
+            <summary>
+            Gets the base query builder.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.PersistDeletedItem(`0)">
+            <summary>
+            Persists the deleted item.
+            </summary>
+            <param name="item">The item.</param>
+        </member>
+        <member name="P:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.Database">
+            <summary>
+            Gets the database.
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.ChildCallbacks">
+            <summary>
+            Gets the child callbacks.
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.BaseQuery">
+            <summary>
+            Gets the base query.
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.EntityName">
+            <summary>
+            Gets the name of the entity.
+            </summary>
+            <value>
+            The name of the entity.
+            </value>
+        </member>
+        <member name="P:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.KeyFieldName">
+            <summary>
+            Gets the name of the key field.
+            </summary>
+            <value>
+            The name of the key field.
+            </value>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.SqlRepositoryBase`1.AppendChildData">
+            <summary>
+            The delegate signature required for callback methods
+            </summary>
+            <param name="entityAggregate"></param>
+            <param name="childEntityKey"></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Frecuencias.FrecuenciasSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Frecuencias.FrecuenciasSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Frecuencias.FrecuenciasSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Frecuencias.FrecuenciasSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Aval.AvalSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Aval.AvalSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Aval.AvalSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Aval.AvalSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Aval.AvalSqlRepository.GetByGarantiaId(System.Int32)">
+            <summary>
+            Returns an Aval collection based on a Garantia entity.
+            </summary>
+            <param name="garantiaId">ID of the garantia</param>
+            <returns>Aval Collection.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.TipoGarantiaSuper.TipoGarantiaSuperSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.TipoGarantiaSuper.TipoGarantiaSuperSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.TipoGarantiaSuper.TipoGarantiaSuperSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.TipoGarantiaSuper.TipoGarantiaSuperSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.TipoGarantiaBladex.TipoGarantiaBladexSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.TipoGarantiaBladex.TipoGarantiaBladexSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.TipoGarantiaBladex.TipoGarantiaBladexSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.TipoGarantiaBladex.TipoGarantiaBladexSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Status.StatusSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Status.StatusSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Status.StatusSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Status.StatusSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Monedas.MonedasSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Monedas.MonedasSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Monedas.MonedasSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Monedas.MonedasSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Aseguradoras.AseguradorasSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Aseguradoras.AseguradorasSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Aseguradoras.AseguradorasSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Aseguradoras.AseguradorasSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Actor.ActorSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Actor.ActorSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Actor.ActorSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Actor.ActorSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.AutocompleteValue.AutocompleteValueSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.AutocompleteValue.AutocompleteValueSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.AutocompleteValue.AutocompleteValueSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.AutocompleteValue.AutocompleteValueSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.AutocompleteValue.AutocompleteValueSqlRepository.GetByHtmlControlId(System.String)">
+            <summary>
+            Gets the autocomplete values grouped by the html control id
+            </summary>
+            <param name="htmlControlId">The HTML control id of type <see cref="T:System.String"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.AutocompleteValue.AutocompleteValueSqlRepository.GetByHtmlControlIdAndValue(System.String,System.String)">
+            <summary>
+            Gets the autocomplete values grouped by the html control id
+            </summary>
+            <param name="htmlControlId">The HTML control id of type <see cref="T:System.String"/></param>
+            <param name="value">The value of type <see cref="T:System.String"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.InstrumentoFinanciero.InstrumentoFinancieroSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.InstrumentoFinanciero.InstrumentoFinancieroSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.InstrumentoFinanciero.InstrumentoFinancieroSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.InstrumentoFinanciero.InstrumentoFinancieroSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerEmailTemplateSqlRepository">
+            <summary>
+            The maker checker user SQL repository class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerEmailTemplateSqlRepository.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerEmailTemplateSqlRepository"/> class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerEmailTemplateSqlRepository.#ctor(Bladex.Garantias.Infrastructure.IUnitOfWork)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerEmailTemplateSqlRepository"/> class.
+            </summary>
+            <param name="unitOfWork">The unit of work of type <see cref="T:Bladex.Garantias.Infrastructure.IUnitOfWork"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerEmailTemplateSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerEmailTemplateSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerEmailTemplateSqlRepository.GetRoleWhereClause">
+            <summary>
+            Get the where clause used to retrieve entities by role.
+            </summary>
+            <returns>SQL Where Clases to retrieve entities by role.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerEmailTemplateSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerEmailTemplateSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerEmailTemplateSqlRepository.GetEmailTemplateByRole(Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerRole)">
+            <summary>
+            Gets the email template.
+            </summary>
+            <param name="Role">The role of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerRole"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerEmailTemplateSqlRepository.GetEmailTemplateByRole(System.Int32)">
+            <summary>
+            Gets the email template.
+            </summary>
+            <param name="RoleId">The role id of type <see cref="T:System.Int32"/></param>
+            <returns></returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerRoleFactory">
+            <summary>
+            The maker checker role factory class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerRoleFactory.BuildEntity(System.Data.IDataReader)">
+            <summary>
+            Builds the entity.
+            </summary>
+            <param name="reader">The reader of type <see cref="T:System.Data.IDataReader"/></param>
+            <returns></returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationSqlRepository">
+            <summary>
+            The maker checker user SQL repository class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationSqlRepository.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerUserSqlRepository"/> class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationSqlRepository.#ctor(Bladex.Garantias.Infrastructure.IUnitOfWork)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerUserSqlRepository"/> class.
+            </summary>
+            <param name="unitOfWork">The unit of work of type <see cref="T:Bladex.Garantias.Infrastructure.IUnitOfWork"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationSqlRepository.PersistNewItem(Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerOperation)">
+            <summary>
+            Persists the new item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerOperation"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationSqlRepository.PersistUpdatedItem(Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerOperation)">
+            <summary>
+            Persists the updated item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerOperation"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationSqlRepository.BuildChildCallbacks">
+            <summary>
+            Builds the child callbacks.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationSqlRepository.AppendMakerCheckerUser(Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerOperation,System.Object)">
+            <summary>
+            Appends the maker checker user.
+            </summary>
+            <param name="entity">The entity of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerOperation"/></param>
+            <param name="foreignKey">The foreign key of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationSqlRepository.AppendMakerCheckerOperationStatus(Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerOperation,System.Object)">
+            <summary>
+            Appends the maker checker operation status.
+            </summary>
+            <param name="entity">The entity of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerOperation"/></param>
+            <param name="foreignKey">The foreign key of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationSqlRepository.AppendMakerCheckerChangeset(Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerOperation,System.Object)">
+            <summary>
+            Appends the maker checker operation status.
+            </summary>
+            <param name="entity">The entity of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerOperation"/></param>
+            <param name="foreignKey">The foreign key of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Avaluadoras.AvaluadorasSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Avaluadoras.AvaluadorasSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Avaluadoras.AvaluadorasSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Avaluadoras.AvaluadorasSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaContrato.GarantiaContratoSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaContrato.GarantiaContratoSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaContrato.GarantiaContratoSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaContrato.GarantiaContratoSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseFactory">
+            <summary>
+            The garantia base factory class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseFactory.getInstanceOfGarantia(System.String)">
+            <summary>
+            Returns an instance of a specialization of GarantiaBase.
+            </summary>
+            <param name="categoriaSuperId">Key of <see cref="N:Bladex.Garantias.Infrastructure.Repositories.CategoriaSuper"/> entity used to determinate the required instance.</param>
+            <returns>Specialization of GarantiaBase.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseFactory.BuildEntity(System.Data.IDataReader)">
+            <summary>
+            Builds the entity.
+            </summary>
+            <param name="reader">The reader of type <see cref="T:System.Data.IDataReader"/></param>
+            <returns></returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseFactory.FieldNames">
+            <summary>
+            The field names class.
+            </summary>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationStatusFactory">
+            <summary>
+            The maker checker operation status factory class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationStatusFactory.BuildEntity(System.Data.IDataReader)">
+            <summary>
+            Builds the entity.
+            </summary>
+            <param name="reader">The reader of type <see cref="T:System.Data.IDataReader"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.CategoriaSuper.CategoriaSuperSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.CategoriaSuper.CategoriaSuperSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.CategoriaSuper.CategoriaSuperSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.CategoriaSuper.CategoriaSuperSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Tooltip.TooltipSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Tooltip.TooltipSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Tooltip.TooltipSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Tooltip.TooltipSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SyncLog.SyncLogSqlRepository.GetLastSyncLog">
+            <summary>
+            Retorna el ultimo Sync Log. NULL si esta vacio el log
+            </summary>
+            <returns>Ultimo SyncLog o NULL si no existen</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SyncLog.SyncLogSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SyncLog.SyncLogSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SyncLog.SyncLogSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.SyncLog.SyncLogSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.Role.RoleSqlRepository">
+            <summary>
+            The role SQL repository class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Role.RoleSqlRepository.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bladex.Garantias.Infrastructure.Repositories.Role.RoleSqlRepository"/> class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Role.RoleSqlRepository.#ctor(Bladex.Garantias.Infrastructure.IUnitOfWork)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bladex.Garantias.Infrastructure.Repositories.Role.RoleSqlRepository"/> class.
+            </summary>
+            <param name="unitOfWork">The unit of work of type <see cref="T:Bladex.Garantias.Infrastructure.IUnitOfWork"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Role.RoleSqlRepository.BuildChildCallbacks">
+            <summary>
+            Builds the child callbacks.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Role.RoleSqlRepository.PersistNewItem(Bladex.Garantias.Infrastructure.DomainBase.EntityBase)">
+            <summary>
+            Persists the new item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.Infrastructure.DomainBase.EntityBase"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Role.RoleSqlRepository.PersistUpdatedItem(Bladex.Garantias.Infrastructure.DomainBase.EntityBase)">
+            <summary>
+            Persists the updated item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.Infrastructure.DomainBase.EntityBase"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Role.RoleSqlRepository.PersistDeletedItem(Bladex.Garantias.Infrastructure.DomainBase.EntityBase)">
+            <summary>
+            Persists the deleted item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.Infrastructure.DomainBase.EntityBase"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Role.RoleSqlRepository.PersistNewItem(Bladex.Garantias.DomainModel.DomainBase.Role)">
+            <summary>
+            Persists the new item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.Role"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Role.RoleSqlRepository.PersistUpdatedItem(Bladex.Garantias.DomainModel.DomainBase.Role)">
+            <summary>
+            Persists the updated item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.Role"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Role.RoleSqlRepository.PersistDeletedItem(Bladex.Garantias.DomainModel.DomainBase.Role)">
+            <summary>
+            Persists the deleted item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.Role"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Role.RoleSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Role.RoleSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Role.RoleSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Role.RoleSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaDepositoOtroBanco.GarantiaDepositoOtroBancoSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaDepositoOtroBanco.GarantiaDepositoOtroBancoSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaDepositoOtroBanco.GarantiaDepositoOtroBancoSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaDepositoOtroBanco.GarantiaDepositoOtroBancoSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerChangesetSqlRepository">
+            <summary>
+            The maker checker user SQL repository class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerChangesetSqlRepository.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerUserSqlRepository"/> class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerChangesetSqlRepository.#ctor(Bladex.Garantias.Infrastructure.IUnitOfWork)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerUserSqlRepository"/> class.
+            </summary>
+            <param name="unitOfWork">The unit of work of type <see cref="T:Bladex.Garantias.Infrastructure.IUnitOfWork"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerChangesetSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerChangesetSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerChangesetSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerChangesetSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerChangesetSqlRepository.PersistNewItem(Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerChangeset)">
+            <summary>
+            Persists the new item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerChangeset"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerChangesetSqlRepository.PersistUpdatedItem(Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerChangeset)">
+            <summary>
+            Persists the updated item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerChangeset"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerChangesetSqlRepository.BuildChildCallbacks">
+            <summary>
+            Builds the child callbacks.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerChangesetSqlRepository.AppendMakerCheckerUser(Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerChangeset,System.Object)">
+            <summary>
+            Appends the maker checker user.
+            </summary>
+            <param name="entity">The entity of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerChangeset"/></param>
+            <param name="foreignKey">The foreign key of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerChangesetSqlRepository.GetChangesetSummary(Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerUser)">
+            <summary>
+            Gets the changeset summary.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerChangesetSqlRepository.GetChangesetSummary(System.Guid)">
+            <summary>
+            Gets the changeset summary.
+            </summary>
+            <param name="changesetId">The changeset id of type <see cref="T:System.Guid"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerChangesetSqlRepository.GetAvailableChangeset(System.String)">
+            <summary>
+            Gets the available changeset.
+            </summary>
+            <param name="makerUserId">The maker user id of type <see cref="T:System.String"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Cliente.ClienteSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Cliente.ClienteSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Cliente.ClienteSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Cliente.ClienteSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaInmueble.GarantiaInmuebleSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaInmueble.GarantiaInmuebleSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaInmueble.GarantiaInmuebleSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaInmueble.GarantiaInmuebleSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaDeposito.GarantiaDepositoSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaDeposito.GarantiaDepositoSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaDeposito.GarantiaDepositoSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaDeposito.GarantiaDepositoSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationStatusSqlRepository">
+            <summary>
+            The maker checker user SQL repository class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationStatusSqlRepository.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerRoleSqlRepository"/> class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationStatusSqlRepository.#ctor(Bladex.Garantias.Infrastructure.IUnitOfWork)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerRoleSqlRepository"/> class.
+            </summary>
+            <param name="unitOfWork">The unit of work of type <see cref="T:Bladex.Garantias.Infrastructure.IUnitOfWork"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationStatusSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationStatusSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationStatusSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationStatusSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.CategoriaRiesgoGarantia.CategoriaRiesgoGarantiaSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.CategoriaRiesgoGarantia.CategoriaRiesgoGarantiaSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.CategoriaRiesgoGarantia.CategoriaRiesgoGarantiaSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.CategoriaRiesgoGarantia.CategoriaRiesgoGarantiaSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.User.UserSqlRepository">
+            <summary>
+            The user SQL repository class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.User.UserSqlRepository.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bladex.Garantias.Infrastructure.Repositories.User.UserSqlRepository"/> class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.User.UserSqlRepository.#ctor(Bladex.Garantias.Infrastructure.IUnitOfWork)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bladex.Garantias.Infrastructure.Repositories.User.UserSqlRepository"/> class.
+            </summary>
+            <param name="unitOfWork">The unit of work of type <see cref="T:Bladex.Garantias.Infrastructure.IUnitOfWork"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.User.UserSqlRepository.BuildChildCallbacks">
+            <summary>
+            Builds the child callbacks.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.User.UserSqlRepository.AppendRole(Bladex.Garantias.DomainModel.DomainBase.User,System.Object)">
+            <summary>
+            Appends the role.
+            </summary>
+            <param name="entity">The entity of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.User"/></param>
+            <param name="roleId">The role id of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.User.UserSqlRepository.PersistNewItem(Bladex.Garantias.Infrastructure.DomainBase.EntityBase)">
+            <summary>
+            Persists the new item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.Infrastructure.DomainBase.EntityBase"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.User.UserSqlRepository.PersistUpdatedItem(Bladex.Garantias.Infrastructure.DomainBase.EntityBase)">
+            <summary>
+            Persists the updated item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.Infrastructure.DomainBase.EntityBase"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.User.UserSqlRepository.PersistDeletedItem(Bladex.Garantias.Infrastructure.DomainBase.EntityBase)">
+            <summary>
+            Persists the deleted item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.Infrastructure.DomainBase.EntityBase"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.User.UserSqlRepository.PersistNewItem(Bladex.Garantias.DomainModel.DomainBase.User)">
+            <summary>
+            Persists the new item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.User"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.User.UserSqlRepository.PersistUpdatedItem(Bladex.Garantias.DomainModel.DomainBase.User)">
+            <summary>
+            Persists the updated item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.User"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.User.UserSqlRepository.PersistDeletedItem(Bladex.Garantias.DomainModel.DomainBase.User)">
+            <summary>
+            Persists the deleted item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.User"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.User.UserSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.User.UserSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.User.UserSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.User.UserSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.GarantiaContratoDealReference.GarantiaContratoDealReferenceSqlRepository">
+            <summary>
+            The garantia contrato deal reference SQL repository class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaContratoDealReference.GarantiaContratoDealReferenceSqlRepository.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bladex.Garantias.Infrastructure.Repositories.GarantiaContratoDealReference.GarantiaContratoDealReferenceSqlRepository"/> class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaContratoDealReference.GarantiaContratoDealReferenceSqlRepository.#ctor(Bladex.Garantias.Infrastructure.IUnitOfWork)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bladex.Garantias.Infrastructure.Repositories.GarantiaContratoDealReference.GarantiaContratoDealReferenceSqlRepository"/> class.
+            </summary>
+            <param name="unitOfWork">The unit of work of type <see cref="T:Bladex.Garantias.Infrastructure.IUnitOfWork"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaContratoDealReference.GarantiaContratoDealReferenceSqlRepository.PersistNewItem(Bladex.Garantias.DomainModel.DomainBase.GarantiaContratoDealReference)">
+            <summary>
+            Persists the new item.
+            </summary>
+            <param name="item">The item.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaContratoDealReference.GarantiaContratoDealReferenceSqlRepository.PersistUpdatedItem(Bladex.Garantias.DomainModel.DomainBase.GarantiaContratoDealReference)">
+            <summary>
+            Persists the updated item.
+            </summary>
+            <param name="item">The item.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaContratoDealReference.GarantiaContratoDealReferenceSqlRepository.BuildChildCallbacks">
+            <summary>
+            Builds the child callbacks.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaContratoDealReference.GarantiaContratoDealReferenceSqlRepository.AppendCliente(Bladex.Garantias.DomainModel.DomainBase.GarantiaContratoDealReference,System.Object)">
+            <summary>
+            Appends the cliente.
+            </summary>
+            <param name="entity">The entity of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaContratoDealReference"/></param>
+            <param name="clienteId">The cliente id of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaContratoDealReference.GarantiaContratoDealReferenceSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaContratoDealReference.GarantiaContratoDealReferenceSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaContratoDealReference.GarantiaContratoDealReferenceSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaContratoDealReference.GarantiaContratoDealReferenceSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaContratoDealReference.GarantiaContratoDealReferenceSqlRepository.GetGarantiaContratoDealReferenceByCustomerOrEconomicGroup(System.String,System.String)">
+            <summary>
+            Gets the garantia contrato deal reference by customer.
+            </summary>
+            <param name="customerId">The customer id of type <see cref="T:System.String"/></param>
+            <param name="globalLineDescription">The global line description of type <see cref="T:System.String"/></param>
+            <returns></returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerUserFactory">
+            <summary>
+            The maker checker user factory class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerUserFactory.BuildEntity(System.Data.IDataReader)">
+            <summary>
+            Builds the entity.
+            </summary>
+            <param name="reader">The reader of type <see cref="T:System.Data.IDataReader"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.TipoAval.TipoAvalSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.TipoAval.TipoAvalSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.TipoAval.TipoAvalSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.TipoAval.TipoAvalSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.InternalStatus.InternalStatusSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.InternalStatus.InternalStatusSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.InternalStatus.InternalStatusSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.InternalStatus.InternalStatusSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Pais.PaisSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Pais.PaisSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Pais.PaisSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Pais.PaisSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaMueble.GarantiaMuebleSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaMueble.GarantiaMuebleSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaMueble.GarantiaMuebleSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaMueble.GarantiaMuebleSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerRoleSqlRepository">
+            <summary>
+            The maker checker user SQL repository class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerRoleSqlRepository.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerRoleSqlRepository"/> class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerRoleSqlRepository.#ctor(Bladex.Garantias.Infrastructure.IUnitOfWork)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerRoleSqlRepository"/> class.
+            </summary>
+            <param name="unitOfWork">The unit of work of type <see cref="T:Bladex.Garantias.Infrastructure.IUnitOfWork"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerRoleSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerRoleSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerRoleSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerRoleSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationFactory">
+            <summary>
+            The maker checker Operation factory class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationFactory.BuildEntity(System.Data.IDataReader)">
+            <summary>
+            Builds the entity.
+            </summary>
+            <param name="reader">The reader of type <see cref="T:System.Data.IDataReader"/></param>
+            <returns></returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerOperationFactory.FieldNames">
+            <summary>
+            The field names class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.LimitInformation.LimitInformationSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.LimitInformation.LimitInformationSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.LimitInformation.LimitInformationSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.LimitInformation.LimitInformationSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.LimitInformation.LimitInformationSqlRepository.FindBy(System.Int32,System.String)">
+            <summary>
+            Retorna la informacion del limite definido por <see cref="!:definitionId"/> para el cliente <see cref="!:customerId"/>
+            </summary>
+            <param name="definitionId">ID de la definicion del limite</param>
+            <param name="customerId">ID del cliente</param>
+            <returns>Retorna la informacion del limite definido por <see cref="!:definitionId"/> para el cliente <see cref="!:customerId"/>. <see cref="N:Bladex.Garantias.Infrastructure.Repositories.LimitInformation"/></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.IMPORT_TH_ATOMO_GARANTIAS.IMPORT_TH_ATOMO_GARANTIASSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.IMPORT_TH_ATOMO_GARANTIAS.IMPORT_TH_ATOMO_GARANTIASSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.IMPORT_TH_ATOMO_GARANTIAS.IMPORT_TH_ATOMO_GARANTIASSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.IMPORT_TH_ATOMO_GARANTIAS.IMPORT_TH_ATOMO_GARANTIASSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GrupoRiesgoGarantia.GrupoRiesgoGarantiaSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GrupoRiesgoGarantia.GrupoRiesgoGarantiaSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GrupoRiesgoGarantia.GrupoRiesgoGarantiaSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GrupoRiesgoGarantia.GrupoRiesgoGarantiaSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.Bootstrapper">
+            <summary>
+            The Bootstrapper class
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Bootstrapper.Setup">
+            <summary>
+            Setups this instance.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Bootstrapper.SetupAutomapper">
+            <summary>
+            Setups the automapper.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaOtra.GarantiaOtraSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaOtra.GarantiaOtraSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaOtra.GarantiaOtraSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaOtra.GarantiaOtraSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.GarantiaContratoDealReference.GarantiaContratoDealReferenceFactory">
+            <summary>
+            The garantia contrato deal reference factory class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaContratoDealReference.GarantiaContratoDealReferenceFactory.BuildEntity(System.Data.IDataReader)">
+            <summary>
+            Builds the entity.
+            </summary>
+            <param name="reader">The reader of type <see cref="T:System.Data.IDataReader"/></param>
+            <returns></returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.GarantiaContratoDealReference.GarantiaContratoDealReferenceFactory.FieldNames">
+            <summary>
+            The field names class.
+            </summary>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.GarantiaContratoDealReference.GarantiaContratoDealReferenceFactory.TableNames">
+            <summary>
+            The table names class.
+            </summary>
+        </member>
+        <member name="F:Bladex.Garantias.Infrastructure.Repositories.GarantiaContratoDealReference.GarantiaContratoDealReferenceFactory.TableNames.GarantiaContratoDealReferences">
+            <summary>
+              <see cref="T:System.String"/>
+            </summary>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.Role.RoleFactory">
+            <summary>
+            The role factory class.
+            </summary>
+        </member>
+        <member name="F:Bladex.Garantias.Infrastructure.Repositories.Role.RoleFactory.TableName">
+            <summary>
+              <see cref="T:System.String"/>
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Role.RoleFactory.BuildEntity(System.Data.IDataReader)">
+            <summary>
+            Builds the entity.
+            </summary>
+            <param name="reader">The reader of type <see cref="T:System.Data.IDataReader"/></param>
+            <returns></returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.Role.RoleFactory.FieldNames">
+            <summary>
+            The field names class.
+            </summary>
+        </member>
+        <member name="F:Bladex.Garantias.Infrastructure.Repositories.Role.RoleFactory.FieldNames.RoleId">
+            <summary>
+              <see cref="T:System.String"/>
+            </summary>
+        </member>
+        <member name="F:Bladex.Garantias.Infrastructure.Repositories.Role.RoleFactory.FieldNames.RoleName">
+            <summary>
+              <see cref="T:System.String"/>
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Fiduciarias.FiduciariasSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Fiduciarias.FiduciariasSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Fiduciarias.FiduciariasSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Fiduciarias.FiduciariasSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerUserSqlRepository">
+            <summary>
+            The maker checker user SQL repository class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerUserSqlRepository.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerUserSqlRepository"/> class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerUserSqlRepository.#ctor(Bladex.Garantias.Infrastructure.IUnitOfWork)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerUserSqlRepository"/> class.
+            </summary>
+            <param name="unitOfWork">The unit of work of type <see cref="T:Bladex.Garantias.Infrastructure.IUnitOfWork"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerUserSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerUserSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerUserSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerUserSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerUserSqlRepository.PersistNewItem(Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerUser)">
+            <summary>
+            Persists the new item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerUser"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerUserSqlRepository.PersistUpdatedItem(Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerUser)">
+            <summary>
+            Persists the updated item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerUser"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerUserSqlRepository.BuildChildCallbacks">
+            <summary>
+            Builds the child callbacks.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerUserSqlRepository.AppendMakerCheckerRole(Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerUser,System.Object)">
+            <summary>
+            Appends the maker checker role.
+            </summary>
+            <param name="entity">The entity of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.Components.MakerChecker.MakerCheckerUser"/></param>
+            <param name="foreignKey">The foreign key of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerChangesetFactory">
+            <summary>
+            The maker checker changeset factory class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerChangesetFactory.BuildEntity(System.Data.IDataReader)">
+            <summary>
+            Builds the entity.
+            </summary>
+            <param name="reader">The reader of type <see cref="T:System.Data.IDataReader"/></param>
+            <returns></returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerChangesetFactory.FieldNames">
+            <summary>
+            The field names class.
+            </summary>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.PaisResolver">
+            <summary>
+            ResolveCore
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.PaisResolver.ResolveCore(System.Data.IDataReader)">
+            <summary>
+            Resolves the core.
+            </summary>
+            <param name="source">The source.</param>
+            <returns>DomainModel.DomainBase.Pais object</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaPrenda.GarantiaPrendaSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaPrenda.GarantiaPrendaSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaPrenda.GarantiaPrendaSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaPrenda.GarantiaPrendaSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.DataHelper">
+            <summary>
+            Static helper class used by the factories when getting 
+            data from ADO.NET objects (i.e. IDataReader)
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetDateTime(System.Object)">
+            <summary>
+            Gets the date time.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetNullableDateTime(System.Object)">
+            <summary>
+            Gets the nullable date time.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetInteger(System.Object)">
+            <summary>
+            Gets the integer.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetNullableInteger(System.Object)">
+            <summary>
+            Gets the nullable integer.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetDecimal(System.Object)">
+            <summary>
+            Gets the decimal.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetNullableDecimal(System.Object)">
+            <summary>
+            Gets the nullable decimal.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetDouble(System.Object)">
+            <summary>
+            Gets the double.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetNullableDouble(System.Object)">
+            <summary>
+            Gets the nullable double.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetGuid(System.Object)">
+            <summary>
+            Gets the GUID.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetNullableGuid(System.Object)">
+            <summary>
+            Gets the nullable GUID.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetString(System.Object)">
+            <summary>
+            Gets the string.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetBoolean(System.Object)">
+            <summary>
+            Gets the boolean.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetNullableBoolean(System.Object)">
+            <summary>
+            Gets the nullable boolean.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetEnumValue``1(System.String)">
+            <summary>
+            Gets the enum value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="databaseValue">The database value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetByteArrayValue(System.Object)">
+            <summary>
+            Gets the byte array value.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.EntityListToDelimited``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            Entities the list to delimited.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="entities">The entities.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.ReaderContainsColumnName(System.Data.DataTable,System.String)">
+            <summary>
+            Readers the name of the contains column.
+            </summary>
+            <param name="schemaTable">The schema table.</param>
+            <param name="columnName">Name of the column.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetSqlValue(System.Object)">
+            <summary>
+            Gets the SQL value.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetSqlValue(System.Decimal)">
+            <summary>
+            Gets the SQL value.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetSqlValue(System.Double)">
+            <summary>
+            Gets the SQL value.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetSqlValue(System.Int32)">
+            <summary>
+            Gets the SQL value.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetSqlValue(System.String)">
+            <summary>
+            Gets the SQL value.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetSqlValue(System.DateTime)">
+            <summary>
+            Gets the SQL value.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetSqlValue(System.Nullable{System.DateTime})">
+            <summary>
+            Gets the SQL value.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetSqlValue(System.Boolean)">
+            <summary>
+            Gets the SQL value.
+            </summary>
+            <param name="value">if set to <c>true</c> [value].</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetSqlValue(System.Guid)">
+            <summary>
+            Gets the SQL value.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetSqlValue(Bladex.Garantias.Infrastructure.DomainBase.EntityBase)">
+            <summary>
+            Gets the SQL value.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetSqlValue(System.Enum)">
+            <summary>
+            Gets the SQL value.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.DataHelper.GetEnumAsIntegerForSql(System.Enum)">
+            <summary>
+            Gets the enum as integer for SQL.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerEmailTemplateFactory">
+            <summary>
+            The maker checker email template factory class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerEmailTemplateFactory.BuildEntity(System.Data.IDataReader)">
+            <summary>
+            Builds the entity.
+            </summary>
+            <param name="reader">The reader of type <see cref="T:System.Data.IDataReader"/></param>
+            <returns></returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerEmailTemplateFactory.FieldNames">
+            <summary>
+            The field names class.
+            </summary>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerEmailTemplateFactory.TableNames">
+            <summary>
+            The table names class.
+            </summary>
+        </member>
+        <member name="F:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerEmailTemplateFactory.TableNames.EmailTemplateTable">
+            <summary>
+              <see cref="T:System.String"/>
+            </summary>
+        </member>
+        <member name="F:Bladex.Garantias.Infrastructure.Repositories.Components.MakerChecker.MakerCheckerEmailTemplateFactory.TableNames.EmailTemplateRoleTable">
+            <summary>
+              <see cref="T:System.String"/>
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Bancos.BancosSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Bancos.BancosSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Bancos.BancosSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.Bancos.BancosSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.User.UserFactory">
+            <summary>
+            The user factory class.
+            </summary>
+        </member>
+        <member name="F:Bladex.Garantias.Infrastructure.Repositories.User.UserFactory.TableName">
+            <summary>
+              <see cref="T:System.String"/>
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.User.UserFactory.BuildEntity(System.Data.IDataReader)">
+            <summary>
+            Builds the entity.
+            </summary>
+            <param name="reader">The reader of type <see cref="T:System.Data.IDataReader"/></param>
+            <returns></returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.User.UserFactory.FieldNames">
+            <summary>
+            The field names class.
+            </summary>
+        </member>
+        <member name="F:Bladex.Garantias.Infrastructure.Repositories.User.UserFactory.FieldNames.UserId">
+            <summary>
+              <see cref="T:System.String"/>
+            </summary>
+        </member>
+        <member name="F:Bladex.Garantias.Infrastructure.Repositories.User.UserFactory.FieldNames.UserName">
+            <summary>
+              <see cref="T:System.String"/>
+            </summary>
+        </member>
+        <member name="F:Bladex.Garantias.Infrastructure.Repositories.User.UserFactory.FieldNames.RoleId">
+            <summary>
+              <see cref="T:System.String"/>
+            </summary>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.GarantiaContrato.GarantiaContratoFactory">
+            <summary>
+            The garantia contrato factory class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaContrato.GarantiaContratoFactory.BuildEntity(System.Data.IDataReader)">
+            <summary>
+            Builds the entity.
+            </summary>
+            <param name="reader">The reader of type <see cref="T:System.Data.IDataReader"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaContrato.GarantiaContratoFactory.BuildSecondEntity(System.Data.IDataReader)">
+            <summary>
+            Builds the second entity.
+            </summary>
+            <param name="reader">The reader of type <see cref="T:System.Data.IDataReader"/></param>
+            <returns></returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.GarantiaContrato.GarantiaContratoFactory.FieldNames">
+            <summary>
+            The field names class.
+            </summary>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.GarantiaContrato.GarantiaContratoFactory.TableNames">
+            <summary>
+            The table names class.
+            </summary>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository">
+            <summary>
+            The garantia base SQL repository class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository"/> class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.#ctor(Bladex.Garantias.Infrastructure.IUnitOfWork)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository"/> class.
+            </summary>
+            <param name="unitOfWork">The unit of work of type <see cref="T:Bladex.Garantias.Infrastructure.IUnitOfWork"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.BuildChildCallbacks">
+            <summary>
+            Builds the child callbacks.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.PersistNewItem(Bladex.Garantias.Infrastructure.DomainBase.EntityBase)">
+            <summary>
+            Persists the new item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.Infrastructure.DomainBase.EntityBase"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.PersistUpdatedItem(Bladex.Garantias.Infrastructure.DomainBase.EntityBase)">
+            <summary>
+            Persists the updated item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.Infrastructure.DomainBase.EntityBase"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.PersistDeletedItem(Bladex.Garantias.Infrastructure.DomainBase.EntityBase)">
+            <summary>
+            Persists the deleted item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.Infrastructure.DomainBase.EntityBase"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.PersistNewItem(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase)">
+            <summary>
+            Persists the new item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.PersistUpdatedItem(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase)">
+            <summary>
+            Persists the updated item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.PersistDeletedItem(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase)">
+            <summary>
+            Persists the deleted item.
+            </summary>
+            <param name="item">The item of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.AppendCategoriaSuper(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase,System.Object)">
+            <summary>
+            Appends the categoria super.
+            </summary>
+            <param name="garantia">The garantia of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+            <param name="categoriaSuperId">The categoria super id of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.AppendStatus(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase,System.Object)">
+            <summary>
+            Appends the status.
+            </summary>
+            <param name="garantia">The garantia of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+            <param name="statusId">The status id of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.AppendInternalStatus(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase,System.Object)">
+            <summary>
+            Appends the internal status.
+            </summary>
+            <param name="garantia">The garantia of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+            <param name="internalStatusId">The internal status id of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.AppendCalificacionesRiesgo(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase,System.Object)">
+            <summary>
+            Appends the calificaciones riesgo.
+            </summary>
+            <param name="garantia">The garantia of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+            <param name="CalificacionesRiesgoId">The calificaciones riesgo id of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.AppendMonedas(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase,System.Object)">
+            <summary>
+            Appends the monedas.
+            </summary>
+            <param name="garantia">The garantia of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+            <param name="MonedasId">The monedas id of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.AppendCategoriaRiesgoGarantia(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase,System.Object)">
+            <summary>
+            Appends the categoria riesgo garantia.
+            </summary>
+            <param name="garantia">The garantia of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+            <param name="CategoriaRiesgoGarantiaId">The categoria riesgo garantia id of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.AppendFrequencias(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase,System.Object)">
+            <summary>
+            Appends the frequencias.
+            </summary>
+            <param name="garantia">The garantia of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+            <param name="FrecuenciasId">The frecuencias id of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.AppendTipoGarantiaSuper(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase,System.Object)">
+            <summary>
+            Appends the tipo garantia super.
+            </summary>
+            <param name="garantia">The garantia of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+            <param name="TipoGarantiaSuperId">The tipo garantia super id of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.AppendTipoGarantiaBladex(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase,System.Object)">
+            <summary>
+            Appends the tipo garantia bladex.
+            </summary>
+            <param name="garantia">The garantia of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+            <param name="TipoGarantiaBladexId">The tipo garantia bladex id of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.AppendActorHelper(System.Object)">
+            <summary>
+            Appends the actor helper.
+            </summary>
+            <param name="actorId">The actor id of type <see cref="T:System.Object"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.AppendValorNecesarioDeGarantia(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase,System.Object)">
+            <summary>
+            Appends the valor necesario de garantia.
+            </summary>
+            <param name="garantia">The garantia of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+            <param name="garantiaId">The garantia id of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.AppendDepositante(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase,System.Object)">
+            <summary>
+            Appends the depositante.
+            </summary>
+            <param name="garantia">The garantia of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+            <param name="actorId">The actor id of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.AppendEvaluador(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase,System.Object)">
+            <summary>
+            Appends the evaluador.
+            </summary>
+            <param name="garantia">The garantia of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+            <param name="actorId">The actor id of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.AppendRevisor(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase,System.Object)">
+            <summary>
+            Appends the revisor.
+            </summary>
+            <param name="garantia">The garantia of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+            <param name="actorId">The actor id of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.AppendAsegurador(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase,System.Object)">
+            <summary>
+            Appends the asegurador.
+            </summary>
+            <param name="garantia">The garantia of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+            <param name="actorId">The actor id of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.AppendAdministrador(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase,System.Object)">
+            <summary>
+            Appends the administrador.
+            </summary>
+            <param name="garantia">The garantia of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+            <param name="actorId">The actor id of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.AppendPais(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase,System.Object)">
+            <summary>
+            Appends the pais.
+            </summary>
+            <param name="garantia">The garantia of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+            <param name="CodigoPais">The codigo pais of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.AppendGarante(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase,System.Object)">
+            <summary>
+            Appends the garante.
+            </summary>
+            <param name="garantia">The garantia of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+            <param name="garanteId">The garante id of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.AppendCliente(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase,System.Object)">
+            <summary>
+            Appends the cliente.
+            </summary>
+            <param name="garantia">The garantia of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+            <param name="clienteId">The cliente id of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.AppendFiduciarias(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase,System.Object)">
+            <summary>
+            Appends the fiduciarias.
+            </summary>
+            <param name="garantia">The garantia of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+            <param name="fiduciariaSuperId">The fiduciaria super id of type <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.GetByFccRef(System.String)">
+            <summary>
+            Obtiene la garantia base que corresponde al Id del Atomo de Teinsa asociada
+            Tener en cuenta que para garantias creadas en el sistema Novaris, no posee dicho ID
+            </summary>
+            <param name="IdAtomo"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.GetFccReferences" -->
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.GetAllDeleted">
+            <summary>
+            Gets all deleted.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.ChangeType(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase,Bladex.Garantias.DomainModel.DomainBase.CategoriaSuper)">
+            <summary>
+            Changes the type.
+            </summary>
+            <param name="garantia">The garantia of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+            <param name="newCategoriaSuper">The new categoria super of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.CategoriaSuper"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.SetInternalStatus(System.Int32,Bladex.Garantias.DomainModel.DomainBase.InternalStatus)">
+            <summary>
+            Actualiza el internal Status
+            </summary>
+            <param name="garantia"></param>
+            <param name="internalStatus"></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.GarantiaBase.GarantiaBaseSqlRepository.WriteRecord(Bladex.Garantias.DomainModel.DomainBase.GarantiaBase)">
+            <summary>
+            Writes the record.
+            </summary>
+            <param name="garantia">The garantia of type <see cref="T:Bladex.Garantias.DomainModel.DomainBase.GarantiaBase"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.CalificacionesRiesgo.CalificacionesRiesgoSqlRepository.GetBaseQuery">
+            <summary>
+            Get the base query to retrieve entities.
+            </summary>
+            <returns>SQL Select Query to retrieve entities</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.CalificacionesRiesgo.CalificacionesRiesgoSqlRepository.GetBaseWhereClause">
+            <summary>
+            Get the where clause used to retrieve one entity.
+            </summary>
+            <returns>SQL Where Clases to retrieve one entity.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.CalificacionesRiesgo.CalificacionesRiesgoSqlRepository.GetEntityName">
+            <summary>
+            Returns the entity table name.
+            </summary>
+            <returns>Entity Table Nombre</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.CalificacionesRiesgo.CalificacionesRiesgoSqlRepository.GetKeyFieldName">
+            <summary>
+            Returns the Key of the entity
+            </summary>
+            <returns>Primary Key of the entity.</returns>
+        </member>
+    </members>
+</doc>

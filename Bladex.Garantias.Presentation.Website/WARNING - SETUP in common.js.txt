@@ -1,0 +1,10 @@
+﻿
+ADVERTENCIA
+======================================
+
+Se encuentra configuracion importante en el archivo
+Script/common.js
+
+Especialmente la ruta al servicio web
+
+

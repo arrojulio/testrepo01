@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{14028DC5-D571-434D-AE07-92FFCA59B551}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bladex.Garantias.DomainModel</RootNamespace>
+    <AssemblyName>Bladex.Garantias.DomainModel</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Bladex.Garantias.DomainModel.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\Bladex.Garantias.Infrastructure\Libraries\AutoMapper\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bladex.Garantias.Infrastructure\Libraries\Json.Net\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Components\Formatters\DateFormatter.cs" />
+    <Compile Include="Components\Formatters\MoneyFormatter.cs" />
+    <Compile Include="Components\CommonEnum\OptionInternalStatusEnum.cs" />
+    <Compile Include="Components\IndicadorAtomoResolver.cs" />
+    <Compile Include="Components\MakerChecker\MakerAndCheckerActionEnum.cs" />
+    <Compile Include="Components\MakerChecker\MakerCheckerCore.cs" />
+    <Compile Include="Components\MakerChecker\MakerCheckerObject.cs" />
+    <Compile Include="Components\Resolvers\DateResolver.cs" />
+    <Compile Include="Components\Resolvers\MoneyResolver.cs" />
+    <Compile Include="DomainBase\Components\Autocomplete\AutocompleteValue.cs" />
+    <Compile Include="DomainBase\Components\AvalManager\AvalManager.cs" />
+    <Compile Include="DomainBase\Components\MakerChecker\MakerCheckerChangeset.cs" />
+    <Compile Include="DomainBase\Components\MakerChecker\MakerCheckerChangesetSummary.cs" />
+    <Compile Include="DomainBase\Components\MakerChecker\MakerCheckerEmailTemplate.cs" />
+    <Compile Include="Components\MakerChecker\MakerCheckerMessageFormatter.cs" />
+    <Compile Include="DomainBase\Components\MakerChecker\MakerCheckerOperation.cs" />
+    <Compile Include="DomainBase\Components\MakerChecker\MakerCheckerOperationStatus.cs" />
+    <Compile Include="DomainBase\Components\MakerChecker\MakerCheckerOperationSummary.cs" />
+    <Compile Include="DomainBase\Components\MakerChecker\MakerCheckerRole.cs" />
+    <Compile Include="DomainBase\Components\Pagination\Paged.cs" />
+    <Compile Include="DomainBase\Components\Security\IFormsAuthentication.cs" />
+    <Compile Include="DomainBase\GarantiaBaseRow.cs" />
+    <Compile Include="DomainBase\GarantiaContratoDealReference.cs" />
+    <Compile Include="DomainBase\IndicadorAtomoEnum.cs" />
+    <Compile Include="DomainBase\Region.cs" />
+    <Compile Include="DomainBase\Role.cs" />
+    <Compile Include="DomainBase\Summary\GarantiaBaseSummary.cs" />
+    <Compile Include="DomainBase\Summary\GarantiaMuebleSummary.cs" />
+    <Compile Include="DomainBase\Summary\GarantiaOtraSummary.cs" />
+    <Compile Include="DomainBase\TipoPoliza.cs" />
+    <Compile Include="DomainBase\User.cs" />
+    <Compile Include="DomainBase\Status.cs" />
+    <Compile Include="Repositories\Components\MakerChecker\IMakerCheckerOperationRepository.cs" />
+    <Compile Include="Repositories\Components\MakerChecker\IMakerCheckerChangesetRepository.cs" />
+    <Compile Include="Repositories\Components\MakerChecker\IMakerCheckerOperationStatusRepository.cs" />
+    <Compile Include="Repositories\IAutocompleteValuesRepository.cs" />
+    <Compile Include="Repositories\IGarantiaContratoDealReferenceRepository.cs" />
+    <Compile Include="Repositories\IRegionRepository.cs" />
+    <Compile Include="Repositories\IRoleRepository.cs" />
+    <Compile Include="Repositories\ITipoPolizaRepository.cs" />
+    <Compile Include="Repositories\IUserRepository.cs" />
+    <Compile Include="Repositories\IStatusRepository.cs" />
+    <Compile Include="Services\Components\MakerChecker\MakerCheckerService.cs" />
+    <Compile Include="DomainBase\Components\MakerChecker\MakerCheckerUser.cs" />
+    <Compile Include="Components\MakerChecker\EntityBaseXmlSerializer.cs" />
+    <Compile Include="Components\TypeConverters\PascalCaseTypeConverter.cs" />
+    <Compile Include="Components\UnidadFrecuenciaResolver.cs" />
+    <Compile Include="DomainBase\Actor.cs" />
+    <Compile Include="DomainBase\Aseguradoras.cs" />
+    <Compile Include="DomainBase\Aval.cs" />
+    <Compile Include="DomainBase\Avaluadoras.cs" />
+    <Compile Include="DomainBase\Bancos.cs" />
+    <Compile Include="DomainBase\CalificacionesRiesgo.cs" />
+    <Compile Include="DomainBase\CategoriaRiesgoGarantia.cs" />
+    <Compile Include="DomainBase\CategoriaSuper.cs" />
+    <Compile Include="DomainBase\CategoriaSuperResolver.cs" />
+    <Compile Include="DomainBase\Cliente.cs" />
+    <Compile Include="DomainBase\Fiduciarias.cs" />
+    <Compile Include="DomainBase\Frecuencias.cs" />
+    <Compile Include="DomainBase\GarantiaBase.cs" />
+    <Compile Include="DomainBase\GarantiaContrato.cs" />
+    <Compile Include="DomainBase\GarantiaDeposito.cs" />
+    <Compile Include="DomainBase\GarantiaDepositoOtroBanco.cs" />
+    <Compile Include="DomainBase\GarantiaInmueble.cs" />
+    <Compile Include="DomainBase\GarantiaMueble.cs" />
+    <Compile Include="DomainBase\GarantiaOtra.cs" />
+    <Compile Include="DomainBase\GarantiaPrenda.cs" />
+    <Compile Include="DomainBase\GarantiaSourceEnum.cs" />
+    <Compile Include="DomainBase\GrupoRiesgoGarantia.cs" />
+    <Compile Include="DomainBase\IGarantiaFunciones.cs" />
+    <Compile Include="DomainBase\IndicadorAtomoEnum?.cs" />
+    <Compile Include="DomainBase\LimitInformation.cs" />
+    <Compile Include="DomainBase\SyncLog.cs" />
+    <Compile Include="DomainBase\IMPORT_TH_ATOMO_GARANTIAS.cs" />
+    <Compile Include="DomainBase\InstrumentoFinanciero.cs" />
+    <Compile Include="DomainBase\Monedas.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="DomainBase\Pais.cs" />
+    <Compile Include="DomainBase\InternalStatus.cs" />
+    <Compile Include="DomainBase\TipoAval.cs" />
+    <Compile Include="DomainBase\TipoGarantiaBladex.cs" />
+    <Compile Include="DomainBase\TipoGarantiaSuper.cs" />
+    <Compile Include="DomainBase\Tooltip.cs" />
+    <Compile Include="DomainBase\UnidadFrecuenciaEnum.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Components\MakerChecker\IMakerCheckerEmailTemplateRepository.cs" />
+    <Compile Include="Repositories\Components\MakerChecker\IMakerCheckerRoleRepository.cs" />
+    <Compile Include="Repositories\Components\MakerChecker\IMakerCheckerUserRepository.cs" />
+    <Compile Include="Repositories\IAseguradorasRepository.cs" />
+    <Compile Include="Repositories\IActorRepository.cs" />
+    <Compile Include="Repositories\IAvalRepository.cs" />
+    <Compile Include="Repositories\IAvaluadorasRepository.cs" />
+    <Compile Include="Repositories\IBancosRepository.cs" />
+    <Compile Include="Repositories\ICalificacionesRiesgoRepository.cs" />
+    <Compile Include="Repositories\ICategoriaRiesgoGarantiaRepository.cs" />
+    <Compile Include="Repositories\ICategoriaSuperRepository.cs" />
+    <Compile Include="Repositories\IClienteRepository.cs" />
+    <Compile Include="Repositories\IFiduciariasRepository.cs" />
+    <Compile Include="Repositories\IFrecuenciasRepository.cs" />
+    <Compile Include="Repositories\IGarantiaBaseRepository.cs" />
+    <Compile Include="Repositories\IGarantiaContratoRepository.cs" />
+    <Compile Include="Repositories\IGarantiaDepositoOtroBancoRepository.cs" />
+    <Compile Include="Repositories\IGarantiaDepositoRepository.cs" />
+    <Compile Include="Repositories\IGarantiaInmuebleRepository.cs" />
+    <Compile Include="Repositories\IGarantiaMuebleRepository.cs" />
+    <Compile Include="Repositories\IGarantiaOtraRepository.cs" />
+    <Compile Include="Repositories\IGarantiaPrendaRepository.cs" />
+    <Compile Include="Repositories\IGrupoRiesgoGarantiaRepository.cs" />
+    <Compile Include="Repositories\IIMPORT_TH_ATOMO_GARANTIAS.cs" />
+    <Compile Include="Repositories\IInstrumentoFinancieroRepository.cs" />
+    <Compile Include="Repositories\ILimitInformationRepository.cs" />
+    <Compile Include="Repositories\IMonedasRepository.cs" />
+    <Compile Include="Repositories\IPaisRepository.cs" />
+    <Compile Include="Repositories\IInternalStatusRepository.cs" />
+    <Compile Include="Repositories\ISyncLogRepository.cs" />
+    <Compile Include="Repositories\ITipoAvalRepository.cs" />
+    <Compile Include="Repositories\ITipoGarantiaBladexRepository.cs" />
+    <Compile Include="Repositories\ITipoGarantiaSuperRepository.cs" />
+    <Compile Include="Repositories\ITooltipRepository.cs" />
+    <Compile Include="Services\ActorService.cs" />
+    <Compile Include="Services\AseguradorasService.cs" />
+    <Compile Include="Services\AvalService.cs" />
+    <Compile Include="Services\AvaluadoraService.cs" />
+    <Compile Include="Services\BancosService.cs" />
+    <Compile Include="Services\CalificacionesRiesgoService.cs" />
+    <Compile Include="Services\CategoriaRiesgoGarantiaService.cs" />
+    <Compile Include="Services\CategoriaSuperService.cs" />
+    <Compile Include="Services\ClienteService.cs" />
+    <Compile Include="Services\AutocompleteValueService.cs" />
+    <Compile Include="Services\RegionService.cs" />
+    <Compile Include="Services\RoleService.cs" />
+    <Compile Include="Services\TipoPolizaService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\FiduciariasService.cs" />
+    <Compile Include="Services\FrecuenciasService.cs" />
+    <Compile Include="Services\GarantiaCommonService.cs" />
+    <Compile Include="Services\GarantiaContratoService.cs" />
+    <Compile Include="Services\GarantiaDepositoOtroBancoService.cs" />
+    <Compile Include="Services\GarantiaDepositoService.cs" />
+    <Compile Include="Services\GarantiaInmuebleService.cs" />
+    <Compile Include="Services\GarantiaMuebleService.cs" />
+    <Compile Include="Services\GarantiaOtraService.cs" />
+    <Compile Include="Services\GarantiaPrendaService.cs" />
+    <Compile Include="Services\GarantiaService.cs" />
+    <Compile Include="Services\GrupoRiesgoGarantiaService.cs" />
+    <Compile Include="Services\IMPORT_TH_ATOMO_GARANTIASService.cs" />
+    <Compile Include="Services\InstrumentoFinancieroService.cs" />
+    <Compile Include="Services\LimitInformationService.cs" />
+    <Compile Include="Services\MonedasService.cs" />
+    <Compile Include="Services\PaisService.cs" />
+    <Compile Include="Services\InternalStatusService.cs" />
+    <Compile Include="Services\StatusService.cs" />
+    <Compile Include="Services\SyncLogService.cs" />
+    <Compile Include="Services\TipoAvalService.cs" />
+    <Compile Include="Services\TipoGarantiaBladexService.cs" />
+    <Compile Include="Services\TipoGarantiaSuperService.cs" />
+    <Compile Include="Services\TooltipService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bladex.Garantias.Infrastructure\Bladex.Garantias.Infrastructure.csproj">
+      <Project>{5143B2ED-E747-415E-B1AA-63187D67EC87}</Project>
+      <Name>Bladex.Garantias.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="..\ModelingProject1\LayerDiagram1.layerdiagram">
+      <Link>LayerDiagram1.layerdiagram</Link>
+      <Visible>False</Visible>
+    </AdditionalFiles>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.9.0\analyzers\dotnet\cs\Microsoft.DependencyValidation.Analyzers.resources.dll" />
+    <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.9.0\analyzers\dotnet\Microsoft.DependencyValidation.Analyzers.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties BuildVersion_UseGlobalSettings="True" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

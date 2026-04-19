@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="c5a23399-f2ee-4a77-8ca2-12e13727aabf" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="98ffc7be-78fb-4a9d-8936-d63db1c67800" name="Negocio" requiredNamespace="Bladex.Garantias.DomainModel">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="1b45a33c-2e11-460f-8932-cc2e3a5fc2fa" direction="Bidirectional">
+          <layerMoniker Id="679218aa-df12-4133-8df8-ac9788031502" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="6b640c95-c449-4284-8fbf-e32f0673793f" direction="Forward">
+          <layerMoniker Id="e1938a05-710e-48e7-b669-fd779d7c935f" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="091c8333-307f-4137-b4a4-c3c797e109fc" direction="Forward">
+          <layerMoniker Id="ea0988dd-833f-4862-88c5-97d7d40089b2" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="831dd49a-113c-4699-826b-ada1d87a1da5" direction="Forward">
+          <layerMoniker Id="07cf5c35-4e9e-41fe-8c58-0caca76247b9" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="1bfaf95e-5e1d-4937-9dbe-a67ef690863d" direction="Bidirectional">
+          <layerMoniker Id="48344c8a-cacf-41c9-b251-9e5d98337f96" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="24fc040b-4982-4eaf-aace-10578bb58758" direction="Forward">
+          <layerMoniker Id="ec8c3e74-d30f-47b1-bfaa-5c8a630007e7" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="7e7d2314-39d4-45ed-8f36-892064856059" name="Domain Layer">
+          <ArtifactNode Label="Domain Layer" Category="CodeSchema_Project" Id="(Assembly=../Domain%2520Layer)">
+            <Category Ref="SolutionFolder" />
+          </ArtifactNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="48344c8a-cacf-41c9-b251-9e5d98337f96" name="Sincronizacion Atomo" />
+    <layer Id="8c2eb162-b3d9-4f00-afcf-e3bcf5f79820" name="Sincronizacion FCC&#xD;&#xA;Actuales y Catalogos">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="bb97c5be-f783-4d02-989a-f655efb4ccbb" direction="Forward">
+          <layerMoniker Id="98ffc7be-78fb-4a9d-8936-d63db1c67800" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="ec8c3e74-d30f-47b1-bfaa-5c8a630007e7" name="Interfaz registros contables" />
+    <layer Id="679218aa-df12-4133-8df8-ac9788031502" name="Maker &amp; Checker&#xD;&#xA;">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="86dcf0a2-1582-4294-a5c6-4304d61638e4" direction="Bidirectional">
+          <layerMoniker Id="e31e42f8-d8cb-4094-849e-b3f72e3ab31d" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="e31e42f8-d8cb-4094-849e-b3f72e3ab31d" name="User Forms">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="5d861acb-e5e9-4d29-9b3a-5ed28282e3ad" direction="Bidirectional">
+          <layerMoniker Id="98ffc7be-78fb-4a9d-8936-d63db1c67800" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="46566f25-7222-4517-a671-69c6131bb94c" name="Presentation Layer">
+          <ArtifactNode Label="Presentation Layer" Category="CodeSchema_Project" Id="(Assembly=../Presentation%2520Layer)">
+            <Category Ref="SolutionFolder" />
+          </ArtifactNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="ea0988dd-833f-4862-88c5-97d7d40089b2" name="Reporting" />
+    <layer Id="e1938a05-710e-48e7-b669-fd779d7c935f" name="OLAP">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="19281022-fcbc-4251-98ea-08632cd5f164" direction="Forward">
+          <layerMoniker Id="ea0988dd-833f-4862-88c5-97d7d40089b2" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="07cf5c35-4e9e-41fe-8c58-0caca76247b9" name="Alertas" />
+  </layers>
+</layerModel>

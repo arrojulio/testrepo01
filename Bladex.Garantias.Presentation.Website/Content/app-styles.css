@@ -1,0 +1,92 @@
+body
+{
+font-family: Tahoma, Verdana, Arial, sans-serif;
+font-size: 12px;
+margin:0px;
+}
+
+
+h1, h2, h3 { color: #888; font-family: Tahoma, Verdana, Arial, sans-serif; font-weight: normal; }
+h2 { background: url(images/bg-green.jpg) repeat-x; color:#fff; font-weight:normal;padding: 5px;margin: 0px;font-size: 15px;}
+.page{color:#000;text-decoration:none;margin:0px;}
+.main { margin:0px 5px;}
+.bgHeader { margin: 0; background: url(images/header-repeat-x.jpg) repeat-x;height: 80px;padding: 0px 20px;}
+.bgHeader span { padding-top: 6px;display: inline-block;font-size: 18px;color: white;float: left; }
+.sublogo { margin-right: 15px;float: right;height: 73px;width: 134px; }
+.sublogo p { font-size: 11px;color: #666; padding-left: 20px;margin-left: 15px; margin-top: 5px;}
+p.readonly-user { background-image: url(images/user_business.png); background-repeat:no-repeat;  }
+p.admin-user { background-image: url(images/user_green.png); background-repeat:no-repeat;  }
+a {color: #718ABE; text-decoration:none; }
+a:visited {text-decoration:none; }
+a:active {text-decoration:none; }
+
+input { font-family: Tahoma, Verdana, Arial, sans-serif;}
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {color: #ff0000;}
+.field-validation-valid {display: none;}
+.input-validation-error{border:1px solid red;background-color:#fee}
+.validation-summary-errors{font-weight:bold;color:red;font-family:Tahoma,Verdana,Arial,sans-serif;font-size:10px}
+.validation-summary-valid{display:none}
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+fieldset,input{font-size:12px;margin:5px 1px}
+fieldset{border-color:#b8cce4;padding:10px;color:#666}
+input[type=text] { text-transform: uppercase; }
+input.t-input { text-transform: none !important; }
+input.t-autocomplete { text-transform: uppercase !important;}
+input[type=button],input[type=submit],input[type=reset]{color:#fff;border:1px solid #999;padding:10px;text-align:center;vertical-align:middle;width:100px;background-image:url(images/bg-bluetitle2.jpg);background-repeat:repeat-x;}
+input[type=button]:hover,input[type=submit]:hover,input[type=reset]:hover {background-image:url(images/bg-lblue.jpg);color:#444;background-repeat:repeat-x; cursor:pointer;}
+.display-label,.editor-label,.display-field,.editor-field{padding:10px 10px 10px 10px}
+.editor-label,.editor-field{}
+.editor-label{clear:left;vertical-align:middle;color:#444}
+.guaranteeTable{border:1px solid #b8cce4;border-collapse:collapse}
+tr.guaranteeRow{border:1px solid #b8cce4}
+tr.guaranteeRow td{background-image:url(fondoxls.jpg);background-repeat:repeat-x;border-right:1px solid #b8cce4;vertical-align:top;min-height:40px}
+tr.attachedToLineRow{background-image:none;background-color:transparent}
+tr.attachedToLineRow td{background-image:none;background-color:transparent;border:0 none;vertical-align:top;min-height:40px}
+.editor-field{color:#444;background-color:#fff;border-left:0}
+.editor-field{ *float:none; }
+.editor-field input,.editor-field option,.editor-field textarea{margin:0;width:100%; padding: 3px 0px;}
+.editor-field textarea{width:400px;height:200px}
+.editor-label label{margin-right:5px;padding-right:5px;float:left}
+img.tooltip{float:right;cursor:help;margin-left:15px;height:20px;width:20px}
+.t-combobox,.t-dropdown,.t-selectbox{width:100%!important}
+.t-numerictextbox{}
+.hSeparator{display:block;height:5px}
+/* maker and checker styles */
+
+.currentPage{margin-left:5px;margin-right:5px;color:#000;font-weight:bold;text-decoration:none;font-size:12px}
+.itemContainer{background-color:#fff7d3;width:275px;border:solid 1px #dbddff;margin:2px;padding-top:2px;padding-bottom:2px;padding-left:10px;padding-right:5px;line-height:1.8em}
+.divRow {min-width:600px; margin-bottom:10px;}
+.commentBox { color:#666; font-family:Verdana;font-size:9px; width:98%;}
+#btnReject, #btnApprove { cursor: pointer;}
+.filterItem { word-wrap : break-word; }
+.styled-table.fixed { width:622px;}
+table.styled-table{border:1px solid #dbddff;border-collapse:collapse;font-family:Tahoma,Verdana,Arial,sans-serif;color:#fff;font-size:95%}
+table.styled-table th,table.styled-table td{padding-top:6px;padding-bottom:6px;padding-left:10px;padding-right:10px;background-repeat:repeat-x;background-color:#ffffff;font-size:100%;text-align:left;line-height:1.3em;color:#666;border-left:1px solid #dbddff;border-right:1px solid #dbddff;border-bottom:1px solid #dbddff}
+table.styled-table td{border-left:0;border-right:0;border-bottom:1px dotted #dadada;background-color:#fcfdfe; color:#666;}
+table.styled-table{width:100%; padding-left: .5em; padding-right: .5em;}
+table.styled-table th { background-image:url(images/bg-bluetitle2.jpg); background-color:#017bae; color:#fff;}
+table.styled-table.property-bag td { border-right: 1px dotted #dadada;}
+td.property-bag-new { background: url(images/newtag.gif) !important;background-repeat: no-repeat !important; padding-left: 25px !important;}
+.pager { text-align: center; }
+.pager-number { cursor:pointer; font-weight:bold;color:#fff; text-decoration:none; padding-right:5px; padding-left:0px;font-size:15px;}
+.pager-number-first { color:#fff; float:left; }
+.pager-number-last { color:#fff; float:right;}
+.pager-number:hover { color:#B5E61D; text-decoration:underline; }
+.pager-number-selected { color: #fff; text-decoration:underline;}
+/* changeset viewer styles */
+.changeset-viewer { margin-bottom:10px; }
+.changeset-viewer-action-container { margin: 5px; background-color: #F8F8A5; padding: 10px; border: 1px solid #dbddff;}
+.changeset-viewer-container { border:0px solid #dbddff; color:#666; margin:5px;  }
+#submit_changeset { width: 100%; }
+.changeset-viewer-action-container {}
+/* over utilization alert styles */
+.over-utilization-alert-container { background-color: #F2DEDE; border: 1px solid #EED3D7; color: #B94A48; width:100%; display:inline-block; margin:5px 0px; }
+.over-utilization-alert-icon { background: url(images/message-box-warning.png); width:32px; height:32px; margin:10px; float:left;}
+.over-utilization-alert-text { float:left; margin:7px; font-weight:bold;}
+.changeset-comment { width:100%; font-family:Tahoma,Verdana,Arial,sans-serif;color:#666;font-size:95%; }
+.enable-rejected-container { background-color: #FFFFE0; border:1px solid #666; margin:0px; padding:5px;}
+ul.garantia-contrato-list { list-style-type: none; margin: 0px; padding: 0px; }
+ul.garantia-Aval-list { list-style-type: none; margin: 0px; padding: 0px; }

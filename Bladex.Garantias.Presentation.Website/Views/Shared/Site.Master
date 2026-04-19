@@ -1,0 +1,101 @@
+<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<%@ Import Namespace="Bladex.Garantias.DomainModel.DomainBase" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </title>
+    <link href="../../Content/app-styles.css" rel="stylesheet" type="text/css" />
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="../../Content/ie8.css" type="text/css" />
+    <![endif]-->
+    <!--[if lte IE 6]>
+    <link rel="stylesheet" href="../../Content/ie6.css" type="text/css" />
+    <![endif]-->
+    <!--<link href="../../Content/css/redmond/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />-->
+    <!--<link href="../../Content/jquery.bt.css" rel="stylesheet" type="text/css" />-->
+    <link href="<%= Url.Content("~/Content/css/redmond/jquery-ui-1.8.6.custom.css") %>"
+        rel="stylesheet" type="text/css" />
+    <link href="<%= Url.Content("~/Content/jquery.bt.css") %>" rel="stylesheet" type="text/css" />
+    <script src="<%= Url.Content("~/Scripts/jquery-1.4.4.min.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.Content("~/Scripts/jquery-ui.min.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.Content("~/Scripts/json2.js") %>" type="text/javascript"></script>
+    <%--<script src="<%= Url.Content("~/Scripts/jquery.dataTables.min.js") %>" type="text/javascript"></script>--%>
+    <script src="<%= Url.Content("~/Scripts/jquery.dataTables-1.9.4.min.js") %>" type="text/javascript"></script>
+    
+    <script src="<%= Url.Content("~/Scripts/jquery.bgiframe.min.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.Content("~/Scripts/excanvas.compiled.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.Content("~/Scripts/hoverIntent.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.Content("~/Scripts/jquery.bt.min.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.Content("~/Scripts/jquery.query.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.Content("~/Scripts/common.js") %>" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="HeaderContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <%--<%: Html.Telerik().StyleSheetRegistrar().DefaultGroup(group => group.Add("telerik.common.css").Add("telerik.windows7.css").Combined(false).Compress(false).Version("2011.1.315"))%>--%>
+    <%--<%: Html.Telerik().StyleSheetRegistrar().DefaultGroup(group => group.Add("telerik.common.css").Add("telerik.windows7.css").Combined(false).Compress(false))%>--%>
+    <%--<%: Html.Telerik().StyleSheetRegistrar().DefaultGroup(group => group.Add("telerik.common.css").Add("telerik.windows7.css").Combined(false).Compress(false).Version("2011.2.712"))%>--%>
+    <%: Html.Telerik().StyleSheetRegistrar().DefaultGroup(group => group.Add("telerik.common.css").Add("telerik.windows7.css").Combined(false).Compress(false).Version("2011.2.712"))%>
+</head>
+<body>
+    <div class="scripts">
+        <script src="<%= Url.Content("~/Scripts/jquery.validate.min.js")%>" type="text/javascript"></script>
+        <script src="<%= Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")%>" type="text/javascript"></script>
+        <script src="<%= Url.Content("~/Scripts/MicrosoftAjax.js") %>" type="text/javascript"></script>
+        <script src="<%= Url.Content("~/Scripts/MicrosoftMvcAjax.js") %>" type="text/javascript"></script>
+        <script src="<%= Url.Content("~/Scripts/MicrosoftMvcValidation.js") %>" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var user = '<%= Session["User"] != null ? ((User)Session["User"]).UserName : Page.User.Identity.Name %>';
+
+                if (!user || user == 'undefined') {
+                    user = $("#logged-user").val();
+                }
+                if (!user) { user = "(not logged)"; }
+                $("#user_label").text(user);
+            });
+        </script>
+    </div>
+    <div class="page">
+        <div id="header" class="bgHeader">
+            <span>Módulo de Garantias</span>
+            <div id="title" class="sublogo">
+                <img src="<%=Url.Content("~/Content/Images/bladex.png") %>" alt="Bladex" />
+                <%if (Context.User.IsInRole("Power User"))
+                  {%>
+                <p id="user_label" class="admin-user">
+                    <%}
+                  else
+                  {%>
+                <p id="user_label" class="readonly-user">
+                    <%}%>
+                </p>
+            </div>
+        </div>
+        <!-- changeset viewer insertion point -->
+        <%Html.RenderAction("Current", "MakerChecker"); %>
+        
+        <!-- end of changeset viewer -->
+        <div id="main" class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+        <div id="footer">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+        <div id="changeTypeContainer">
+        </div>
+    </div>
+    <div>
+        <input id="logged-user" type="hidden" />
+    </div>
+    <%--<%: Html.Telerik().ScriptRegistrar().jQuery(false).DefaultGroup(group => group.Combined(false).Compress(false).Version("2011.1.315")) %>--%>
+    <%--<%: Html.Telerik().ScriptRegistrar().jQuery(false).DefaultGroup(group => group.Combined(false).Compress(false)) %> --%>
+    <%--<%: Html.Telerik().ScriptRegistrar().jQuery(false).DefaultGroup(group => group.Combined(false).Compress(false).Version("2011.2.712")) %>--%>
+    <%: Html.Telerik().ScriptRegistrar().jQuery(false).DefaultGroup(group => group.Combined(false).Compress(false).Version("2011.2.712")) %>
+</body>
+</html>

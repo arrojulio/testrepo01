@@ -1,0 +1,17 @@
+﻿:r .\Fill-Pais.sql
+:r .\Fill-Actor.sql
+:r .\Fill-Aseguradoras.sql
+:r .\Fill-Avaluadoras.sql
+:r .\Fill-Bancos.sql
+:r .\Fill-CalificacionesRiesgo.sql
+:r .\Fill-CategoriaRiesgoGarantia.sql
+:r .\Fill-CategoriaSuper.sql
+:r .\Fill-Fiduciarias.sql
+:r .\Fill-Frecuencias.sql
+:r .\Fill-GrupoRiesgoGarantias.sql
+:r .\Fill-InstrumentoFinanciero.sql
+:r .\Fill-Monedas.sql
+:r .\Fill-Status.sql
+:r .\Fill-TipoAval.sql
+:r .\Fill-TipoGarantiaSuper.sql
+:r .\Fill-Tooltip.sql

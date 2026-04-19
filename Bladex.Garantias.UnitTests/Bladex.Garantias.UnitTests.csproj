@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9CEAD6E5-FD2D-4800-904D-09E5B8CB0BFA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bladex.Garantias.UnitTests</RootNamespace>
+    <AssemblyName>Bladex.Garantias.UnitTests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>WebTest</TestProjectType>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=1.1.0.188, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL" />
+    <Reference Include="Elmah">
+      <HintPath>..\Bladex.Garantias.Infrastructure\Libraries\Elmah\x32\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bladex.Garantias.Infrastructure\Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Configuration.Design">
+      <HintPath>..\Bladex.Garantias.Infrastructure\Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Configuration.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Configuration.Design.HostAdapter, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bladex.Garantias.Infrastructure\Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Configuration.Design.HostAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Configuration.Design.UI">
+      <HintPath>..\Bladex.Garantias.Infrastructure\Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Configuration.Design.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Configuration.EnvironmentalOverrides, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bladex.Garantias.Infrastructure\Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Configuration.EnvironmentalOverrides.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bladex.Garantias.Infrastructure\Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data.Configuration.Design">
+      <HintPath>..\Bladex.Garantias.Infrastructure\Libraries\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Data.Configuration.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder">
+      <HintPath>..\Bladex.Garantias.Infrastructure\Libraries\EnterpriseLibrary\Microsoft.Practices.ObjectBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Moq">
+      <HintPath>..\Bladex.Garantias.Infrastructure\Libraries\Moq\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\Bladex.Garantias.Infrastructure\Libraries\Elmah\x32\System.Data.SQLite.DLL</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Telerik.Web.Mvc, Version=2011.2.712.340, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Nicolas\AppData\Roaming\Telerik\Updates\Telerik_Extensions_for_ASPNET_MVC_2011_2_712_OpenSource_hotfix\Binaries\Mvc3\Telerik.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="BladexDateExtensionTest.cs" />
+    <Compile Include="DomainModel\DomainBase\IndicadorAtomoEnumTest.cs" />
+    <Compile Include="DomainModel\DomainBase\UnidadFrecuenciaEnumTest.cs" />
+    <Compile Include="DomainModel\Services\GarantiaCommonServiceTest.cs" />
+    <Compile Include="DomainModel\Services\GarantiaContratoServiceTest.cs" />
+    <Compile Include="DomainModel\Services\MakerCheckerServiceTest.cs" />
+    <Compile Include="EntityBaseXmlSerializerTest.cs" />
+    <Compile Include="Infrastructure.Repositories\MakerCheckerOperationStatusSqlRepository.cs" />
+    <Compile Include="Infrastructure.Repositories\GarantiaBaseSqlRepositoryTest.cs" />
+    <Compile Include="Infrastructure.Repositories\GarantiaContratoSqlRepositoryTest.cs" />
+    <Compile Include="Infrastructure.Repositories\GarantiaInmuebleSqlRepositoryTest.cs" />
+    <Compile Include="Infrastructure.Repositories\MakerCheckerRoleSqlRepository.cs" />
+    <Compile Include="Infrastructure.Repositories\MakerCheckerUserSqlRepository.cs" />
+    <Compile Include="Infrastructure\CacheManagerTest.cs" />
+    <Compile Include="DomainModel\Repositories\IClienteRepositoryTest.cs" />
+    <Compile Include="Application Layer\ImportSync\GarantiaManagerTest.cs" />
+    <Compile Include="Infrastructure.Repositories\GarantiaPrendaSqlRepositoryTest.cs" />
+    <Compile Include="Infrastructure.Repositories\SyncLogSqlRepositoryTest.cs" />
+    <Compile Include="MvcMockHelpers.cs" />
+    <Compile Include="Presentation Layer\AvalControllerTest.cs" />
+    <Compile Include="Presentation Layer\MakerCheckerControllerTest.cs" />
+    <Compile Include="Presentation Layer\GarantiaContratoControllerTest.cs" />
+    <Compile Include="Presentation Layer\GarantiaPrendaControllerTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="..\ModelingProject1\LayerDiagram1.layerdiagram">
+      <Link>LayerDiagram1.layerdiagram</Link>
+      <Visible>False</Visible>
+    </AdditionalFiles>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Presentation Layer\IndexPage.webtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="web.config" />
+    <Shadow Include="Test References\Bladex.Garantias.Presentation.Website.accessor" />
+    <Shadow Include="Test References\Bladex.Garantias.ImportSync.accessor" />
+    <Shadow Include="Test References\Bladex.Garantias.Infrastructure.Repositories.accessor" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bladex.Garantias.Application\Bladex.Garantias.Application.csproj">
+      <Project>{5D661EF2-1D34-4C05-BFEF-FA1F654A5FE8}</Project>
+      <Name>Bladex.Garantias.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bladex.Garantias.DomainModel\Bladex.Garantias.DomainModel.csproj">
+      <Project>{14028DC5-D571-434D-AE07-92FFCA59B551}</Project>
+      <Name>Bladex.Garantias.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bladex.Garantias.ImportSync\Bladex.Garantias.ImportSync.csproj">
+      <Project>{4671DE0F-68C3-407F-9136-8207A8398D12}</Project>
+      <Name>Bladex.Garantias.ImportSync</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bladex.Garantias.Infrastructure.Repositories\Bladex.Garantias.Infrastructure.Repositories.csproj">
+      <Project>{B2ED2201-B025-48F8-9018-078E12451074}</Project>
+      <Name>Bladex.Garantias.Infrastructure.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bladex.Garantias.Infrastructure.UI\Bladex.Garantias.Infrastructure.UI.csproj">
+      <Project>{62B35C96-2526-448F-A6E3-9DA3506BEC56}</Project>
+      <Name>Bladex.Garantias.Infrastructure.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bladex.Garantias.Infrastructure\Bladex.Garantias.Infrastructure.csproj">
+      <Project>{5143B2ED-E747-415E-B1AA-63187D67EC87}</Project>
+      <Name>Bladex.Garantias.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bladex.Garantias.Presentation.Website\Bladex.Garantias.Presentation.Website.csproj">
+      <Project>{97FAE52F-3A61-4206-9EF9-5DB3FFA93981}</Project>
+      <Name>Bladex.Garantias.Presentation.Website</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\2011.2.712\Black\editor.png" />
+    <Content Include="Content\2011.2.712\Black\imagebrowser.png" />
+    <Content Include="Content\2011.2.712\Black\loading.gif" />
+    <Content Include="Content\2011.2.712\Black\slider-h.gif" />
+    <Content Include="Content\2011.2.712\Black\slider-v.gif" />
+    <Content Include="Content\2011.2.712\Black\sprite-vertical.png" />
+    <Content Include="Content\2011.2.712\Black\sprite.png" />
+    <Content Include="Content\2011.2.712\Black\treeview-line.png" />
+    <Content Include="Content\2011.2.712\Black\treeview-nodes-rtl.png" />
+    <Content Include="Content\2011.2.712\Black\treeview-nodes.png" />
+    <Content Include="Content\2011.2.712\Default\editor.png" />
+    <Content Include="Content\2011.2.712\Default\imagebrowser.png" />
+    <Content Include="Content\2011.2.712\Default\loading.gif" />
+    <Content Include="Content\2011.2.712\Default\slider-h.gif" />
+    <Content Include="Content\2011.2.712\Default\slider-v.gif" />
+    <Content Include="Content\2011.2.712\Default\sprite-vertical.png" />
+    <Content Include="Content\2011.2.712\Default\sprite.png" />
+    <Content Include="Content\2011.2.712\Default\treeview-line.png" />
+    <Content Include="Content\2011.2.712\Default\treeview-nodes-rtl.png" />
+    <Content Include="Content\2011.2.712\Default\treeview-nodes.png" />
+    <Content Include="Content\2011.2.712\Forest\editor.png" />
+    <Content Include="Content\2011.2.712\Forest\imagebrowser.png" />
+    <Content Include="Content\2011.2.712\Forest\loading.gif" />
+    <Content Include="Content\2011.2.712\Forest\slider-h.gif" />
+    <Content Include="Content\2011.2.712\Forest\slider-v.gif" />
+    <Content Include="Content\2011.2.712\Forest\sprite-vertical.png" />
+    <Content Include="Content\2011.2.712\Forest\sprite.png" />
+    <Content Include="Content\2011.2.712\Forest\treeview-line.png" />
+    <Content Include="Content\2011.2.712\Forest\treeview-nodes-rtl.png" />
+    <Content Include="Content\2011.2.712\Forest\treeview-nodes.png" />
+    <Content Include="Content\2011.2.712\Hay\editor.png" />
+    <Content Include="Content\2011.2.712\Hay\imagebrowser.png" />
+    <Content Include="Content\2011.2.712\Hay\loading.gif" />
+    <Content Include="Content\2011.2.712\Hay\slider-h.gif" />
+    <Content Include="Content\2011.2.712\Hay\slider-v.gif" />
+    <Content Include="Content\2011.2.712\Hay\sprite-vertical.png" />
+    <Content Include="Content\2011.2.712\Hay\sprite.png" />
+    <Content Include="Content\2011.2.712\Hay\treeview-line.png" />
+    <Content Include="Content\2011.2.712\Hay\treeview-nodes-rtl.png" />
+    <Content Include="Content\2011.2.712\Hay\treeview-nodes.png" />
+    <Content Include="Content\2011.2.712\Office2007\editor.png" />
+    <Content Include="Content\2011.2.712\Office2007\imagebrowser.png" />
+    <Content Include="Content\2011.2.712\Office2007\loading.gif" />
+    <Content Include="Content\2011.2.712\Office2007\slider-h.gif" />
+    <Content Include="Content\2011.2.712\Office2007\slider-v.gif" />
+    <Content Include="Content\2011.2.712\Office2007\sprite-vertical.png" />
+    <Content Include="Content\2011.2.712\Office2007\sprite.png" />
+    <Content Include="Content\2011.2.712\Office2007\treeview-line.png" />
+    <Content Include="Content\2011.2.712\Office2007\treeview-nodes-rtl.png" />
+    <Content Include="Content\2011.2.712\Office2007\treeview-nodes.png" />
+    <Content Include="Content\2011.2.712\Office2010Black\editor.png" />
+    <Content Include="Content\2011.2.712\Office2010Black\imagebrowser.png" />
+    <Content Include="Content\2011.2.712\Office2010Black\loading.gif" />
+    <Content Include="Content\2011.2.712\Office2010Black\slider-h.gif" />
+    <Content Include="Content\2011.2.712\Office2010Black\slider-v.gif" />
+    <Content Include="Content\2011.2.712\Office2010Black\sprite-vertical.png" />
+    <Content Include="Content\2011.2.712\Office2010Black\sprite.png" />
+    <Content Include="Content\2011.2.712\Office2010Black\treeview-line.png" />
+    <Content Include="Content\2011.2.712\Office2010Black\treeview-nodes-rtl.png" />
+    <Content Include="Content\2011.2.712\Office2010Black\treeview-nodes.png" />
+    <Content Include="Content\2011.2.712\Office2010Blue\editor.png" />
+    <Content Include="Content\2011.2.712\Office2010Blue\gradient.png" />
+    <Content Include="Content\2011.2.712\Office2010Blue\imagebrowser.png" />
+    <Content Include="Content\2011.2.712\Office2010Blue\loading.gif" />
+    <Content Include="Content\2011.2.712\Office2010Blue\slider-h.gif" />
+    <Content Include="Content\2011.2.712\Office2010Blue\slider-v.gif" />
+    <Content Include="Content\2011.2.712\Office2010Blue\sprite-vertical.png" />
+    <Content Include="Content\2011.2.712\Office2010Blue\sprite.png" />
+    <Content Include="Content\2011.2.712\Office2010Silver\editor.png" />
+    <Content Include="Content\2011.2.712\Office2010Silver\gradient.png" />
+    <Content Include="Content\2011.2.712\Office2010Silver\imagebrowser.png" />
+    <Content Include="Content\2011.2.712\Office2010Silver\loading.gif" />
+    <Content Include="Content\2011.2.712\Office2010Silver\slider-h.gif" />
+    <Content Include="Content\2011.2.712\Office2010Silver\slider-v.gif" />
+    <Content Include="Content\2011.2.712\Office2010Silver\sprite-vertical.png" />
+    <Content Include="Content\2011.2.712\Office2010Silver\sprite.png" />
+    <Content Include="Content\2011.2.712\Outlook\editor.png" />
+    <Content Include="Content\2011.2.712\Outlook\imagebrowser.png" />
+    <Content Include="Content\2011.2.712\Outlook\loading.gif" />
+    <Content Include="Content\2011.2.712\Outlook\slider-h.gif" />
+    <Content Include="Content\2011.2.712\Outlook\slider-v.gif" />
+    <Content Include="Content\2011.2.712\Outlook\sprite-vertical.png" />
+    <Content Include="Content\2011.2.712\Outlook\sprite.png" />
+    <Content Include="Content\2011.2.712\Outlook\treeview-line.png" />
+    <Content Include="Content\2011.2.712\Outlook\treeview-nodes-rtl.png" />
+    <Content Include="Content\2011.2.712\Outlook\treeview-nodes.png" />
+    <Content Include="Content\2011.2.712\Simple\editor.png" />
+    <Content Include="Content\2011.2.712\Simple\imagebrowser.png" />
+    <Content Include="Content\2011.2.712\Simple\loading.gif" />
+    <Content Include="Content\2011.2.712\Simple\slider-h.gif" />
+    <Content Include="Content\2011.2.712\Simple\slider-v.gif" />
+    <Content Include="Content\2011.2.712\Simple\sprite-vertical.png" />
+    <Content Include="Content\2011.2.712\Simple\sprite.png" />
+    <Content Include="Content\2011.2.712\Simple\treeview-line.png" />
+    <Content Include="Content\2011.2.712\Simple\treeview-nodes-rtl.png" />
+    <Content Include="Content\2011.2.712\Simple\treeview-nodes.png" />
+    <Content Include="Content\2011.2.712\Sitefinity\editor.png" />
+    <Content Include="Content\2011.2.712\Sitefinity\imagebrowser.png" />
+    <Content Include="Content\2011.2.712\Sitefinity\loading.gif" />
+    <Content Include="Content\2011.2.712\Sitefinity\slider-h.gif" />
+    <Content Include="Content\2011.2.712\Sitefinity\slider-v.gif" />
+    <Content Include="Content\2011.2.712\Sitefinity\sprite-vertical.png" />
+    <Content Include="Content\2011.2.712\Sitefinity\sprite.png" />
+    <Content Include="Content\2011.2.712\Sitefinity\treeview-line.png" />
+    <Content Include="Content\2011.2.712\Sitefinity\treeview-nodes-rtl.png" />
+    <Content Include="Content\2011.2.712\Sitefinity\treeview-nodes.png" />
+    <Content Include="Content\2011.2.712\Sunset\editor.png" />
+    <Content Include="Content\2011.2.712\Sunset\imagebrowser.png" />
+    <Content Include="Content\2011.2.712\Sunset\loading.gif" />
+    <Content Include="Content\2011.2.712\Sunset\slider-h.gif" />
+    <Content Include="Content\2011.2.712\Sunset\slider-v.gif" />
+    <Content Include="Content\2011.2.712\Sunset\sprite-vertical.png" />
+    <Content Include="Content\2011.2.712\Sunset\sprite.png" />
+    <Content Include="Content\2011.2.712\Sunset\treeview-line.png" />
+    <Content Include="Content\2011.2.712\Sunset\treeview-nodes-rtl.png" />
+    <Content Include="Content\2011.2.712\Sunset\treeview-nodes.png" />
+    <Content Include="Content\2011.2.712\telerik.black.min.css" />
+    <Content Include="Content\2011.2.712\telerik.common.min.css" />
+    <Content Include="Content\2011.2.712\telerik.default.min.css" />
+    <Content Include="Content\2011.2.712\telerik.forest.min.css" />
+    <Content Include="Content\2011.2.712\telerik.hay.min.css" />
+    <Content Include="Content\2011.2.712\telerik.office2007.min.css" />
+    <Content Include="Content\2011.2.712\telerik.office2010black.min.css" />
+    <Content Include="Content\2011.2.712\telerik.office2010blue.min.css" />
+    <Content Include="Content\2011.2.712\telerik.office2010silver.min.css" />
+    <Content Include="Content\2011.2.712\telerik.outlook.min.css" />
+    <Content Include="Content\2011.2.712\telerik.rtl.min.css" />
+    <Content Include="Content\2011.2.712\telerik.simple.min.css" />
+    <Content Include="Content\2011.2.712\telerik.sitefinity.min.css" />
+    <Content Include="Content\2011.2.712\telerik.sunset.min.css" />
+    <Content Include="Content\2011.2.712\telerik.telerik.min.css" />
+    <Content Include="Content\2011.2.712\telerik.transparent.min.css" />
+    <Content Include="Content\2011.2.712\telerik.vista.min.css" />
+    <Content Include="Content\2011.2.712\telerik.web20.min.css" />
+    <Content Include="Content\2011.2.712\telerik.webblue.min.css" />
+    <Content Include="Content\2011.2.712\telerik.windows7.min.css" />
+    <Content Include="Content\2011.2.712\Telerik\editor.png" />
+    <Content Include="Content\2011.2.712\Telerik\imagebrowser.png" />
+    <Content Include="Content\2011.2.712\Telerik\loading.gif" />
+    <Content Include="Content\2011.2.712\Telerik\slider-h.gif" />
+    <Content Include="Content\2011.2.712\Telerik\slider-v.gif" />
+    <Content Include="Content\2011.2.712\Telerik\sprite-vertical.png" />
+    <Content Include="Content\2011.2.712\Telerik\sprite.png" />
+    <Content Include="Content\2011.2.712\Telerik\treeview-line.png" />
+    <Content Include="Content\2011.2.712\Telerik\treeview-nodes-rtl.png" />
+    <Content Include="Content\2011.2.712\Telerik\treeview-nodes.png" />
+    <Content Include="Content\2011.2.712\Transparent\active.png" />
+    <Content Include="Content\2011.2.712\Transparent\editor.png" />
+    <Content Include="Content\2011.2.712\Transparent\gradient.png" />
+    <Content Include="Content\2011.2.712\Transparent\group.png" />
+    <Content Include="Content\2011.2.712\Transparent\hover.png" />
+    <Content Include="Content\2011.2.712\Transparent\imagebrowser.png" />
+    <Content Include="Content\2011.2.712\Transparent\loading.gif" />
+    <Content Include="Content\2011.2.712\Transparent\selected.png" />
+    <Content Include="Content\2011.2.712\Transparent\slider-h.gif" />
+    <Content Include="Content\2011.2.712\Transparent\slider-v.gif" />
+    <Content Include="Content\2011.2.712\Transparent\sprite-vertical.png" />
+    <Content Include="Content\2011.2.712\Transparent\sprite.png" />
+    <Content Include="Content\2011.2.712\Transparent\toolbar.png" />
+    <Content Include="Content\2011.2.712\Transparent\widget.png" />
+    <Content Include="Content\2011.2.712\Vista\editor.png" />
+    <Content Include="Content\2011.2.712\Vista\imagebrowser.png" />
+    <Content Include="Content\2011.2.712\Vista\loading.gif" />
+    <Content Include="Content\2011.2.712\Vista\slider-h.gif" />
+    <Content Include="Content\2011.2.712\Vista\slider-v.gif" />
+    <Content Include="Content\2011.2.712\Vista\sprite-vertical.png" />
+    <Content Include="Content\2011.2.712\Vista\sprite.png" />
+    <Content Include="Content\2011.2.712\Web20\editor.png" />
+    <Content Include="Content\2011.2.712\Web20\imagebrowser.png" />
+    <Content Include="Content\2011.2.712\Web20\loading.gif" />
+    <Content Include="Content\2011.2.712\Web20\slider-h.gif" />
+    <Content Include="Content\2011.2.712\Web20\slider-v.gif" />
+    <Content Include="Content\2011.2.712\Web20\sprite-vertical.png" />
+    <Content Include="Content\2011.2.712\Web20\sprite.png" />
+    <Content Include="Content\2011.2.712\Web20\treeview-line.png" />
+    <Content Include="Content\2011.2.712\Web20\treeview-nodes-rtl.png" />
+    <Content Include="Content\2011.2.712\Web20\treeview-nodes.png" />
+    <Content Include="Content\2011.2.712\WebBlue\editor.png" />
+    <Content Include="Content\2011.2.712\WebBlue\imagebrowser.png" />
+    <Content Include="Content\2011.2.712\WebBlue\loading.gif" />
+    <Content Include="Content\2011.2.712\WebBlue\slider-h.gif" />
+    <Content Include="Content\2011.2.712\WebBlue\slider-v.gif" />
+    <Content Include="Content\2011.2.712\WebBlue\sprite-vertical.png" />
+    <Content Include="Content\2011.2.712\WebBlue\sprite.png" />
+    <Content Include="Content\2011.2.712\WebBlue\treeview-line.png" />
+    <Content Include="Content\2011.2.712\WebBlue\treeview-nodes-rtl.png" />
+    <Content Include="Content\2011.2.712\WebBlue\treeview-nodes.png" />
+    <Content Include="Content\2011.2.712\Windows7\editor.png" />
+    <Content Include="Content\2011.2.712\Windows7\imagebrowser.png" />
+    <Content Include="Content\2011.2.712\Windows7\loading.gif" />
+    <Content Include="Content\2011.2.712\Windows7\slider-h.gif" />
+    <Content Include="Content\2011.2.712\Windows7\slider-v.gif" />
+    <Content Include="Content\2011.2.712\Windows7\sprite-vertical.png" />
+    <Content Include="Content\2011.2.712\Windows7\sprite.png" />
+    <Content Include="Scripts\2011.2.712\jquery-1.5.1.min.js" />
+    <Content Include="Scripts\2011.2.712\jquery.validate.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.autocomplete.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.calendar.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.chart.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.combobox.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.common.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.datepicker.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.datetimepicker.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.draganddrop.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.editor.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.grid.editing.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.grid.filtering.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.grid.grouping.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.grid.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.grid.reordering.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.grid.resizing.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.imagebrowser.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.list.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.menu.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.panelbar.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.slider.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.splitter.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.tabstrip.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.textbox.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.timepicker.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.treeview.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.upload.min.js" />
+    <Content Include="Scripts\2011.2.712\telerik.window.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DomainModel\Components\MakerChecker\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.9.0\analyzers\dotnet\cs\Microsoft.DependencyValidation.Analyzers.resources.dll" />
+    <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.9.0\analyzers\dotnet\Microsoft.DependencyValidation.Analyzers.dll" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties BuildVersion_UseGlobalSettings="False" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

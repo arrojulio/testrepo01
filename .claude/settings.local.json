@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/dev/ap.elcazal/testrepo01 -maxdepth 1 -type f -name *.md -o -name *.json -o -name Makefile -o -name *.rules)",
+      "Bash(find /c/dev/ap.elcazal/testrepo01 -maxdepth 2 -type f \\\\\\(-name App.config -o -name Web.config -o -name *.config \\\\\\))"
+    ]
+  }
+}

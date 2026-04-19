@@ -1,0 +1,68 @@
+﻿CREATE TABLE [dbo].[GarantiaBase] (
+    [ID]                                    INT            IDENTITY (1, 1) NOT NULL,
+    [ID_Atomo]                              NUMERIC (18)   NULL,
+    [FCCReference]                          VARCHAR (50)   NULL,
+    [IdentificadorGarantia]                 VARCHAR (50)   NULL,
+    [CodigoBanco]                           VARCHAR (5)    NULL,
+    [Cliente]                               VARCHAR (10)   NULL,
+    [Beneficiario]                          VARCHAR (250)  NULL,
+    [IdentificacionFideicomiso]             VARCHAR (50)   NULL,
+    [FiduciariaSuper]                       VARCHAR (5)    NULL,
+    [Fiduciaria]                            VARCHAR (50)   NULL,
+    [Depositante]                           VARCHAR (10)   NULL,
+    [Evaluador]                             VARCHAR (10)   NULL,
+    [Administrador]                         VARCHAR (10)   NULL,
+    [Asegurador]                            VARCHAR (10)   NULL,
+    [Revisor]                               VARCHAR (10)   NULL,
+    [OrigenGarantia]                        VARCHAR (50)   NULL,
+    [PaisGarantia]                          VARCHAR (3)    NULL,
+    [TipoGarantiaSuper]                     VARCHAR (5)    NULL,
+    [TipoGarantiaBladex]                    VARCHAR (10)   NULL,
+    [getIdentificacionDocumentoGarantia]    VARCHAR (50)   NULL,
+    [getNombreOrganismo]                    VARCHAR (250)  NULL,
+    [ValorInicial]                          MONEY          NULL,
+    [getValorGarantiaSuperIntendencia]      MONEY          NULL,
+    [DescripcionDeLaGarantia]               VARCHAR (1000) NULL,
+    [Garante]                               VARCHAR (10)   NULL,
+    [AttachedToLine]                        BIT            NULL,
+    [FechaRegistroInicial]                  DATETIME       NULL,
+    [FechaFormalizacion]                    DATETIME       NULL,
+    [FechaVencimientoRiesgo]                DATETIME       NULL,
+    [FechaVencimientoGarantia]              DATETIME       NULL,
+    [FechaUltimaRevisionEvaluacion]         DATETIME       NULL,
+    [FechaProximaRevisionEvaluacion]        DATETIME       NULL,
+    [FrequenciaRevision]                    VARCHAR (50)   NULL,
+    [FechaVencimientoSeguro]                DATETIME       NULL,
+    [CategoriaRiesgoGarantia]               VARCHAR (10)   NULL,
+    [ReduccionDeRiesgoPorPais]              FLOAT          NULL,
+    [Moneda]                                VARCHAR (3)    NULL,
+    [ValorNecesarioDeGarantia]              AS             ([dbo].[UDF_Garantias_ValorGarantia]([ID])),
+    [getRatioCoberturaGarantia]             FLOAT          NULL,
+    [PorcentajeAplicableMitigacionSuperInt] FLOAT          NULL,
+    [Comentarios]                           TEXT           NULL,
+    [RatingGarante]                         VARCHAR (5)    NULL,
+    [ValorPolizaSeguro]                     MONEY          NULL,
+    [NumeroPolizaSeguro]                    VARCHAR (50)   NULL,
+    [ValorMercado]                          MONEY          NULL,
+    [InternalStatus]                        INT            NULL,
+    [CategoriaSuperId]                      VARCHAR (5)    NOT NULL,
+    [Source]                                INT            NULL,
+    [IndAtomo]                              INT            NULL,
+    [Status]                                INT            NULL,
+    [FechaComienzoEjecucion]                DATETIME       NULL,
+    [FechaCierreEjecucion]                  DATETIME       NULL
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+

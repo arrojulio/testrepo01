@@ -1,0 +1,35 @@
+﻿-- =============================================
+-- Script Template
+-- =============================================
+
+--SB57
+
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'NA', N'NA')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'601', N'ACE Seguros, S.A.')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'602', N'American Assurance Corp.')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'603', N'American Life Ins. Co.')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'604', N'Aseguradora Ancón, S.A.')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'605', N'Aseguradora Global, S.A.')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'606', N'Aseguradora Mundial, S.A.')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'607', N'Assa Compañía de Seguros, S A')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'608', N'Assicurazioni Generali, S.p. A.')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'609', N'Banesco Seguros, S.A.')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'610', N'British American Ins. Co.')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'611', N'Cia. Interoceánica de Seguros, S.A.')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'612', N'Cía. Internacional de Seguros')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'613', N'Cía. Istmeña de Seguros, S. A.')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'614', N'Eastern Pacific Insurance Company, Inc.')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'615', N'Empresa General de Seguros, S.A.')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'616', N'HSBC Seguros (Panamá) S.A.,')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'617', N'MEDISALUD, S.A.')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'618', N'National Union Fire Ins. Co. of Pitts. Pa')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'619', N'Pan American Life Ins. Co.')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'620', N'Pan American Life Insurance de Panamá, S.A.')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'621', N'Premier Seguros Internacional, S.A.')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'622', N'Sagicor Panamá')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'623', N'Seguros BBA, Corp.')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'624', N'Seguros Constitución, S.A.')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'625', N'Seguros FEDPA, S.A. (Profesa)')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'626', N'Worldwide Medical Assurance, Ltd, Corp.')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'627', N'CONASE, SA.')
+INSERT [Aseguradoras] ([ID], [Nombre]) VALUES (N'699', N'Compañía de Seguro en el exterior')

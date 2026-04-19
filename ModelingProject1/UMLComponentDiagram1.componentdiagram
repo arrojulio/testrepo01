@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<componentModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="25ea9a75-5d35-4ce7-86c1-763758328161" name="UMLComponentDiagram1" linkedPackageId="30dc8843-46ea-4d5b-8347-3a0d7d939e47" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="0d39e3e6-54c5-4ec3-9f82-07c97ed5ea4d">
+      <profileInstance Id="f2772bbf-f198-49ca-a874-b5a3e7c42ab3" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="60c09cbf-aa97-4bf6-8de9-74d2be3b9d23">
+      <profileInstance Id="b74b8e6e-ca38-4d04-8d4b-9a86ddd08341" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <componentModelHasComponents>
+      <component Id="023b1387-2d2e-4ffc-a536-c8d17a1fbe96" name="Garantias" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="33c230cf-e108-46a4-9dd1-5ba334f6fc69" />
+        <ownedAttributesInternal>
+          <providedInterface Id="f1ca17c6-f5c1-4af5-b621-b8e8a8ffc8a4" name="Port1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="19e5a0d0-8d90-4790-9638-f23b4949746d" />
+            <type_NamedElement>
+              <interfaceMoniker Id="d709f27a-d916-4163-99c7-eda4293b98c9" LastKnownName="IGarantiasServicios" />
+            </type_NamedElement>
+          </providedInterface>
+        </ownedAttributesInternal>
+      </component>
+    </componentModelHasComponents>
+    <modelContainsNamedElements>
+      <Interface Id="d709f27a-d916-4163-99c7-eda4293b98c9" name="IGarantiasServicios" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2b1bfd49-c130-4b58-a66a-2781112dc575" />
+      </Interface>
+    </modelContainsNamedElements>
+    <componentModelHasComponents>
+      <component Id="90b9b138-3690-4cf1-b6bf-593d2e3ead20" name="SincronizadorAtomo" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="081928c4-54d4-462a-afe0-9f841c380218" />
+        <ownedAttributesInternal>
+          <providedInterface Id="78275245-16a6-4093-96e7-462b44c8146b" name="Port1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="74356865-9094-4837-b3da-c918e64ff55b" />
+            <type_NamedElement>
+              <interfaceMoniker Id="9b296254-2e50-40a4-b582-5c0c84b55e77" LastKnownName="AtomoInput" />
+            </type_NamedElement>
+          </providedInterface>
+          <requiredInterface Id="ffd60dad-2725-4bfa-a2e9-dc0afc3c5e8f" name="Port2" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="7ffbc39b-49c8-42ff-a340-578cc78cf9a9" />
+            <type_NamedElement>
+              <interfaceMoniker Id="ffcf5564-1025-490d-b4f3-e4e0d4f45311" LastKnownName="IGarantiaServicios" />
+            </type_NamedElement>
+          </requiredInterface>
+        </ownedAttributesInternal>
+      </component>
+    </componentModelHasComponents>
+    <modelContainsNamedElements>
+      <Interface Id="9b296254-2e50-40a4-b582-5c0c84b55e77" name="AtomoInput" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="0cb29a90-a540-4e6f-96eb-4fe5f64c0057" />
+      </Interface>
+    </modelContainsNamedElements>
+    <componentModelHasComponents>
+      <component Id="dab20d88-bcdf-4353-94fe-3f0c302cdc97" name="RegistrosContables" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="02210c28-efae-46f2-b514-ab1e8df95d3b" />
+        <ownedAttributesInternal>
+          <providedInterface Id="4b647093-ae92-48ca-b9fc-db34f6346fe6" name="Port1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="71989f6c-fa60-4487-b8de-40cf53fce078" />
+            <type_NamedElement>
+              <interfaceMoniker Id="fd7d0a7b-de0d-4291-9056-a03214dd0e6c" LastKnownName="IRegContablesOutput" />
+            </type_NamedElement>
+          </providedInterface>
+          <providedInterface Id="86103cb7-3c61-4b80-ba7e-d30705d9640d" name="Port2" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="a3aa6cbf-39cb-4784-aa82-5fa5d40ed8d7" />
+            <type_NamedElement>
+              <interfaceMoniker Id="c9e7a6dc-8287-4c93-8169-aed282d88655" LastKnownName="IRegContablesOperaciones" />
+            </type_NamedElement>
+          </providedInterface>
+          <requiredInterface Id="f6b36c01-94b7-4d27-a2a0-b1058e9a4505" name="Port3" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="19b8c34f-6cdf-4cb9-a31e-60ee0f485015" />
+            <type_NamedElement>
+              <interfaceMoniker Id="444b42f1-31ec-47be-bd48-ca48d37ad0c4" LastKnownName="IGarantiaServicios" />
+            </type_NamedElement>
+          </requiredInterface>
+        </ownedAttributesInternal>
+      </component>
+    </componentModelHasComponents>
+    <modelContainsNamedElements>
+      <Interface Id="fd7d0a7b-de0d-4291-9056-a03214dd0e6c" name="IRegContablesOutput" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="999ef17f-abf4-4d3f-b0ee-dc2ff13c6f71" />
+      </Interface>
+    </modelContainsNamedElements>
+    <modelContainsNamedElements>
+      <Interface Id="c9e7a6dc-8287-4c93-8169-aed282d88655" name="IRegContablesOperaciones" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7baf900a-da28-40d9-95a0-fd84c4f79306" />
+      </Interface>
+    </modelContainsNamedElements>
+    <componentModelHasComponents>
+      <component Id="b69742a6-3e79-4a16-9de7-09281a6d5bea" name="Forms" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="65965cd7-0699-4f48-b7f2-2429cffd5b31" />
+        <ownedAttributesInternal>
+          <requiredInterface Id="8cfb539b-b4c7-4680-9036-dba83489aa46" name="Port1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="ad4799ac-5362-4c9b-91b3-049e4ae4fb4a" />
+            <type_NamedElement>
+              <interfaceMoniker Id="ed7cac85-9a72-4237-a229-6bc9f84ab75a" LastKnownName="IGarantiasServicios" />
+            </type_NamedElement>
+          </requiredInterface>
+          <requiredInterface Id="1113eac4-2fc4-4ecf-94c4-15a8c481b477" name="Port2" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="bce32fe4-f375-4545-ad41-6b2e4678770c" />
+            <type_NamedElement>
+              <interfaceMoniker Id="c2689e05-0594-4483-ab83-401e18ff6814" LastKnownName="IM&amp;C" />
+            </type_NamedElement>
+          </requiredInterface>
+          <providedInterface Id="540adb68-92bb-4f0e-9334-8d254e6a969f" name="Port3" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="30104d8a-efbe-4f46-845f-d75a5f6bf523" />
+            <type_NamedElement>
+              <interfaceMoniker Id="5810883d-8b72-430c-aa6b-ae2cb91c7050" LastKnownName="IFormOperaciones" />
+            </type_NamedElement>
+          </providedInterface>
+        </ownedAttributesInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="8f730997-4dc8-4144-bef7-10d129f70c5d" name="Reporting" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="7d48cbd8-6705-4a57-acbf-0623ea01aa11" />
+        <ownedAttributesInternal>
+          <requiredInterface Id="bbbd073b-e7e0-470b-b849-a2402637815e" name="Port1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="1312ad44-ee4a-4086-9ec2-836a1e81f3e6" />
+            <type_NamedElement>
+              <interfaceMoniker Id="e6085a78-b81c-479e-a173-af0ab36ee2d6" LastKnownName="IGarantiasServicios" />
+            </type_NamedElement>
+          </requiredInterface>
+          <providedInterface Id="1d59f6d5-2362-411b-bd20-195ad6d24b04" name="Port2" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="04587b22-a967-4a48-99a8-4e0179357046" />
+            <type_NamedElement>
+              <interfaceMoniker Id="cf581fdb-3caf-4772-895c-a02bf0071adf" LastKnownName="IRptOperaciones" />
+            </type_NamedElement>
+          </providedInterface>
+        </ownedAttributesInternal>
+      </component>
+    </componentModelHasComponents>
+    <modelContainsNamedElements>
+      <Interface Id="e6085a78-b81c-479e-a173-af0ab36ee2d6" name="IGarantiasServicios" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="dc49099d-356b-4aad-9f09-1cc073ee25ce" />
+      </Interface>
+    </modelContainsNamedElements>
+    <modelContainsNamedElements>
+      <Interface Id="ed7cac85-9a72-4237-a229-6bc9f84ab75a" name="IGarantiasServicios" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d1301ae1-5425-4930-ad2d-110d4127fdcb" />
+      </Interface>
+    </modelContainsNamedElements>
+    <modelContainsNamedElements>
+      <Interface Id="ffcf5564-1025-490d-b4f3-e4e0d4f45311" name="IGarantiaServicios" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="74badee9-f974-4a72-acec-8c7ef0235f14" />
+      </Interface>
+    </modelContainsNamedElements>
+    <componentModelHasComponents>
+      <component Id="5a803ef0-1db1-4e3f-a7c3-423f58b21928" name="Alertas" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="347bb6fa-6ec5-46fe-a690-6e926b1b4c2b" />
+        <ownedAttributesInternal>
+          <requiredInterface Id="f4ac0995-ce42-45a4-9a9b-52a4ee2c6bb4" name="Port1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="a169f534-e495-4692-b2ea-298c5f1af3be" />
+            <type_NamedElement>
+              <interfaceMoniker Id="b1d90452-64f1-47ec-8642-25f25b4b88d2" LastKnownName="IGarantiaServicios" />
+            </type_NamedElement>
+          </requiredInterface>
+          <providedInterface Id="877330b8-b54b-4c42-a04c-383bd0f82e20" name="Port2" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="a46c9be9-b138-4036-8b65-4775e25bc30f" />
+            <type_NamedElement>
+              <interfaceMoniker Id="49bef2aa-8b55-4407-a641-294614bd8da6" LastKnownName="IAlertasOperaciones" />
+            </type_NamedElement>
+          </providedInterface>
+        </ownedAttributesInternal>
+      </component>
+    </componentModelHasComponents>
+    <modelContainsNamedElements>
+      <Interface Id="b1d90452-64f1-47ec-8642-25f25b4b88d2" name="IGarantiaServicios" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ec70886c-319b-4923-89f3-57bf2af348c0" />
+      </Interface>
+    </modelContainsNamedElements>
+    <modelContainsNamedElements>
+      <Interface Id="444b42f1-31ec-47be-bd48-ca48d37ad0c4" name="IGarantiaServicios" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9696c93f-3986-4f62-90c9-572e744eae28" />
+      </Interface>
+    </modelContainsNamedElements>
+    <componentModelHasComponents>
+      <component Id="6afb1af6-4a88-4dec-97cc-de5cc7985e0a" name="MakerYChecker" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="de5bea34-3e52-44e6-8051-24a835370eab" />
+        <ownedAttributesInternal>
+          <requiredInterface Id="810a205a-2617-444e-b615-764b33aa47aa" name="Port1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="e6cc19e4-da48-4a95-973f-be1601af3f64" />
+            <type_NamedElement>
+              <interfaceMoniker Id="ed506dd2-79ab-4ea5-86e4-13fda2d63a58" LastKnownName="IGarantiasServicios" />
+            </type_NamedElement>
+          </requiredInterface>
+          <providedInterface Id="423ca5da-aa91-4fbc-b0aa-d56155c4b75d" name="Port2" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="650dd3d2-e87d-4c03-873d-6e23533e9631" />
+            <type_NamedElement>
+              <interfaceMoniker Id="f90b207e-f087-49aa-b948-4bfcbae9423c" LastKnownName="IM&amp;C" />
+            </type_NamedElement>
+          </providedInterface>
+        </ownedAttributesInternal>
+      </component>
+    </componentModelHasComponents>
+    <modelContainsNamedElements>
+      <Interface Id="ed506dd2-79ab-4ea5-86e4-13fda2d63a58" name="IGarantiasServicios" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a0fe5510-e77c-452f-ab56-96048a362562" />
+      </Interface>
+    </modelContainsNamedElements>
+    <modelContainsNamedElements>
+      <Interface Id="c2689e05-0594-4483-ab83-401e18ff6814" name="IM&amp;C" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="93dd768a-3a83-457a-bd67-ae8b00f3100e" />
+      </Interface>
+    </modelContainsNamedElements>
+    <modelContainsNamedElements>
+      <Interface Id="f90b207e-f087-49aa-b948-4bfcbae9423c" name="IM&amp;C" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="81cfa272-1739-4671-9f4c-d925bca39fe3" />
+      </Interface>
+    </modelContainsNamedElements>
+    <componentModelHasComponents>
+      <component Id="a14c0286-d56f-4104-b68a-bc8afd918b82" name="Actuales" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="38aa730f-6042-4ae2-84b5-6c4ccb12358c" />
+        <ownedAttributesInternal>
+          <providedInterface Id="448834d4-c529-42da-9298-5ff7471f1fc3" name="Port1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="12d5dfbf-cba0-477c-9cf3-fab8f7b6d7eb" />
+            <type_NamedElement>
+              <interfaceMoniker Id="6fc47489-a91b-40a1-948f-9a7e715d2136" LastKnownName="ActualesInput" />
+            </type_NamedElement>
+          </providedInterface>
+          <requiredInterface Id="f272a594-0262-406e-bee7-26100590f0c7" name="Port2" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="e2be1297-189e-4b86-87c8-0969a51b8bc8" />
+            <type_NamedElement>
+              <interfaceMoniker Id="5fe26d50-239e-45b2-bbe0-aa9e9a0d86d6" LastKnownName="IGarantiaServicios" />
+            </type_NamedElement>
+          </requiredInterface>
+        </ownedAttributesInternal>
+      </component>
+    </componentModelHasComponents>
+    <modelContainsNamedElements>
+      <Interface Id="6fc47489-a91b-40a1-948f-9a7e715d2136" name="ActualesInput" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ee0b4d5c-4912-4f6b-bbf8-e948a6b94593" />
+      </Interface>
+    </modelContainsNamedElements>
+    <modelContainsNamedElements>
+      <Interface Id="5fe26d50-239e-45b2-bbe0-aa9e9a0d86d6" name="IGarantiaServicios" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="061454e9-51eb-4920-aef9-0eebf7ca3ff1" />
+      </Interface>
+    </modelContainsNamedElements>
+    <modelContainsNamedElements>
+      <Interface Id="5810883d-8b72-430c-aa6b-ae2cb91c7050" name="IFormOperaciones" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5afb854c-5bfd-488c-877f-dc61cca251fd" />
+      </Interface>
+    </modelContainsNamedElements>
+    <modelContainsNamedElements>
+      <Interface Id="cf581fdb-3caf-4772-895c-a02bf0071adf" name="IRptOperaciones" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a4b11d7c-b529-41f4-8e9d-9c888a2fc9cc" />
+      </Interface>
+    </modelContainsNamedElements>
+    <modelContainsNamedElements>
+      <Interface Id="49bef2aa-8b55-4407-a641-294614bd8da6" name="IAlertasOperaciones" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6973028b-5f80-46d3-be84-6e15d97fa623" />
+      </Interface>
+    </modelContainsNamedElements>
+  </packagedElements>
+  <package Id="30dc8843-46ea-4d5b-8347-3a0d7d939e47" name="ModelingProject1">
+    <elementDefinition Id="2f776910-8aeb-4512-a9ca-324a701bdbff" />
+  </package>
+</componentModel>

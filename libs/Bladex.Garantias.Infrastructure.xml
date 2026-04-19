@@ -1,0 +1,594 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bladex.Garantias.Infrastructure</name>
+    </assembly>
+    <members>
+        <member name="T:Bladex.Garantias.Infrastructure.Caching.CacheManager">
+            <summary>
+            Clase Singleton encargada de controlar los accesos al cache implementando <see cref="T:Bladex.Garantias.Infrastructure.Caching.ICacheManager"/>
+            </summary>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Caching.ICacheManager">
+            <summary>
+            Interfaz que determina la funcionalidad a implementar por un cache manager.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Caching.ICacheManager.GetData``1(System.String)">
+            <summary>
+            Generic method to retrieve objects from the cache.
+            </summary>
+            <typeparam name="T">Type to retrive</typeparam>
+            <param name="key">Key of the item.</param>
+            <returns><see cref="!:T"/> item</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Caching.CacheManager.Add(System.String,System.Object)">
+            <summary>
+            Añade un elemento al cache con un tiempo de vida de 10 minutos.
+            </summary>
+            <param name="key">Key del elemento del tipo <see cref="T:System.String"/></param>
+            <param name="value">Elemento del tipo <see cref="T:System.Object"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Caching.CacheManager.Add(System.String,System.Object,System.TimeSpan)">
+            <summary>
+            Añade un elemento al cache con un tiempo de vida especificado en <paramref name="slidingTime"/>
+            </summary>
+            <param name="key">Key del elemento del tipo <see cref="T:System.String"/></param>
+            <param name="value">Elemento del tipo <see cref="T:System.Object"/></param>
+            <param name="slidingTime">Tiempo de vida del elemento del tipo <see cref="T:System.TimeSpan"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Caching.CacheManager.Contains(System.String)">
+            <summary>
+            Determina si un elemento existe en el cache o no dado su <paramref name="key"/>
+            </summary>
+            <param name="key">Key del elemento del tipo <see cref="T:System.String"/></param>
+            <returns><example>True si el elemento existe. False si el elemento no existe.</example></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Caching.CacheManager.Remove(System.String)">
+            <summary>
+            Removes the specified key from the cache.
+            </summary>
+            <param name="key">The key.</param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Caching.CacheManager.GetData``1(System.String)">
+            <summary>
+            Metodo genérico que devuelve el elemento del cache convirtiendolo a <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"><see cref="T:System.Type"/> que especifica el tipo a retornar.</typeparam>
+            <param name="key">Key del elemento del tipo <see cref="T:System.String"/></param>
+            <returns>Elemento del tipo <typeparamref name="T"/> almacenado en el cache.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Caching.CacheManager.GetData(System.String)">
+            <summary>
+            Metodo que devuelve el elemento del cache.
+            </summary>
+            <param name="key">Key del elemento del tipo <see cref="T:System.String"/></param>
+            <returns><see cref="T:System.Object"/> almacenado en el cache.</returns>
+        </member>
+        <member name="P:Bladex.Garantias.Infrastructure.Caching.CacheManager.Instance">
+            <summary>
+            Variable de acceso a Singleton
+            </summary>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.DomainBase.Serialization.IMakerCheckerObject`1">
+            <summary>
+            Generic IEntityBaseSerializable interface that requires an <see cref="T:Bladex.Garantias.Infrastructure.DomainBase.EntityBase"/>
+            </summary>
+            <typeparam name="T"><see cref="T:Bladex.Garantias.Infrastructure.DomainBase.EntityBase"/></typeparam>
+        </member>
+        <member name="P:Bladex.Garantias.Infrastructure.DomainBase.Serialization.IMakerCheckerObject`1.Version">
+            <summary>
+              Serialization version of the document.
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Infrastructure.DomainBase.Serialization.IMakerCheckerObject`1.Object">
+            <summary>
+            Gets or sets the object.
+            </summary>
+            <value>
+            The object of type <see cref="!:T"/>
+            </value>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.DomainBase.EntityBase">
+            <summary>
+            Clase abstracta que debe ser heredad por toda entidad del modelo.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.DomainBase.EntityBase.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.DomainBase.EntityBase.#ctor(System.Object)">
+            <summary>
+            Overloaded constructor
+            </summary>
+            <param name="key">An <see cref="T:System.Object"/> thats represents the primary identifier 
+            value for the class</param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.DomainBase.EntityBase.GetKeyAs``1">
+            <summary>
+            Metodo generico que nos devuelve el Key convertido al tipo <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"><see cref="T:System.Type"/> al cual deseamos convertir el Key.</typeparam>
+            <returns>Key de la entidad.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.DomainBase.EntityBase.Equals(System.Object)">
+            <summary>
+            Determines whether the specified entity is equal to the current instance.
+            </summary>
+            <param name="entity">An <see cref="T:System.Object"/> that will be compared to the current instance.</param>
+            <returns>True if the passed entity is equal to the current instance.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.DomainBase.EntityBase.op_Equality(Bladex.Garantias.Infrastructure.DomainBase.EntityBase,Bladex.Garantias.Infrastructure.DomainBase.EntityBase)">
+            <summary>
+            Operator overload for determining equality
+            </summary>
+            <param name="base1">The first instance of a <see cref="T:Bladex.Garantias.Infrastructure.DomainBase.EntityBase"/>.</param>
+            <param name="base2">The second instance of a <see cref="T:Bladex.Garantias.Infrastructure.DomainBase.EntityBase"/>.</param>
+            <returns>True if equal.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.DomainBase.EntityBase.op_Inequality(Bladex.Garantias.Infrastructure.DomainBase.EntityBase,Bladex.Garantias.Infrastructure.DomainBase.EntityBase)">
+            <summary>
+            Operator overload for determining inequality
+            </summary>
+            <param name="base1">The first instance of a <see cref="T:Bladex.Garantias.Infrastructure.DomainBase.EntityBase"/>.</param>
+            <param name="base2">The second instance of a <see cref="T:Bladex.Garantias.Infrastructure.DomainBase.EntityBase"/>.</param>
+            <returns>True if not equal.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.DomainBase.EntityBase.GetHashCode">
+            <summary>
+            Servers as a hash function for this type
+            </summary>
+            <returns>A hash code for the current Key property.</returns>
+        </member>
+        <member name="P:Bladex.Garantias.Infrastructure.DomainBase.EntityBase.Key">
+            <summary>
+            An <see cref="T:System.Object"/> that represents the primary identifier value for the class.
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.Infrastructure.DomainBase.EntityBase.IsDirty">
+            <summary>
+            Propiedad que determina si la entidad esta incompleta o no.
+            </summary>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Services.ServiceBase`1">
+            <summary>
+            Clase abstracta que determina la funcionalidad base de un servicio.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Services.IService`1">
+            <summary>
+            Interfaz que determina la funcionalidad a implementar por un servicio.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Services.IService`1.FindBy(System.Object)">
+            <summary>
+            Obtiene un elemento dado su <paramref name="key"/>
+            </summary>
+            <param name="key">Key del elemento.</param>
+            <returns><typeparamref name="T"/></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Services.IService`1.Add(`0)">
+            <summary>
+            Añade un elemento.
+            </summary>
+            <param name="item"><typeparamref name="T"/> a añadir.</param>
+            <returns><typeparamref name="T"/> actualizado.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Services.IService`1.Remove(`0)">
+            <summary>
+            Elimina un elemento del tipo <typeparamref name="T"/>
+            </summary>
+            <param name="item"><typeparamref name="T"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Services.IService`1.GetAll">
+            <summary>
+            Obtiene <see cref="T:System.Collections.Generic.List`1"/>.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Services.IService`1.GetNewInstance">
+            <summary>
+            Obtiene una nueva instancia de <typeparamref name="T"/>.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Services.IService`1.Count">
+            <summary>
+            Obtiene la cantidad de elementos en el repositorio.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Services.ServiceBase`1.GetCacheKey(System.String)">
+            <summary>
+            Retrieve a cache key. 
+            </summary>
+            <param name="methodName">Uses the method name to generate the key.</param>
+            <returns>Cache Key</returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Logging.ILogger">
+            <summary>
+            ILogger interface.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Logging.ILogger.Info(System.String)">
+            <summary>
+            Infoes the specified message.
+            </summary>
+            <param name="message">The message of type <see cref="T:System.String"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Logging.ILogger.Warn(System.String)">
+            <summary>
+            Warns the specified message.
+            </summary>
+            <param name="message">The message of type <see cref="T:System.String"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Logging.ILogger.Warn(System.String,System.Exception)">
+            <summary>
+            Warns the specified message.
+            </summary>
+            <param name="message">The message of type <see cref="T:System.String"/></param>
+            <param name="x">The x of type <see cref="T:System.Exception"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Logging.ILogger.Debug(System.String)">
+            <summary>
+            Debugs the specified message.
+            </summary>
+            <param name="message">The message of type <see cref="T:System.String"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Logging.ILogger.Error(System.String)">
+            <summary>
+            Errors the specified message.
+            </summary>
+            <param name="message">The message of type <see cref="T:System.String"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Logging.ILogger.Error(System.String,System.Exception)">
+            <summary>
+            Errors the specified message.
+            </summary>
+            <param name="message">The message of type <see cref="T:System.String"/></param>
+            <param name="x">The x of type <see cref="T:System.Exception"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Logging.ILogger.Error(System.Exception)">
+            <summary>
+            Errors the specified x.
+            </summary>
+            <param name="x">The x of type <see cref="T:System.Exception"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Logging.ILogger.Fatal(System.String)">
+            <summary>
+            Fatals the specified message.
+            </summary>
+            <param name="message">The message of type <see cref="T:System.String"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Logging.ILogger.Fatal(System.String,System.Exception)">
+            <summary>
+            Fatals the specified message.
+            </summary>
+            <param name="message">The message of type <see cref="T:System.String"/></param>
+            <param name="x">The x of type <see cref="T:System.Exception"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Logging.ILogger.Fatal(System.Exception)">
+            <summary>
+            Fatals the specified x.
+            </summary>
+            <param name="x">The x of type <see cref="T:System.Exception"/></param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Logging.ILogger.Log(Bladex.Garantias.Infrastructure.Logging.ApplicationLogger.LogType,System.String,System.Collections.Generic.IDictionary{System.String,System.Object},System.Exception)">
+            <summary>
+            Logs the specified log type.
+            </summary>
+            <param name="logType">Type of the log.</param>
+            <param name="message">The message of type <see cref="T:System.String"/></param>
+            <param name="parameters">The parameters of type <see cref="T:System.Object"/></param>
+            <param name="ex">The ex of type <see cref="T:System.Exception"/></param>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.UniqueKeyGenerator">
+            <summary>
+            The unique key generator class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Repositories.UniqueKeyGenerator.Generate(System.Int32)">
+            <summary>
+            Generates the specified max lenght.
+            </summary>
+            <param name="maxLenght">The max lenght of type <see cref="T:System.Int32"/></param>
+            <returns></returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Repositories.InMemoryRepositoryBase`1">
+            <summary>
+            Provides the base functionality for all in-memory repositories
+            </summary>
+            <typeparam name="T">An <see cref="T:Bladex.Garantias.Infrastructure.DomainBase.EntityBase"/> which will be treated by the repository.</typeparam>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.RepositoryFramework.RepositoryBase`1">
+            <summary>
+            Abstract class used to define the functionality and implementation of a <see cref="T:Bladex.Garantias.Infrastructure.RepositoryFramework.IRepository`1"/>
+            </summary>
+            <typeparam name="T"><see cref="T:Bladex.Garantias.Infrastructure.DomainBase.EntityBase"/> class</typeparam>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.RepositoryFramework.IRepository`1">
+            <summary>
+            Interface used to define a Repository of <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"><see cref="!:T"/></typeparam>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.RepositoryFramework.IRepository`1.FindBy(System.Object)">
+            <summary>
+            Finds the by.
+            </summary>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.RepositoryFramework.IRepository`1.Add(`0)">
+            <summary>
+            Adds the specified item.
+            </summary>
+            <param name="item">The item.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.RepositoryFramework.IRepository`1.Remove(`0)">
+            <summary>
+            Removes the specified item.
+            </summary>
+            <param name="item">The item.</param>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.RepositoryFramework.IRepository`1.GetAll">
+            <summary>
+            Gets all.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.RepositoryFramework.IRepository`1.Count">
+            <summary>
+            Counts this instance.
+            </summary>
+            <returns></returns>
+            
+        </member>
+        <member name="P:Bladex.Garantias.Infrastructure.RepositoryFramework.IRepository`1.Item(System.Object)">
+            <summary>
+            Gets or sets the <see cref="!:T"/> with the specified key.
+            </summary>
+        </member>
+        <member name="F:Bladex.Garantias.Infrastructure.Repositories.InMemoryRepositoryBase`1.Database">
+            <summary>
+            In Memory Collection of entities to simulate a database.
+            </summary>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Logging.LogUtility">
+            <summary>
+            The log utility class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Logging.LogUtility.BuildExceptionMessage(System.Exception)">
+            <summary>
+            This methods formats an error message so that it is 
+            in a nice format for the event log or other places
+            </summary>
+            <param name="x">The exception</param>
+            <returns>A formatted error message</returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Emailing.EmailerComponent">
+            <summary>
+            The emailer component class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Emailing.EmailerComponent.GetSmtpClient">
+            <summary>
+            Retrieves the SMTP Client object already configured.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Caching.ICacheableService">
+            <summary>
+            Interfaz que determina la funcionalidad de un servicio que implementa caching.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Caching.ICacheableService.GetCacheKey">
+            <summary>
+            Returns the key used to store an item into the cache.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Caching.ICacheableService.GetTimeSpan">
+            <summary>
+            Returns the timespan representing the time that the object will be stored into the cache.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Extensions.DateTimeExtensions.ToBladexFormat(System.DateTime)">
+            <summary>
+            Convierte <see cref="T:System.DateTime"/> al formato requerido por Bladex.
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.RepositoryFramework.RepositoryFactory.GetRepository``2(Bladex.Garantias.Infrastructure.IUnitOfWork)">
+            <summary>
+            Gets or creates an instance of the requested interface.  Once a 
+            repository is created and initialized, it is cached, and all 
+            future requests for the repository will come from the cache.
+            </summary>
+            <typeparam name="TRepository">The interface of the repository 
+            to create.</typeparam>
+            <typeparam name="TEntity">The type of the EntityBase that the 
+            repository is for.</typeparam>
+            <param name="unitOfWork">The unit of work that the repository 
+            will be participating in.</param>
+            <returns>An instance of the interface requested.</returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.RepositoryFramework.RepositoryFactory.GetRepository``2">
+            <summary>
+            Gets or creates an instance of the requested interface.  Once a 
+            repository is created and initialized, it is cached, and all 
+            future requests for the repository will come from the cache.
+            </summary>
+            <typeparam name="TRepository">The interface of the repository 
+            to create.</typeparam>
+            <typeparam name="TEntity">The type of the EntityBase that the 
+            repository is for.</typeparam>
+            <returns>An instance of the interface requested.</returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Logging.ApplicationLogger">
+            <summary>
+            The application logger class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Logging.BaseLogger.PrepareMessage(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Prepares the message.
+            </summary>
+            <param name="message">The message of type <see cref="T:System.String"/></param>
+            <param name="parameters">The parameters.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Logging.BaseLogger.GetApplicationVersion">
+            <summary>
+            Gets the application version.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Logging.BaseLogger.AppendMessageFromParameters(System.Collections.Generic.IDictionary{System.String,System.Object},System.String)">
+            <summary>
+            Appends the message from parameters.
+            </summary>
+            <param name="parameters">The parameters.</param>
+            <param name="originalMessage">The original message of type <see cref="T:System.String"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Logging.BaseLogger.GetCallingMethod">
+            <summary>
+            Gets the calling method.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Logging.ApplicationLogger.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bladex.Garantias.Infrastructure.Logging.ApplicationLogger"/> class.
+            </summary>
+        </member>
+        <member name="F:Bladex.Garantias.Infrastructure.Logging.ApplicationLogger._logger">
+            <summary>
+              <see cref="T:log4net.ILog"/>
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Logging.ApplicationLogger.Log(Bladex.Garantias.Infrastructure.Logging.ApplicationLogger.LogType,System.String,System.Collections.Generic.IDictionary{System.String,System.Object},System.Exception)">
+            <summary>
+            Logs the specified message.
+            </summary>
+            <param name="logType">Type of the logging even.</param>
+            <param name="message">The message of type <see cref="T:System.String"/></param>
+            <param name="parameters">The parameters to include into the message. It can be null.</param>
+            <param name="ex">The ex of type <see cref="T:System.Exception"/>. It can be null.</param>
+        </member>
+        <member name="P:Bladex.Garantias.Infrastructure.Logging.ApplicationLogger.Instance">
+            <summary>
+            Variable de acceso a Singleton
+            </summary>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Logging.ApplicationLogger.LogType">
+            <summary>
+            Enum to specify the type of message.
+            </summary>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Serialization.JsonSerializer`1">
+            <summary>
+            The json serializer class.
+            </summary>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Serialization.IEntityBaseSerializer`1">
+            <summary>
+            IEntityBaseSerializer&lt;T&gt; interface.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Serialization.IEntityBaseSerializer`1.Serialize(`0)">
+            <summary>
+            Serializes the specified obj to serialize.
+            </summary>
+            <param name="objToSerialize">The obj to serialize of type <see cref="!:T"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Serialization.IEntityBaseSerializer`1.Deserialize(System.String)">
+            <summary>
+            Deserializes the specified obj to deserialize.
+            </summary>
+            <param name="objToDeserialize">The obj to deserialize of type <see cref="T:System.String"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Serialization.JsonSerializer`1.Serialize(`0)">
+            <summary>
+            Serializes the specified obj to serialize.
+            </summary>
+            <param name="objToSerialize">The obj to serialize of type <see cref="!:T"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Serialization.JsonSerializer`1.Deserialize(System.String)">
+            <summary>
+            Deserializes the specified obj to deserialize.
+            </summary>
+            <param name="objToDeserialize">The obj to deserialize of type <see cref="T:System.String"/></param>
+            <returns></returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Extensions.ObjectExtensions">
+            <summary>
+            The object extensions class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Extensions.ObjectExtensions.ToDynamic(System.Object)">
+            <summary>
+            Converts any object to an <see cref="T:System.Dynamic.ExpandoObject"/>
+            </summary>
+            <param name="value">The value of type <see cref="T:System.Object"/></param>
+            <returns><see cref="T:System.Dynamic.ExpandoObject"/></returns>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Serialization.XmlSerializer`1">
+            <summary>
+            The XML serializer class.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Serialization.XmlSerializer`1.Serialize(`0)">
+            <summary>
+            Serializes the specified obj to serialize.
+            </summary>
+            <param name="objToSerialize">The obj to serialize of type <see cref="!:T"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Serialization.XmlSerializer`1.Deserialize(System.String)">
+            <summary>
+            Deserializes the specified obj to deserialize.
+            </summary>
+            <param name="objToDeserialize">The obj to deserialize of type <see cref="T:System.String"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bladex.Garantias.DomainModel.Repositories.Components.IPaged`1.GetRange(System.Int32,System.Int32)">
+            <summary>
+             Get a range of persited entities.
+            </summary>
+        </member>
+        <member name="P:Bladex.Garantias.DomainModel.Repositories.Components.IPaged`1.Count">
+            <summary>
+             Get the total entity count.
+            </summary>
+        </member>
+        <member name="T:Bladex.Garantias.Infrastructure.Extensions.StringExtensions">
+            <summary>
+            The object extensions class.
+            </summary>
+        </member>
+        <member name="M:Bladex.Garantias.Infrastructure.Extensions.StringExtensions.ConvertToTitleCase(System.String)">
+            <summary>
+            Used to convert an string like "camelCase" or "CAMELCASE" to "CamelCase".
+            </summary>
+            <param name="inputCamelCaseString">String to format</param>
+            <returns>
+            String formatted
+            </returns>
+        </member>
+    </members>
+</doc>
