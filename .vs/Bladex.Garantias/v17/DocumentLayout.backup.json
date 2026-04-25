@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\dev\\ap.elcazal\\testrepo01\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{97FAE52F-3A61-4206-9EF9-5DB3FFA93981}|Bladex.Garantias.Presentation.Website\\Bladex.Garantias.Presentation.Website.csproj|c:\\dev\\ap.elcazal\\testrepo01\\bladex.garantias.presentation.website\\views\\makerchecker\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{97FAE52F-3A61-4206-9EF9-5DB3FFA93981}|Bladex.Garantias.Presentation.Website\\Bladex.Garantias.Presentation.Website.csproj|solutionrelative:bladex.garantias.presentation.website\\views\\makerchecker\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\dev\\ap.elcazal\\testrepo01\\Bladex.Garantias.Presentation.Website\\Scripts\\jquery-3.7.1.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Bladex.Garantias.Presentation.Website\\Scripts\\jquery-3.7.1.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -25,20 +25,16 @@
               "Name": "ST:0:0:{809f6ff3-8092-454a-8003-6d4091f9b5bb}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{99b8fa2f-ab90-4f57-9c32-949f146f1914}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Index.aspx",
-              "DocumentMoniker": "C:\\dev\\ap.elcazal\\testrepo01\\Bladex.Garantias.Presentation.Website\\Views\\MakerChecker\\Index.aspx",
-              "RelativeDocumentMoniker": "Bladex.Garantias.Presentation.Website\\Views\\MakerChecker\\Index.aspx",
-              "ToolTip": "C:\\dev\\ap.elcazal\\testrepo01\\Bladex.Garantias.Presentation.Website\\Views\\MakerChecker\\Index.aspx",
-              "RelativeToolTip": "Bladex.Garantias.Presentation.Website\\Views\\MakerChecker\\Index.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2026-04-16T22:40:32.303Z",
+              "Title": "jquery-3.7.1.min.js",
+              "DocumentMoniker": "C:\\dev\\ap.elcazal\\testrepo01\\Bladex.Garantias.Presentation.Website\\Scripts\\jquery-3.7.1.min.js",
+              "RelativeDocumentMoniker": "Bladex.Garantias.Presentation.Website\\Scripts\\jquery-3.7.1.min.js",
+              "ToolTip": "C:\\dev\\ap.elcazal\\testrepo01\\Bladex.Garantias.Presentation.Website\\Scripts\\jquery-3.7.1.min.js",
+              "RelativeToolTip": "Bladex.Garantias.Presentation.Website\\Scripts\\jquery-3.7.1.min.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAABXcAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-04-25T22:24:26.456Z",
               "EditorCaption": ""
             }
           ]

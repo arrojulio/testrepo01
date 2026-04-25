@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "Bash(find /c/dev/ap.elcazal/testrepo01 -maxdepth 1 -type f -name *.md -o -name *.json -o -name Makefile -o -name *.rules)",
-      "Bash(find /c/dev/ap.elcazal/testrepo01 -maxdepth 2 -type f \\\\\\(-name App.config -o -name Web.config -o -name *.config \\\\\\))"
+      "Bash(find /c/dev/ap.elcazal/testrepo01 -maxdepth 2 -type f \\\\\\(-name App.config -o -name Web.config -o -name *.config \\\\\\))",
+      "Bash(powershell.exe *)",
+      "Bash(grep -c \"Telerik\\\\|RadGrid\\\\|RadComboBox\" C:/dev/ap.elcazal/testrepo01/Bladex.Garantias.Presentation.Website/Views/Shared/EditorTemplates/*.ascx)",
+      "Bash(grep -v \":0$\")",
+      "Bash(find C:devap.elcazaltestrepo01Bladex.Garantias.Presentation.Website -type f \\\\\\(-name *.Master -o -name BundleConfig.cs -o -name packages.config \\\\\\))",
+      "Bash(xargs grep:*)"
     ]
   }
 }

@@ -1,0 +1,1 @@
+- [Logging Architecture](project_logging_architecture.md) — Config dual Log4Net (log4net.config vs Web.config), triple init bug, bufferSize=100 sin flush, credencial en texto plano, UserId no mapeado
