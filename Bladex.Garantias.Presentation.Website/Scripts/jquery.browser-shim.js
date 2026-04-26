@@ -69,12 +69,59 @@
 }(jQuery));
 
 // === Prevención de scroll en links Telerik con href="#" ===
-// Telerik 2011 usa <a href="#"> para los botones de navegación del calendario
-// (prev, fast/zoom-out, next). Este handler garantiza que un click en cualquiera
-// de esos links nunca cause un salto al inicio de la página, independientemente
-// de si el handler delegado de $.fn.live logra capturar el evento primero.
+// Doble estrategia:
+//   A) Listener en fase de CAPTURA (nativo, precede a cualquier handler jQuery bubble).
+//      Previene el salto al inicio de la página independientemente del orden en que
+//      se ejecuten los handlers delegados de $.fn.live.
+//   B) setTimeout(0) después del DOMReady para parchear instancias de tCalendar:
+//      - Activa stopAnimation=true (actualización síncrona del DOM, sin callback de animate).
+//      - Enlaza handlers de click directamente en el contenedor de cada calendario,
+//        lo que complementa (y sirve de respaldo a) la delegación vía $.fn.live.
+
+document.addEventListener('click', function (e) {
+    var el = e.target;
+    // Asciende hasta encontrar el <a> (el clic puede caer sobre el <span> interior)
+    while (el && el.nodeType === 1) {
+        if (el.tagName === 'A' &&
+            el.getAttribute('href') === '#' &&
+            el.className && el.className.indexOf('t-link') !== -1) {
+            e.preventDefault();
+            break;
+        }
+        el = el.parentNode;
+    }
+}, true /* capture = true */);
+
 jQuery(function ($) {
+    // Fallback jQuery-level prevention (para cualquier t-link que no sea Telerik nav)
     $(document).on('click', 'a.t-link[href="#"]', function (e) {
         e.preventDefault();
     });
+
+    // Después de que todos los handlers DOMReady de Telerik hayan corrido
+    // (incluyendo la inicialización del widget tCalendar), parchear las instancias.
+    setTimeout(function () {
+        $('.t-calendar').each(function () {
+            var $cal = $(this);
+            var cal  = $cal.data('tCalendar');
+            if (!cal) { return; }
+
+            // Fuerza actualización síncrona del DOM al navegar entre vistas.
+            // Sin esto, el nuevo contenido se inserta dentro del callback de
+            // $.fn.animate(), que en jQuery 3.x puede no ejecutarse si el
+            // elemento animado ya no está en el DOM al finalizar la animación.
+            cal.stopAnimation = true;
+
+            // Binding directo en el contenedor del calendario para cada botón
+            // de navegación. Actúa como respaldo a la delegación $.fn.live en document.
+            $cal.on('click.telerik-shim', '.t-nav-fast:not(.t-state-disabled)',
+                function (e) { e.preventDefault(); cal.navigateUp(e); });
+
+            $cal.on('click.telerik-shim', '.t-nav-prev:not(.t-state-disabled)',
+                function (e) { e.preventDefault(); cal.navigateToPast(e); });
+
+            $cal.on('click.telerik-shim', '.t-nav-next:not(.t-state-disabled)',
+                function (e) { e.preventDefault(); cal.navigateToFuture(e); });
+        });
+    }, 0);
 });
