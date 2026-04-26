@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\dev\\ap.elcazal\\testrepo01\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\dev\\ap.elcazal\\testrepo01\\Bladex.Garantias.Presentation.Website\\Scripts\\jquery-3.7.1.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}|",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Bladex.Garantias.Presentation.Website\\Scripts\\jquery-3.7.1.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}|"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\dev\\ap.elcazal\\testrepo01\\Bladex.Garantias.Presentation.Website\\Scripts\\jquery-migrate-3.4.1.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Bladex.Garantias.Presentation.Website\\Scripts\\jquery-migrate-3.4.1.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,14 +27,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "jquery-3.7.1.min.js",
-              "DocumentMoniker": "C:\\dev\\ap.elcazal\\testrepo01\\Bladex.Garantias.Presentation.Website\\Scripts\\jquery-3.7.1.min.js",
-              "RelativeDocumentMoniker": "Bladex.Garantias.Presentation.Website\\Scripts\\jquery-3.7.1.min.js",
-              "ToolTip": "C:\\dev\\ap.elcazal\\testrepo01\\Bladex.Garantias.Presentation.Website\\Scripts\\jquery-3.7.1.min.js",
-              "RelativeToolTip": "Bladex.Garantias.Presentation.Website\\Scripts\\jquery-3.7.1.min.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAABXcAAAAAAAAA==",
+              "Title": "jquery-migrate-3.4.1.min.js",
+              "DocumentMoniker": "C:\\dev\\ap.elcazal\\testrepo01\\Bladex.Garantias.Presentation.Website\\Scripts\\jquery-migrate-3.4.1.min.js",
+              "RelativeDocumentMoniker": "Bladex.Garantias.Presentation.Website\\Scripts\\jquery-migrate-3.4.1.min.js",
+              "ToolTip": "C:\\dev\\ap.elcazal\\testrepo01\\Bladex.Garantias.Presentation.Website\\Scripts\\jquery-migrate-3.4.1.min.js",
+              "RelativeToolTip": "Bladex.Garantias.Presentation.Website\\Scripts\\jquery-migrate-3.4.1.min.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAABYDAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-04-25T22:24:26.456Z",
+              "WhenOpened": "2026-04-26T00:13:02.107Z",
               "EditorCaption": ""
             }
           ]
