@@ -3,8 +3,6 @@
 	Listado de Garantías
 </asp:Content>
 <asp:Content ID="ContentHeader" ContentPlaceHolderID="HeaderContent" runat="server">
-    <script src="<%= Url.Content("~/Scripts/jquery.dataTables.min.js") %>" type="text/javascript"></script>
-    <script src="<%= Url.Content("~/Scripts/common.js") %>" type="text/javascript"></script>
 	<script src="<%= Url.Content("~/Scripts/index.js") %>" type="text/javascript"></script>
 </asp:Content>
 

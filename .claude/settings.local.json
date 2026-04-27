@@ -8,7 +8,9 @@
       "Bash(grep -v \":0$\")",
       "Bash(find C:devap.elcazaltestrepo01Bladex.Garantias.Presentation.Website -type f \\\\\\(-name *.Master -o -name BundleConfig.cs -o -name packages.config \\\\\\))",
       "Bash(xargs grep:*)",
-      "Bash(grep -oP \"create.{0,300}\" \"C:\\\\dev\\\\ap.elcazal\\\\testrepo01\\\\Bladex.Garantias.Presentation.Website\\\\Scripts\\\\2011.2.712\\\\telerik.common.min.js\")"
+      "Bash(grep -oP \"create.{0,300}\" \"C:\\\\dev\\\\ap.elcazal\\\\testrepo01\\\\Bladex.Garantias.Presentation.Website\\\\Scripts\\\\2011.2.712\\\\telerik.common.min.js\")",
+      "Bash(grep -o '\\\\$\\\\.fn\\\\.size\\\\|\\\\.size\\(\\)\\\\|\\\\.live\\\\|\\\\.die\\\\|\\\\.error\\\\|\\\\.success\\\\|\\\\.complete\\\\|\\\\.bind\\\\|\\\\.unbind\\\\|\\\\.delegate\\\\|\\\\.undelegate\\\\|deferred\\\\.pipe\\\\|jQuery\\\\.sub\\\\|jQuery\\\\.type' \"C:\\\\dev\\\\ap.elcazal\\\\testrepo01\\\\Bladex.Garantias.Presentation.Website\\\\Scripts\\\\jquery.dataTables-1.9.4.min.js\")",
+      "Bash(grep -oP '\\(\\\\$|jQuery\\)\\\\.\\(fn\\\\.\\)?\\\\w+\\\\s*\\\\\\(' \"C:\\\\dev\\\\ap.elcazal\\\\testrepo01\\\\Bladex.Garantias.Presentation.Website\\\\Scripts\\\\jquery.dataTables-1.9.4.min.js\")"
     ]
   }
 }

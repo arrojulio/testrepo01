@@ -366,7 +366,8 @@ function goBack() {
 function makeNiceTable(tableId) {
 
     var newTable = $("#" + tableId).dataTable({
-        "bJQueryUI": true,
+        "bJQueryUI": false,
+        "sDom": 'lfrt<"dt-footer clearfix"ip>',
         "oLanguage": {
             "sLengthMenu": "Display _MENU_ records per page",
             "sZeroRecords": "No records found",
@@ -377,15 +378,11 @@ function makeNiceTable(tableId) {
         "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
         "aoColumnDefs": [
             { "bSearchable": false, "bSortable": false, "aTargets": ["action"] }
-
         ],
         "iDisplayLength": 10,
         "aaSorting": [[1, "desc"]],
         "bAutoWidth": true,
         "bProcessing": true
-        //"bStateSave": true,
-        //"iCookieDuration": 300
-        //"sPaginationType": "full_numbers"
     });
     return newTable;
 

@@ -57,3 +57,154 @@ input[type=reset]:hover {
     color: #444;
     background-repeat: repeat-x;
 }
+
+/* 5. DataTables 1.9.4 — full styling (replaces the missing jquery.dataTables.css)
+   bJQueryUI:false → no jQuery UI ThemeRoller classes; all layout is CSS-only. */
+
+/* --- Table --- */
+table.dataTable {
+    width: 100%;
+    border-collapse: collapse;
+    clear: both;
+    margin: 0;
+    font-size: 12px;
+}
+
+table.dataTable thead th {
+    padding: 6px 18px 6px 8px;
+    border-top: 1px solid #aec0d7;
+    border-bottom: 2px solid #718ABE;
+    background-color: #e8edf5;
+    color: #333;
+    font-weight: bold;
+    white-space: nowrap;
+    cursor: pointer;
+    position: relative;
+}
+
+/* sort state indicators via pseudo-element (no image files needed) */
+table.dataTable thead th.sorting::after    { content: " \21C5"; opacity: 0.4; font-size: 10px; }
+table.dataTable thead th.sorting_asc::after  { content: " \2191"; font-size: 11px; }
+table.dataTable thead th.sorting_desc::after { content: " \2193"; font-size: 11px; }
+table.dataTable thead th.sorting_asc  { background-color: #d5dff0; }
+table.dataTable thead th.sorting_desc { background-color: #d5dff0; }
+table.dataTable thead th.sorting_disabled { cursor: default; }
+
+table.dataTable tbody tr.odd  { background-color: #ffffff; }
+table.dataTable tbody tr.even { background-color: #f5f7fc; }
+table.dataTable tbody tr:hover { background-color: #edf1fa; }
+
+table.dataTable tbody td {
+    padding: 5px 8px;
+    border-bottom: 1px solid #e0e0e0;
+    vertical-align: top;
+}
+
+table.dataTable tfoot th,
+table.dataTable tfoot td {
+    padding: 5px 8px;
+    border-top: 2px solid #718ABE;
+    font-weight: bold;
+}
+
+/* --- Wrapper clearfix --- */
+.dataTables_wrapper::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.dataTables_wrapper {
+    padding-bottom: 8px;
+    font-size: 12px;
+}
+
+/* --- Top controls row (length + filter) --- */
+.dataTables_length {
+    float: left;
+    margin-bottom: 6px;
+}
+
+.dataTables_filter {
+    float: left;
+    margin-bottom: 6px;
+    margin-left: 20px;
+}
+
+.dataTables_filter input,
+.dataTables_length select {
+    border: 1px solid #b8cce4;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+
+/* --- Footer bar (info + pagination agrupados por sDom: "dt-footer") --- */
+.dt-footer {
+    background-color: #e8edf5;
+    border-top: 2px solid #718ABE;
+    border-bottom: 1px solid #aec0d7;
+    padding: 6px 8px;
+}
+
+.dataTables_info {
+    float: left;
+    padding-top: 4px;
+    color: #444;
+    font-weight: normal;
+}
+
+.dataTables_paginate {
+    float: left;
+    padding-top: 2px;
+    margin-left: 16px;
+    display: block;
+    line-height: 0;
+}
+
+/* Pagination buttons — both enabled and disabled are <a> elements */
+.dataTables_paginate a {
+    display: inline-block !important;
+    padding: 5px 14px !important;
+    margin: 0 2px !important;
+    border: 1px solid #b8cce4 !important;
+    background-color: #e8edf5 !important;
+    color: #333 !important;
+    border-radius: 3px !important;
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    text-decoration: none !important;
+    vertical-align: middle !important;
+    cursor: pointer !important;
+    font-family: Tahoma, Verdana, Arial, sans-serif !important;
+}
+
+.dataTables_paginate a:hover {
+    background-color: #718ABE !important;
+    border-color: #5a73a8 !important;
+    color: #fff !important;
+    text-decoration: none !important;
+}
+
+.dataTables_paginate a.paginate_disabled_previous,
+.dataTables_paginate a.paginate_disabled_next {
+    opacity: 0.4 !important;
+    cursor: default !important;
+    pointer-events: none !important;
+}
+
+/* Processing overlay */
+.dataTables_processing {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    margin-left: -100px;
+    margin-top: -26px;
+    text-align: center;
+    padding: 6px 0;
+    border: 1px solid #aaa;
+    background-color: #fff;
+    font-size: 14px;
+}
