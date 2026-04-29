@@ -28,27 +28,47 @@
 
     // === $.fn.live / $.fn.die shim ===
     // Eliminados en jQuery 1.9. Telerik 2011 los usa en telerik.calendar.min.js.
-    // Parchea $.fn.init para capturar el string selector original (jQuery 3.x eliminó
-    // this.selector), luego delega via $(document).on(event, selector, handler).
+    //
+    // COMPORTAMIENTO ORIGINAL (jQuery 1.7):
+    //   $("selector", contextElement).live(event, handler)
+    //   → registra el handler en contextElement (no en document).
+    //
+    // Telerik llama siempre con un contexto explícito: el elemento .t-calendar.
+    // Esto es crítico porque tDatePicker registra un handler directo en el mismo
+    // elemento que llama stopPropagation() para evitar que el popup se cierre.
+    // Si delegamos en document en lugar del contexto, ese stopPropagation bloquea
+    // todos nuestros handlers antes de que lleguen a document.
+    //
+    // Replicando el comportamiento de jQuery 1.7 (delegar en el contexto), los
+    // handlers delegados se procesan ANTES que los directos (orden de jQuery), por
+    // lo que navigateDown / navigateUp / etc. se ejecutan antes de stopPropagation.
     if (!$.fn.live) {
         var _origInit = $.fn.init;
 
         $.fn.init = function (selector, context, root) {
             var obj = new _origInit(selector, context, root);
-            if (typeof selector === 'string') {
+            if (typeof selector === 'string' && selector.charAt(0) !== '<') {
                 obj._liveSelector = selector;
+                // Capturar el contexto para reproducir jQuery 1.7 .live() behavior
+                if (context) {
+                    obj._liveContext = context.nodeType ? context
+                                     : context.jquery   ? context[0]
+                                     : null;
+                }
             }
             return obj;
         };
         $.fn.init.prototype = $.fn;
 
         $.fn.live = function (types, data, fn) {
-            $(document).on(types, this._liveSelector || '', data, fn);
+            var ctx = this._liveContext || document;
+            $(ctx).on(types, this._liveSelector || '', data, fn);
             return this;
         };
 
         $.fn.die = function (types, fn) {
-            $(document).off(types, this._liveSelector || '', fn);
+            var ctx = this._liveContext || document;
+            $(ctx).off(types, this._liveSelector || '', fn);
             return this;
         };
     }
@@ -69,18 +89,11 @@
 }(jQuery));
 
 // === Prevención de scroll en links Telerik con href="#" ===
-// Doble estrategia:
-//   A) Listener en fase de CAPTURA (nativo, precede a cualquier handler jQuery bubble).
-//      Previene el salto al inicio de la página independientemente del orden en que
-//      se ejecuten los handlers delegados de $.fn.live.
-//   B) setTimeout(0) después del DOMReady para parchear instancias de tCalendar:
-//      - Activa stopAnimation=true (actualización síncrona del DOM, sin callback de animate).
-//      - Enlaza handlers de click directamente en el contenedor de cada calendario,
-//        lo que complementa (y sirve de respaldo a) la delegación vía $.fn.live.
-
+// Listener en fase de CAPTURA: previene que el browser siga el href="#" antes
+// de que jQuery procese el evento. Telerik también llama preventDefault() en sus
+// handlers, pero este listener actúa de respaldo.
 document.addEventListener('click', function (e) {
     var el = e.target;
-    // Asciende hasta encontrar el <a> (el clic puede caer sobre el <span> interior)
     while (el && el.nodeType === 1) {
         if (el.tagName === 'A' &&
             el.getAttribute('href') === '#' &&
@@ -93,35 +106,59 @@ document.addEventListener('click', function (e) {
 }, true /* capture = true */);
 
 jQuery(function ($) {
-    // Fallback jQuery-level prevention (para cualquier t-link que no sea Telerik nav)
+    // Respaldo jQuery-level para cualquier t-link fuera del calendario
     $(document).on('click', 'a.t-link[href="#"]', function (e) {
         e.preventDefault();
     });
 
-    // Después de que todos los handlers DOMReady de Telerik hayan corrido
-    // (incluyendo la inicialización del widget tCalendar), parchear las instancias.
+    // Fix $.telerik.trigger para jQuery 3.x:
+    //
+    // Telerik llama ax.stopPropagation() ANTES de $(elem).trigger(ax).
+    // En jQuery 1.5.x, eso detenía la propagación del evento más allá del elemento
+    // pero igual disparaba los handlers registrados en el elemento mismo.
+    // En jQuery 3.x, el loop de dispatch verifica isPropagationStopped() al inicio
+    // de CADA iteración — si ya es true antes de empezar, NINGÚN handler se ejecuta.
+    //
+    // Resultado: navigateDown llama b.trigger("change"), el change handler del
+    // datepicker nunca corre, la fecha no se actualiza y el input queda sin cambio.
+    //
+    // Fix: reemplazar con triggerHandler (que no burbujea) y no pre-detener la propagación.
+    // Esto replica el comportamiento original de jQuery 1.5: dispara handlers en el
+    // elemento sin burbujear hacia arriba.
+    if ($.telerik && $.telerik.trigger) {
+        $.telerik.trigger = function (elem, type, data) {
+            var event = new $.Event(type);
+            if (data) { $.extend(event, data); }
+            $(elem).triggerHandler(event);
+            return event.isDefaultPrevented();
+        };
+    }
+
+    // Patch $.fn.tCalendar para setear stopAnimation=true en cada instancia.
+    // stopAnimation=true: fuerza actualización síncrona del DOM al navegar entre vistas.
+    // Sin esto, en jQuery 3.x el nuevo contenido queda dentro del callback de
+    // $.fn.animate() que puede no ejecutarse si el elemento es removido del DOM
+    // antes de que la animación termine.
+    // Cubrir aquí (en DOMReady, luego de que Telerik carga) asegura que tanto los
+    // calendarios standalone como los popups de tDatePicker (creados de forma lazy)
+    // hereden el flag al ser inicializados.
+    if ($.fn.tCalendar) {
+        var _origTCalendar = $.fn.tCalendar;
+        $.fn.tCalendar = function (options) {
+            var result = _origTCalendar.apply(this, arguments);
+            this.each(function () {
+                var cal = $(this).data('tCalendar');
+                if (cal) { cal.stopAnimation = true; }
+            });
+            return result;
+        };
+    }
+
+    // Cubre calendarios standalone ya inicializados al cargar la página
     setTimeout(function () {
         $('.t-calendar').each(function () {
-            var $cal = $(this);
-            var cal  = $cal.data('tCalendar');
-            if (!cal) { return; }
-
-            // Fuerza actualización síncrona del DOM al navegar entre vistas.
-            // Sin esto, el nuevo contenido se inserta dentro del callback de
-            // $.fn.animate(), que en jQuery 3.x puede no ejecutarse si el
-            // elemento animado ya no está en el DOM al finalizar la animación.
-            cal.stopAnimation = true;
-
-            // Binding directo en el contenedor del calendario para cada botón
-            // de navegación. Actúa como respaldo a la delegación $.fn.live en document.
-            $cal.on('click.telerik-shim', '.t-nav-fast:not(.t-state-disabled)',
-                function (e) { e.preventDefault(); cal.navigateUp(e); });
-
-            $cal.on('click.telerik-shim', '.t-nav-prev:not(.t-state-disabled)',
-                function (e) { e.preventDefault(); cal.navigateToPast(e); });
-
-            $cal.on('click.telerik-shim', '.t-nav-next:not(.t-state-disabled)',
-                function (e) { e.preventDefault(); cal.navigateToFuture(e); });
+            var cal = $(this).data('tCalendar');
+            if (cal) { cal.stopAnimation = true; }
         });
     }, 0);
 });

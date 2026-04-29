@@ -119,7 +119,7 @@ function onAutocompleteChange(e) {
     var value = e.value;
     if (value && htmlControlId) {
         if (value.length > _AUTO_COMPLETE_LENGHT) {
-            alert("Ingreso inválido. No puede exceder " + _AUTO_COMPLETE_LENGHT + ' caracteres');erw
+            alert("Ingreso inválido. No puede exceder " + _AUTO_COMPLETE_LENGHT + ' caracteres');
             return;
         }
         //convert value to UpperCase
