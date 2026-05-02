@@ -10,7 +10,11 @@
       "Bash(xargs grep:*)",
       "Bash(grep -oP \"create.{0,300}\" \"C:\\\\dev\\\\ap.elcazal\\\\testrepo01\\\\Bladex.Garantias.Presentation.Website\\\\Scripts\\\\2011.2.712\\\\telerik.common.min.js\")",
       "Bash(grep -o '\\\\$\\\\.fn\\\\.size\\\\|\\\\.size\\(\\)\\\\|\\\\.live\\\\|\\\\.die\\\\|\\\\.error\\\\|\\\\.success\\\\|\\\\.complete\\\\|\\\\.bind\\\\|\\\\.unbind\\\\|\\\\.delegate\\\\|\\\\.undelegate\\\\|deferred\\\\.pipe\\\\|jQuery\\\\.sub\\\\|jQuery\\\\.type' \"C:\\\\dev\\\\ap.elcazal\\\\testrepo01\\\\Bladex.Garantias.Presentation.Website\\\\Scripts\\\\jquery.dataTables-1.9.4.min.js\")",
-      "Bash(grep -oP '\\(\\\\$|jQuery\\)\\\\.\\(fn\\\\.\\)?\\\\w+\\\\s*\\\\\\(' \"C:\\\\dev\\\\ap.elcazal\\\\testrepo01\\\\Bladex.Garantias.Presentation.Website\\\\Scripts\\\\jquery.dataTables-1.9.4.min.js\")"
+      "Bash(grep -oP '\\(\\\\$|jQuery\\)\\\\.\\(fn\\\\.\\)?\\\\w+\\\\s*\\\\\\(' \"C:\\\\dev\\\\ap.elcazal\\\\testrepo01\\\\Bladex.Garantias.Presentation.Website\\\\Scripts\\\\jquery.dataTables-1.9.4.min.js\")",
+      "Bash(grep -i \"_Pager.ascx\\\\|MakerChecker\\\\\\\\.ascx\" /c/dev/ap.elcazal/testrepo01/Bladex.Garantias.Presentation.Website/Bladex.Garantias.Presentation.Website.csproj)",
+      "Bash(grep *)",
+      "Bash(msbuild Bladex.Garantias.sln /p:Configuration=Debug /p:Platform=\"Any CPU\" /t:Build /v:minimal /nologo)",
+      "PowerShell(& \"C:\\\\Program Files\\\\Microsoft Visual Studio\\\\2022\\\\Community\\\\MSBuild\\\\Current\\\\Bin\\\\MSBuild.exe\" \"C:\\\\dev\\\\ap.elcazal\\\\testrepo01\\\\Bladex.Garantias.sln\" /p:Configuration=Debug /p:Platform=\"Any CPU\" /t:Build /v:minimal /nologo 2>&1 | Select-Object -Last 30)"
     ]
   }
 }

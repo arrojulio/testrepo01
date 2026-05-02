@@ -1,92 +1,850 @@
-body
-{
-font-family: Tahoma, Verdana, Arial, sans-serif;
-font-size: 12px;
-margin:0px;
+/* =============================================================================
+   app-styles.css  —  Bladex Garantias
+   Paleta:  Navy #1B2B4B | Acento azul claro #4A7FC1 | Fondo #F4F6FA | Borde #D0D9E8
+   ============================================================================= */
+
+/* --------------------------------------------------------------------------
+   1. CUSTOM PROPERTIES (CSS variables)
+   -------------------------------------------------------------------------- */
+:root {
+    /* Paleta principal */
+    --blx-navy:          #1B2B4B;
+    --blx-navy-dark:     #111D33;
+    --blx-navy-light:    #2C3F6B;
+    --blx-accent:        #4A7FC1;
+    --blx-accent-hover:  #3A6BA8;
+    --blx-accent-light:  #EAF0FB;
+
+    /* Neutrales */
+    --blx-bg:            #F4F6FA;
+    --blx-surface:       #FFFFFF;
+    --blx-border:        #D0D9E8;
+    --blx-border-focus:  #4A7FC1;
+    --blx-text:          #1E2D45;
+    --blx-text-muted:    #5A6A85;
+    --blx-text-light:    #8899BB;
+
+    /* Estado */
+    --blx-success:       #28A745;
+    --blx-danger:        #DC3545;
+    --blx-warning:       #FFC107;
+    --blx-info:          #17A2B8;
+
+    /* Tipografia */
+    --blx-font:          "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    --blx-font-mono:     "Cascadia Code", "Consolas", monospace;
+    --blx-font-size:     13px;
+    --blx-line-height:   1.5;
+
+    /* Radio y sombras */
+    --blx-radius:        6px;
+    --blx-radius-sm:     4px;
+    --blx-radius-lg:     10px;
+    --blx-shadow-sm:     0 1px 3px rgba(27,43,75,0.08);
+    --blx-shadow:        0 2px 8px rgba(27,43,75,0.12);
+    --blx-shadow-lg:     0 4px 20px rgba(27,43,75,0.16);
+
+    /* Espaciado base (multiplos de 4px) */
+    --blx-gap-xs:        4px;
+    --blx-gap-sm:        8px;
+    --blx-gap:           16px;
+    --blx-gap-lg:        24px;
+    --blx-gap-xl:        32px;
+
+    /* Altura de los controles de formulario */
+    --blx-input-height:  34px;
+
+    /* Transicion general */
+    --blx-transition:    0.18s ease;
 }
 
+/* --------------------------------------------------------------------------
+   2. RESET Y BASE
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 
-h1, h2, h3 { color: #888; font-family: Tahoma, Verdana, Arial, sans-serif; font-weight: normal; }
-h2 { background: url(images/bg-green.jpg) repeat-x; color:#fff; font-weight:normal;padding: 5px;margin: 0px;font-size: 15px;}
-.page{color:#000;text-decoration:none;margin:0px;}
-.main { margin:0px 5px;}
-.bgHeader { margin: 0; background: url(images/header-repeat-x.jpg) repeat-x;height: 80px;padding: 0px 20px;}
-.bgHeader span { padding-top: 6px;display: inline-block;font-size: 18px;color: white;float: left; }
-.sublogo { margin-right: 15px;float: right;height: 73px;width: 134px; }
-.sublogo p { font-size: 11px;color: #666; padding-left: 20px;margin-left: 15px; margin-top: 5px;}
-p.readonly-user { background-image: url(images/user_business.png); background-repeat:no-repeat;  }
-p.admin-user { background-image: url(images/user_green.png); background-repeat:no-repeat;  }
-a {color: #718ABE; text-decoration:none; }
-a:visited {text-decoration:none; }
-a:active {text-decoration:none; }
+html {
+    font-size: var(--blx-font-size);
+    scroll-behavior: smooth;
+}
 
-input { font-family: Tahoma, Verdana, Arial, sans-serif;}
-/* Styles for validation helpers
------------------------------------------------------------*/
-.field-validation-error {color: #ff0000;}
-.field-validation-valid {display: none;}
-.input-validation-error{border:1px solid red;background-color:#fee}
-.validation-summary-errors{font-weight:bold;color:red;font-family:Tahoma,Verdana,Arial,sans-serif;font-size:10px}
-.validation-summary-valid{display:none}
-/* Styles for editor and display helpers
-----------------------------------------------------------*/
-fieldset,input{font-size:12px;margin:5px 1px}
-fieldset{border-color:#b8cce4;padding:10px;color:#666}
-input[type=text] { text-transform: uppercase; }
-input.t-input { text-transform: none !important; }
-input.t-autocomplete { text-transform: uppercase !important;}
-input[type=button],input[type=submit],input[type=reset]{color:#fff;border:1px solid #999;padding:10px;text-align:center;vertical-align:middle;width:100px;background-image:url(images/bg-bluetitle2.jpg);background-repeat:repeat-x;}
-input[type=button]:hover,input[type=submit]:hover,input[type=reset]:hover {background-image:url(images/bg-lblue.jpg);color:#444;background-repeat:repeat-x; cursor:pointer;}
-.display-label,.editor-label,.display-field,.editor-field{padding:10px 10px 10px 10px}
-.editor-label,.editor-field{}
-.editor-label{clear:left;vertical-align:middle;color:#444}
-.guaranteeTable{border:1px solid #b8cce4;border-collapse:collapse}
-tr.guaranteeRow{border:1px solid #b8cce4}
-tr.guaranteeRow td{background-image:url(fondoxls.jpg);background-repeat:repeat-x;border-right:1px solid #b8cce4;vertical-align:top;min-height:40px}
-tr.attachedToLineRow{background-image:none;background-color:transparent}
-tr.attachedToLineRow td{background-image:none;background-color:transparent;border:0 none;vertical-align:top;min-height:40px}
-.editor-field{color:#444;background-color:#fff;border-left:0}
-.editor-field{ *float:none; }
-.editor-field input,.editor-field option,.editor-field textarea{margin:0;width:100%; padding: 3px 0px;}
-.editor-field textarea{width:400px;height:200px}
-.editor-label label{margin-right:5px;padding-right:5px;float:left}
-img.tooltip{float:right;cursor:help;margin-left:15px;height:20px;width:20px}
-.t-combobox,.t-dropdown,.t-selectbox{width:100%!important}
-.t-numerictextbox{}
-.hSeparator{display:block;height:5px}
-/* maker and checker styles */
+body {
+    font-family:   var(--blx-font);
+    font-size:     var(--blx-font-size);
+    line-height:   var(--blx-line-height);
+    color:         var(--blx-text);
+    background:    var(--blx-bg);
+    margin:        0;
+    padding:       0;
+}
 
-.currentPage{margin-left:5px;margin-right:5px;color:#000;font-weight:bold;text-decoration:none;font-size:12px}
-.itemContainer{background-color:#fff7d3;width:275px;border:solid 1px #dbddff;margin:2px;padding-top:2px;padding-bottom:2px;padding-left:10px;padding-right:5px;line-height:1.8em}
-.divRow {min-width:600px; margin-bottom:10px;}
-.commentBox { color:#666; font-family:Verdana;font-size:9px; width:98%;}
-#btnReject, #btnApprove { cursor: pointer;}
-.filterItem { word-wrap : break-word; }
-.styled-table.fixed { width:622px;}
-table.styled-table{border:1px solid #dbddff;border-collapse:collapse;font-family:Tahoma,Verdana,Arial,sans-serif;color:#fff;font-size:95%}
-table.styled-table th,table.styled-table td{padding-top:6px;padding-bottom:6px;padding-left:10px;padding-right:10px;background-repeat:repeat-x;background-color:#ffffff;font-size:100%;text-align:left;line-height:1.3em;color:#666;border-left:1px solid #dbddff;border-right:1px solid #dbddff;border-bottom:1px solid #dbddff}
-table.styled-table td{border-left:0;border-right:0;border-bottom:1px dotted #dadada;background-color:#fcfdfe; color:#666;}
-table.styled-table{width:100%; padding-left: .5em; padding-right: .5em;}
-table.styled-table th { background-image:url(images/bg-bluetitle2.jpg); background-color:#017bae; color:#fff;}
-table.styled-table.property-bag td { border-right: 1px dotted #dadada;}
-td.property-bag-new { background: url(images/newtag.gif) !important;background-repeat: no-repeat !important; padding-left: 25px !important;}
-.pager { text-align: center; }
-.pager-number { cursor:pointer; font-weight:bold;color:#fff; text-decoration:none; padding-right:5px; padding-left:0px;font-size:15px;}
-.pager-number-first { color:#fff; float:left; }
-.pager-number-last { color:#fff; float:right;}
-.pager-number:hover { color:#B5E61D; text-decoration:underline; }
-.pager-number-selected { color: #fff; text-decoration:underline;}
-/* changeset viewer styles */
-.changeset-viewer { margin-bottom:10px; }
-.changeset-viewer-action-container { margin: 5px; background-color: #F8F8A5; padding: 10px; border: 1px solid #dbddff;}
-.changeset-viewer-container { border:0px solid #dbddff; color:#666; margin:5px;  }
+/* --------------------------------------------------------------------------
+   3. TIPOGRAFIA
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+    font-family:  var(--blx-font);
+    color:        var(--blx-navy);
+    font-weight:  600;
+    line-height:  1.3;
+    margin-top:   0;
+}
+
+h1 { font-size: 1.6rem; }
+h2 { font-size: 1.3rem; }
+h3 { font-size: 1.1rem; }
+h4 { font-size: 1rem;   }
+
+/* Encabezados de seccion dentro de formularios */
+h2.blx-section-title {
+    font-size:      0.8rem;
+    font-weight:    700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color:          var(--blx-text-muted);
+    padding-bottom: var(--blx-gap-sm);
+    border-bottom:  2px solid var(--blx-border);
+    margin-bottom:  var(--blx-gap);
+}
+
+a {
+    color:           var(--blx-accent);
+    text-decoration: none;
+    transition:      color var(--blx-transition);
+}
+a:hover  { color: var(--blx-accent-hover); text-decoration: underline; }
+a:visited { color: var(--blx-accent); }
+
+/* --------------------------------------------------------------------------
+   4. NAVBAR (blx-navbar)
+   -------------------------------------------------------------------------- */
+.blx-navbar {
+    background-color: var(--blx-navy) !important;
+    border-bottom:    3px solid var(--blx-accent);
+    padding:          0 !important;
+    min-height:       56px;
+    position:         sticky;
+    top:              0;
+    z-index:          1030;
+    box-shadow:       var(--blx-shadow);
+}
+
+.blx-brand {
+    display:     flex;
+    align-items: center;
+    gap:         var(--blx-gap-sm);
+    padding:     var(--blx-gap-sm) 0;
+    color:       #fff !important;
+    text-decoration: none !important;
+}
+.blx-brand:hover { opacity: 0.9; }
+
+.blx-brand-logo {
+    height:    36px;
+    width:     auto;
+    filter:    brightness(0) invert(1);
+}
+
+.blx-brand-name {
+    font-size:   1.1rem;
+    font-weight: 700;
+    color:       #fff;
+    letter-spacing: 0.02em;
+}
+
+/* Links del navbar */
+.blx-navbar .nav-link {
+    color:       rgba(255,255,255,0.82) !important;
+    font-size:   0.82rem;
+    font-weight: 500;
+    padding:     0 var(--blx-gap-sm) !important;
+    line-height: 56px;
+    transition:  color var(--blx-transition), border-bottom var(--blx-transition);
+    border-bottom: 3px solid transparent;
+    margin-bottom: -3px;
+}
+.blx-navbar .nav-link:hover,
+.blx-navbar .nav-link.active {
+    color:         #fff !important;
+    border-bottom: 3px solid var(--blx-accent);
+    text-decoration: none;
+}
+
+/* Toggler movil */
+.blx-navbar .navbar-toggler {
+    border-color: rgba(255,255,255,0.4);
+}
+.blx-navbar .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+/* Badge de usuario autenticado */
+.blx-user-badge {
+    color:     rgba(255,255,255,0.85);
+    font-size: 0.78rem;
+    padding:   4px 8px;
+    border-radius: var(--blx-radius-sm);
+    background: rgba(255,255,255,0.08);
+}
+.blx-username { font-weight: 600; }
+
+/* Iconos de tipo de usuario (sustituyen las imagenes .png) */
+.blx-user-icon {
+    display:          inline-block;
+    width:            18px;
+    height:           18px;
+    border-radius:    50%;
+    vertical-align:   middle;
+    flex-shrink:      0;
+}
+.blx-user-icon--power   { background-color: #4CAF50; }
+.blx-user-icon--readonly { background-color: var(--blx-text-light); }
+
+/* --------------------------------------------------------------------------
+   5. BARRA DE CHANGESET (MakerChecker) — franja superior bajo el navbar
+   -------------------------------------------------------------------------- */
+#blx-changeset-bar {
+    background-color: #fffde7;
+    border-bottom:    1px solid #ffe082;
+}
+/* Cuando no hay changeset activo el partial renderiza vacio — sin espacio extra */
+#blx-changeset-bar:empty {
+    display: none;
+}
+
+/* Estilos del changeset viewer (partial ChangesetViewer.ascx) */
+.changeset-viewer {
+    padding:   var(--blx-gap-sm) var(--blx-gap);
+    font-size: 0.8rem;
+    color:     var(--blx-text);
+}
+.changeset-viewer-action-container {
+    display:       flex;
+    align-items:   center;
+    gap:           var(--blx-gap);
+    flex-wrap:     wrap;
+    background:    #fffde7;
+    border:        1px solid #ffe082;
+    border-radius: var(--blx-radius-sm);
+    padding:       var(--blx-gap-sm) var(--blx-gap);
+}
+.changeset-viewer-container {
+    color: var(--blx-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   6. LAYOUT PRINCIPAL
+   -------------------------------------------------------------------------- */
+.blx-main-content {
+    padding:    var(--blx-gap) 0 var(--blx-gap-xl);
+    min-height: calc(100vh - 56px - 40px);
+}
+
+.blx-footer {
+    background:   var(--blx-navy-dark);
+    color:        rgba(255,255,255,0.55);
+    text-align:   center;
+    font-size:    0.75rem;
+    padding:      10px var(--blx-gap);
+    border-top:   1px solid var(--blx-navy-light);
+}
+
+/* --------------------------------------------------------------------------
+   7. CARDS (encapsulacion de secciones de formulario)
+   -------------------------------------------------------------------------- */
+.blx-card {
+    background:    var(--blx-surface);
+    border:        1px solid var(--blx-border);
+    border-radius: var(--blx-radius);
+    box-shadow:    var(--blx-shadow-sm);
+    margin-bottom: var(--blx-gap);
+    overflow:      hidden;
+}
+
+.blx-card-header {
+    background:     var(--blx-accent-light);
+    border-bottom:  1px solid var(--blx-border);
+    padding:        var(--blx-gap-sm) var(--blx-gap);
+    display:        flex;
+    align-items:    center;
+    gap:            var(--blx-gap-sm);
+}
+
+.blx-card-header-title {
+    font-size:   0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color:       var(--blx-navy);
+    margin:      0;
+}
+
+.blx-card-body {
+    padding: var(--blx-gap);
+}
+
+/* --------------------------------------------------------------------------
+   8. FORMULARIOS — campos editor-label / editor-field
+   -------------------------------------------------------------------------- */
+fieldset {
+    border:        1px solid var(--blx-border);
+    border-radius: var(--blx-radius);
+    padding:       var(--blx-gap);
+    margin:        0 0 var(--blx-gap);
+    background:    var(--blx-surface);
+}
+
+legend {
+    font-size:   0.78rem;
+    font-weight: 700;
+    color:       var(--blx-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding:     0 var(--blx-gap-sm);
+    width:       auto;
+    float:       none;
+}
+
+/* Tabla de campos (pattern existente — preservado, modernizado) */
+.guaranteeTable {
+    width:           100%;
+    border:          1px solid var(--blx-border);
+    border-collapse: collapse;
+    background:      var(--blx-surface);
+}
+
+tr.guaranteeRow {
+    border-bottom: 1px solid var(--blx-border);
+    transition:    background-color var(--blx-transition);
+}
+tr.guaranteeRow:hover {
+    background-color: var(--blx-accent-light);
+}
+tr.guaranteeRow td {
+    vertical-align: top;
+    min-height:     40px;
+    /* eliminadas las imagenes de fondo repetidas (fondoxls.jpg) */
+}
+tr.attachedToLineRow,
+tr.attachedToLineRow td {
+    background: transparent;
+    border:     none;
+    vertical-align: top;
+    min-height: 40px;
+}
+
+/* Celdas label / field */
+.editor-label,
+.display-label {
+    padding:       var(--blx-gap-sm) var(--blx-gap);
+    vertical-align: middle;
+    color:          var(--blx-text-muted);
+    font-size:      0.8rem;
+    font-weight:    500;
+    white-space:    nowrap;
+    width:          28%;
+    text-align:     right;
+}
+
+.editor-field,
+.display-field {
+    padding:    var(--blx-gap-sm) var(--blx-gap);
+    color:      var(--blx-text);
+    background: var(--blx-surface);
+    vertical-align: top;
+}
+
+/* Label dentro de editor-label */
+.editor-label label {
+    margin-right: 4px;
+    font-weight:  500;
+}
+
+/* Asterisco de campo requerido */
+.editor-label .blx-required {
+    color: var(--blx-danger);
+    font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   9. INPUTS, SELECTS, TEXTAREAS
+   -------------------------------------------------------------------------- */
+input, select, textarea, button {
+    font-family: var(--blx-font);
+    font-size:   var(--blx-font-size);
+}
+
+input[type=text],
+input[type=number],
+input[type=email],
+input[type=password],
+input[type=date],
+select,
+textarea {
+    height:        var(--blx-input-height);
+    padding:       4px 8px;
+    border:        1px solid var(--blx-border);
+    border-radius: var(--blx-radius-sm);
+    color:         var(--blx-text);
+    background:    var(--blx-surface);
+    width:         100%;
+    transition:    border-color var(--blx-transition), box-shadow var(--blx-transition);
+    text-transform: uppercase;
+}
+
+input[type=text]:focus,
+input[type=number]:focus,
+input[type=email]:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--blx-border-focus);
+    box-shadow:   0 0 0 3px rgba(74,127,193,0.18);
+    outline:      none;
+}
+
+textarea {
+    height:     120px;
+    resize:     vertical;
+    text-transform: none;
+}
+
+/* Telerik inputs — cancelar uppercase (ya lo maneja Telerik internamente) */
+input.t-input,
+input.t-autocomplete {
+    text-transform: none !important;
+}
+
+.editor-field input,
+.editor-field select,
+.editor-field textarea {
+    margin:  0;
+    width:   100%;
+    padding: 4px 8px;
+}
+.editor-field textarea {
+    width:  100%;
+    height: 120px;
+}
+
+/* Campo de solo lectura */
+.editor-field input[readonly],
+.editor-field input[disabled] {
+    background: #F0F3F8;
+    color:      var(--blx-text-muted);
+    cursor:     not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   10. BOTONES
+   -------------------------------------------------------------------------- */
+
+/* Boton tipo submit/button legacy (ya existe, mantener compatibilidad) */
+input[type=button],
+input[type=submit],
+input[type=reset] {
+    display:       inline-flex;
+    align-items:   center;
+    justify-content: center;
+    height:        36px;
+    padding:       0 var(--blx-gap);
+    font-size:     0.82rem;
+    font-weight:   600;
+    color:         #fff;
+    background:    var(--blx-accent);
+    border:        1px solid var(--blx-accent-hover);
+    border-radius: var(--blx-radius-sm);
+    cursor:        pointer;
+    transition:    background var(--blx-transition), box-shadow var(--blx-transition);
+    width:         auto;
+    min-width:     80px;
+    text-align:    center;
+    /* eliminar imagenes de fondo legacy */
+    background-image: none;
+    background-repeat: no-repeat;
+}
+input[type=button]:hover,
+input[type=submit]:hover,
+input[type=reset]:hover {
+    background:   var(--blx-accent-hover);
+    box-shadow:   var(--blx-shadow-sm);
+    color:        #fff;
+    background-image: none;
+}
+input[type=button]:active,
+input[type=submit]:active,
+input[type=reset]:active {
+    background: var(--blx-navy-light);
+}
+
+/* Boton cancelar: variante secundaria */
+input[type=button]#btnCancel,
+input[type=button].blx-btn-secondary {
+    background:   var(--blx-surface);
+    color:        var(--blx-accent);
+    border-color: var(--blx-border);
+    background-image: none;
+}
+input[type=button]#btnCancel:hover,
+input[type=button].blx-btn-secondary:hover {
+    background:   var(--blx-accent-light);
+    color:        var(--blx-accent-hover);
+    background-image: none;
+}
+
+/* Separador horizontal entre botones */
+.blx-action-bar {
+    display:     flex;
+    gap:         var(--blx-gap-sm);
+    align-items: center;
+    padding:     var(--blx-gap) 0 var(--blx-gap-sm);
+    flex-wrap:   wrap;
+}
+
+/* --------------------------------------------------------------------------
+   11. VALIDACION
+   -------------------------------------------------------------------------- */
+.field-validation-error {
+    color:     var(--blx-danger);
+    font-size: 0.78rem;
+    display:   block;
+    margin-top: 2px;
+}
+.field-validation-valid { display: none; }
+
+.input-validation-error {
+    border-color:     var(--blx-danger) !important;
+    background-color: #fef2f2 !important;
+    box-shadow:       0 0 0 3px rgba(220,53,69,0.12) !important;
+}
+
+.validation-summary-errors {
+    font-size:     0.82rem;
+    font-weight:   600;
+    color:         var(--blx-danger);
+    background:    #fef2f2;
+    border:        1px solid #f5c6cb;
+    border-radius: var(--blx-radius-sm);
+    padding:       var(--blx-gap-sm) var(--blx-gap);
+    margin-bottom: var(--blx-gap);
+}
+.validation-summary-valid { display: none; }
+
+/* --------------------------------------------------------------------------
+   12. TABLAS DE DATOS (styled-table, DataTables)
+   -------------------------------------------------------------------------- */
+table.styled-table {
+    width:           100%;
+    border-collapse: collapse;
+    font-family:     var(--blx-font);
+    font-size:       0.82rem;
+    color:           var(--blx-text);
+    border:          1px solid var(--blx-border);
+    border-radius:   var(--blx-radius);
+    overflow:        hidden;
+}
+table.styled-table.fixed { width: 100%; max-width: 700px; }
+
+table.styled-table th {
+    background:    var(--blx-navy);
+    color:         #fff;
+    font-weight:   600;
+    font-size:     0.78rem;
+    letter-spacing: 0.04em;
+    padding:       10px var(--blx-gap);
+    text-align:    left;
+    border:        none;
+}
+
+table.styled-table td {
+    padding:       8px var(--blx-gap);
+    border-bottom: 1px solid var(--blx-border);
+    color:         var(--blx-text);
+    background:    var(--blx-surface);
+    vertical-align: top;
+    line-height:   1.45;
+}
+
+table.styled-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+table.styled-table tbody tr:hover td {
+    background: var(--blx-accent-light);
+}
+
+/* Property bag: Actual vs. Propuesto (MakerChecker) */
+table.styled-table.property-bag td {
+    border-right: 1px solid var(--blx-border);
+}
+table.styled-table.property-bag td:last-child {
+    border-right: none;
+}
+
+/* Celda resaltada "nuevo valor" */
+td.property-bag-new {
+    background: #e8f5e9 !important;
+    color:      #1b5e20 !important;
+    font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   13. PAGINACION (MakerChecker — pager manual)
+   -------------------------------------------------------------------------- */
+.pager {
+    display:     flex;
+    align-items: center;
+    justify-content: center;
+    gap:         4px;
+    flex-wrap:   wrap;
+    padding:     var(--blx-gap-sm) 0;
+}
+
+.pager-number {
+    display:       inline-flex;
+    align-items:   center;
+    justify-content: center;
+    min-width:     32px;
+    height:        32px;
+    padding:       0 8px;
+    border:        1px solid var(--blx-border);
+    border-radius: var(--blx-radius-sm);
+    background:    var(--blx-surface);
+    color:         var(--blx-accent) !important;
+    font-size:     0.82rem;
+    font-weight:   600;
+    text-decoration: none !important;
+    cursor:        pointer;
+    transition:    background var(--blx-transition), color var(--blx-transition);
+}
+.pager-number:hover {
+    background: var(--blx-accent);
+    color:      #fff !important;
+    border-color: var(--blx-accent-hover);
+}
+.pager-number-selected {
+    background:  var(--blx-navy) !important;
+    color:       #fff !important;
+    border-color: var(--blx-navy);
+}
+.pager-number-first,
+.pager-number-last { font-weight: 600; }
+
+/* --------------------------------------------------------------------------
+   14. MAKERCHECKER — badges de estado y botones de accion
+   -------------------------------------------------------------------------- */
+.blx-status-badge {
+    display:       inline-flex;
+    align-items:   center;
+    gap:           4px;
+    padding:       2px 10px;
+    border-radius: 50px;
+    font-size:     0.72rem;
+    font-weight:   700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+.blx-status-badge--new      { background: #e3f2fd; color: #0d47a1; }
+.blx-status-badge--approved { background: #e8f5e9; color: #1b5e20; }
+.blx-status-badge--rejected { background: #fce4ec; color: #880e4f; }
+.blx-status-badge--pending  { background: #fff8e1; color: #e65100; }
+
+/* Contenedor de informacion de la operacion */
+.blx-operation-meta {
+    font-size:  0.82rem;
+    color:      var(--blx-text-muted);
+    line-height: 1.6;
+}
+
+/* Area de comentarios */
+.commentBox,
+.commentBoxInput {
+    width:         100%;
+    min-height:    80px;
+    font-family:   var(--blx-font);
+    font-size:     0.82rem;
+    color:         var(--blx-text);
+    border:        1px solid var(--blx-border);
+    border-radius: var(--blx-radius-sm);
+    padding:       var(--blx-gap-sm);
+    resize:        vertical;
+    transition:    border-color var(--blx-transition);
+}
+.commentBoxInput:focus {
+    border-color: var(--blx-border-focus);
+    outline:      none;
+    box-shadow:   0 0 0 3px rgba(74,127,193,0.18);
+    background:   var(--blx-surface) !important;
+}
+
+/* --------------------------------------------------------------------------
+   15. ALERTAS (over-utilization, enable-rejected)
+   -------------------------------------------------------------------------- */
+.over-utilization-alert-container {
+    display:       flex;
+    align-items:   center;
+    gap:           var(--blx-gap);
+    background:    #fce4ec;
+    border:        1px solid #f48fb1;
+    border-radius: var(--blx-radius-sm);
+    color:         #880e4f;
+    padding:       var(--blx-gap-sm) var(--blx-gap);
+    margin:        var(--blx-gap-sm) 0;
+}
+.over-utilization-alert-icon {
+    flex-shrink: 0;
+    width:       28px;
+    height:      28px;
+    background:  url(images/message-box-warning.png) center/contain no-repeat;
+}
+.over-utilization-alert-text {
+    font-weight: 600;
+    font-size:   0.85rem;
+}
+
+.enable-rejected-container {
+    background:    #fff9c4;
+    border:        1px solid #f9a825;
+    border-radius: var(--blx-radius-sm);
+    padding:       var(--blx-gap-sm) var(--blx-gap);
+    font-size:     0.82rem;
+    color:         var(--blx-text);
+}
+
+/* --------------------------------------------------------------------------
+   16. TABS (jQuery UI) — alineacion con paleta
+   -------------------------------------------------------------------------- */
+.ui-tabs {
+    border:        1px solid var(--blx-border) !important;
+    border-radius: var(--blx-radius) !important;
+    background:    var(--blx-surface) !important;
+    padding:       0 !important;
+}
+.ui-tabs .ui-tabs-nav {
+    background:    var(--blx-bg) !important;
+    border-bottom: 1px solid var(--blx-border) !important;
+    border-radius: var(--blx-radius) var(--blx-radius) 0 0 !important;
+    padding:       var(--blx-gap-sm) var(--blx-gap-sm) 0 !important;
+}
+.ui-tabs .ui-tabs-nav li {
+    margin:        0 2px 0 0;
+    border-radius: var(--blx-radius-sm) var(--blx-radius-sm) 0 0 !important;
+}
+.ui-tabs .ui-tabs-nav .ui-state-active a {
+    color:       var(--blx-navy) !important;
+    font-weight: 600;
+}
+.ui-tabs .ui-tabs-panel {
+    padding:    var(--blx-gap) !important;
+    border:     none !important;
+    background: var(--blx-surface) !important;
+}
+
+/* --------------------------------------------------------------------------
+   17. TELERIK — ajustes de tamano y coherencia visual
+   -------------------------------------------------------------------------- */
+.t-combobox,
+.t-dropdown,
+.t-selectbox {
+    width: 100% !important;
+}
+.t-numerictextbox { /* sin sobreescritura de ancho, lo maneja Telerik */ }
+
+/* Separador interno de formularios Telerik */
+.hSeparator {
+    display: block;
+    height:  var(--blx-gap-sm);
+}
+
+/* --------------------------------------------------------------------------
+   18. LISTAS DE GARANTIAS (garantia-contrato-list, garantia-Aval-list)
+   -------------------------------------------------------------------------- */
+ul.garantia-contrato-list,
+ul.garantia-Aval-list {
+    list-style: none;
+    margin:     0;
+    padding:    0;
+}
+ul.garantia-contrato-list li,
+ul.garantia-Aval-list li {
+    padding:       var(--blx-gap-sm) var(--blx-gap);
+    border-bottom: 1px solid var(--blx-border);
+    font-size:     0.82rem;
+    color:         var(--blx-text);
+    transition:    background var(--blx-transition);
+}
+ul.garantia-contrato-list li:hover,
+ul.garantia-Aval-list li:hover {
+    background: var(--blx-accent-light);
+}
+ul.garantia-contrato-list li:last-child,
+ul.garantia-Aval-list li:last-child {
+    border-bottom: none;
+}
+
+/* --------------------------------------------------------------------------
+   19. ITEM CONTAINER (MakerChecker changesets inline)
+   -------------------------------------------------------------------------- */
+.itemContainer {
+    background:    var(--blx-surface);
+    border:        1px solid var(--blx-border);
+    border-radius: var(--blx-radius-sm);
+    padding:       var(--blx-gap-sm) var(--blx-gap);
+    margin:        4px;
+    line-height:   1.7;
+    font-size:     0.82rem;
+    color:         var(--blx-text);
+}
+
+/* --------------------------------------------------------------------------
+   20. UTILIDADES AUXILIARES
+   -------------------------------------------------------------------------- */
+.divRow {
+    margin-bottom: var(--blx-gap);
+}
+.filterItem {
+    word-break: break-word;
+}
 #submit_changeset { width: 100%; }
-.changeset-viewer-action-container {}
-/* over utilization alert styles */
-.over-utilization-alert-container { background-color: #F2DEDE; border: 1px solid #EED3D7; color: #B94A48; width:100%; display:inline-block; margin:5px 0px; }
-.over-utilization-alert-icon { background: url(images/message-box-warning.png); width:32px; height:32px; margin:10px; float:left;}
-.over-utilization-alert-text { float:left; margin:7px; font-weight:bold;}
-.changeset-comment { width:100%; font-family:Tahoma,Verdana,Arial,sans-serif;color:#666;font-size:95%; }
-.enable-rejected-container { background-color: #FFFFE0; border:1px solid #666; margin:0px; padding:5px;}
-ul.garantia-contrato-list { list-style-type: none; margin: 0px; padding: 0px; }
-ul.garantia-Aval-list { list-style-type: none; margin: 0px; padding: 0px; }
+
+/* Imagen tooltip inline */
+img.tooltip {
+    float:       right;
+    cursor:      help;
+    margin-left: var(--blx-gap);
+    height:      18px;
+    width:       18px;
+    opacity:     0.7;
+    transition:  opacity var(--blx-transition);
+}
+img.tooltip:hover { opacity: 1; }
+
+/* Texto del pagina actual (uso de currentPage) */
+.currentPage {
+    font-weight: 700;
+    color:       var(--blx-text);
+    font-size:   0.82rem;
+    padding:     0 4px;
+}
+
+/* Ocultar la seccion .scripts que ya no se usa (por si alguna vista la referencia) */
+.scripts { display: none; }
+
+/* --------------------------------------------------------------------------
+   21. RESPONSIVE — ajustes para pantallas pequenas
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .editor-label,
+    .display-label {
+        width:      100%;
+        text-align: left;
+        padding-bottom: 0;
+    }
+    .guaranteeTable,
+    .guaranteeTable tr,
+    .guaranteeTable td {
+        display: block;
+        width:   100%;
+    }
+    .blx-main-content { padding: var(--blx-gap-sm); }
+}

@@ -29,7 +29,7 @@
         </tbody>
     </table>
     <div>
-        <%if (!ViewBag.CategoriaSuper.IsReadOnly){%>
+        <%if (ViewBag.CategoriaSuper != null && !ViewBag.CategoriaSuper.IsReadOnly){%>
                     <%if (Context.User.Identity.IsAuthenticated && Context.User.IsInRole("Power User") && !Context.User.IsInRole("Checker")){%>
 
             <%:Html.ActionLink(string.Format("Crear {0}", ViewData["CategoriaSuperTitle"].ToString()), "Create", new {CategoriaSuperId = ViewData["CategoriaSuperId"].ToString()})%> | 

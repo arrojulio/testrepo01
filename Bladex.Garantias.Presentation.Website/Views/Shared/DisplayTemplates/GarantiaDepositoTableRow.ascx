@@ -20,10 +20,10 @@
         <%: Model.ValorMercado.ToString("c")%>
     </td>
     <td class="action" style="text-align: center;">
-        <% if (!Model.CategoriaSuper.IsReadOnly) {%>
+        <% if (Model.CategoriaSuper != null && !Model.CategoriaSuper.IsReadOnly) {%>
             <%if (Context.User.Identity.IsAuthenticated && Context.User.IsInRole("Power User")  && !Context.User.IsInRole("Checker")){%>
                 <%:Html.ActionLink("Ver", "Edit", new { id = Model.Key, categoriaSuperId = Model.CategoriaSuper.Key.ToString(), useRepository = true,isReadOnly=true })%>
-                <% if ((int)Model.InternalStatus.Key!=3) {%>
+                <% if (Model.InternalStatus != null && (int)Model.InternalStatus.Key != 3) {%>
                     <%:Html.ActionLink("Editar", "Edit", new { id = Model.Key, categoriaSuperId = Model.CategoriaSuper.Key.ToString(), useRepository = true, isReadOnly = false})%>
                 <%}%>
                 <%:Html.ActionLink("Borrar", "Delete", new {id = Model.Key, categoriaSuperId = Model.CategoriaSuper.Key.ToString()})%>

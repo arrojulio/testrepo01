@@ -1,210 +1,516 @@
 /* =====================================================================
-   bootstrap-overrides.css
-   Overrides de Bootstrap 5 para preservar el diseño existente de la app.
-   Cargado inmediatamente después de bootstrap-5.3.3.min.css.
+   bootstrap-overrides.css  —  Bladex Garantias
+   Objetivo: alinear Bootstrap 5, Telerik 2011 y DataTables 1.9.4
+   con la paleta y tipografia de app-styles.css.
+   Se carga DESPUES de bootstrap-5.3.3.min.css y app-styles.css.
    ===================================================================== */
 
-/* 1. Restore base font size (Bootstrap 5 reboot sets body to 1rem/16px) */
+/* Las custom properties se heredan de app-styles.css (:root) */
+
+/* ------------------------------------------------------------------
+   1. BASE — Revert Bootstrap reboot sobre fuente y colores
+   ------------------------------------------------------------------ */
 body {
-    font-size: 12px;
-    font-family: Tahoma, Verdana, Arial, sans-serif;
+    font-family: var(--blx-font);
+    font-size:   var(--blx-font-size);
+    color:       var(--blx-text);
+    background:  var(--blx-bg);
 }
 
-/* 2. Restore link color and no-underline (Bootstrap sets #0d6efd + underline) */
-a,
-a:visited,
-a:active {
-    color: #718ABE;
+a, a:visited, a:active {
+    color:           var(--blx-accent);
     text-decoration: none;
 }
 a:hover {
+    color:           var(--blx-accent-hover);
     text-decoration: underline;
 }
 
-/* 3. Restore fieldset styles (Bootstrap reboot zeroes padding, margin, border) */
-fieldset {
-    border: 1px solid #b8cce4 !important;
-    padding: 10px !important;
-    margin: 5px 1px !important;
-    font-size: 12px;
-    color: #666;
+/* Botones <a> no deben subrayarse en ningun estado */
+a.btn,
+a.btn:visited,
+a.btn:active,
+a.btn:hover {
+    text-decoration: none;
 }
 
-/* 4. Restore branded button styles
-      (Bootstrap reboot normalizes -webkit-appearance but does not strip
-       background-image; however re-declaring ensures correct specificity) */
+/* ------------------------------------------------------------------
+   2. FIELDSET — Bootstrap reboot elimina el borde; lo restauramos
+   ------------------------------------------------------------------ */
+fieldset {
+    border:        1px solid var(--blx-border) !important;
+    border-radius: var(--blx-radius) !important;
+    padding:       var(--blx-gap) !important;
+    margin:        0 0 var(--blx-gap) !important;
+    background:    var(--blx-surface);
+    font-size:     var(--blx-font-size);
+    color:         var(--blx-text-muted);
+}
+
+/* ------------------------------------------------------------------
+   3. BOTONES input-type — consistencia con Bootstrap btn
+   Bootstrap no reemplaza input[type=submit] por defecto, pero
+   aseguramos la apariencia uniforme con la de .btn.
+   ------------------------------------------------------------------ */
 input[type=button],
 input[type=submit],
 input[type=reset] {
-    color: #fff;
-    border: 1px solid #999;
-    padding: 10px;
-    text-align: center;
-    vertical-align: middle;
-    width: 100px;
-    background-image: url(images/bg-bluetitle2.jpg);
-    background-repeat: repeat-x;
-    font-size: 12px;
-    font-family: Tahoma, Verdana, Arial, sans-serif;
-    cursor: pointer;
-    border-radius: 0;
+    display:       inline-flex;
+    align-items:   center;
+    justify-content: center;
+    height:        36px;
+    padding:       0 var(--blx-gap);
+    font-family:   var(--blx-font);
+    font-size:     0.82rem;
+    font-weight:   600;
+    color:         #fff;
+    background:    var(--blx-accent);
+    background-image: none;
+    border:        1px solid var(--blx-accent-hover);
+    border-radius: var(--blx-radius-sm);
+    cursor:        pointer;
+    transition:    background var(--blx-transition), box-shadow var(--blx-transition);
+    width:         auto;
+    min-width:     80px;
+    text-align:    center;
 }
-
 input[type=button]:hover,
 input[type=submit]:hover,
 input[type=reset]:hover {
-    background-image: url(images/bg-lblue.jpg);
-    color: #444;
-    background-repeat: repeat-x;
+    background:       var(--blx-accent-hover);
+    background-image: none;
+    color:            #fff;
+    box-shadow:       var(--blx-shadow-sm);
 }
 
-/* 5. DataTables 1.9.4 — full styling (replaces the missing jquery.dataTables.css)
-   bJQueryUI:false → no jQuery UI ThemeRoller classes; all layout is CSS-only. */
+/* ------------------------------------------------------------------
+   4. BOOTSTRAP 5 btn — asegurar que el color navy se use en .btn-primary
+   ------------------------------------------------------------------ */
+.btn-primary {
+    --bs-btn-bg:            var(--blx-accent);
+    --bs-btn-border-color:  var(--blx-accent-hover);
+    --bs-btn-hover-bg:      var(--blx-accent-hover);
+    --bs-btn-hover-border-color: var(--blx-navy-light);
+    --bs-btn-active-bg:     var(--blx-navy-light);
+    --bs-btn-focus-shadow-rgb: 74, 127, 193;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
 
-/* --- Table --- */
+.btn-secondary {
+    --bs-btn-bg:           #f0f3f8;
+    --bs-btn-border-color: var(--blx-border);
+    --bs-btn-color:        var(--blx-navy);
+    --bs-btn-hover-bg:     var(--blx-accent-light);
+    --bs-btn-hover-color:  var(--blx-navy);
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.btn-success {
+    --bs-btn-bg:           var(--blx-success);
+    --bs-btn-border-color: #218838;
+    --bs-btn-hover-bg:     #218838;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.btn-danger {
+    --bs-btn-bg:           var(--blx-danger);
+    --bs-btn-border-color: #c82333;
+    --bs-btn-hover-bg:     #c82333;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.btn-sm {
+    font-size: 0.75rem;
+    padding:   4px 10px;
+    height:    auto;
+}
+
+/* ------------------------------------------------------------------
+   5. BADGE Bootstrap — sobrescribir para usar la paleta
+   ------------------------------------------------------------------ */
+.badge {
+    font-size:     0.72rem;
+    font-weight:   700;
+    letter-spacing: 0.04em;
+    padding:       3px 8px;
+    border-radius: 50px;
+}
+.badge.bg-primary   { background-color: var(--blx-accent)   !important; }
+.badge.bg-secondary { background-color: var(--blx-text-muted) !important; }
+
+/* ------------------------------------------------------------------
+   6. ALERTS Bootstrap
+   ------------------------------------------------------------------ */
+.alert {
+    font-size:     0.82rem;
+    border-radius: var(--blx-radius-sm);
+    padding:       var(--blx-gap-sm) var(--blx-gap);
+}
+
+/* ------------------------------------------------------------------
+   7. CARD Bootstrap
+   ------------------------------------------------------------------ */
+.card {
+    border:        1px solid var(--blx-border);
+    border-radius: var(--blx-radius);
+    box-shadow:    var(--blx-shadow-sm);
+}
+.card-header {
+    background:   var(--blx-accent-light);
+    border-bottom: 1px solid var(--blx-border);
+    font-weight:   600;
+    font-size:     0.85rem;
+    color:         var(--blx-navy);
+}
+
+/* ------------------------------------------------------------------
+   8. FORMULARIOS Bootstrap — inputs coherentes con paleta
+   ------------------------------------------------------------------ */
+.form-control,
+.form-select {
+    font-family:   var(--blx-font);
+    font-size:     var(--blx-font-size);
+    color:         var(--blx-text);
+    border-color:  var(--blx-border);
+    border-radius: var(--blx-radius-sm);
+    height:        var(--blx-input-height);
+    padding:       4px 8px;
+    transition:    border-color var(--blx-transition), box-shadow var(--blx-transition);
+}
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--blx-border-focus);
+    box-shadow:   0 0 0 3px rgba(74,127,193,0.18);
+    outline:      none;
+}
+.form-label {
+    font-weight: 500;
+    font-size:   0.8rem;
+    color:       var(--blx-text-muted);
+    margin-bottom: 3px;
+}
+
+/* ------------------------------------------------------------------
+   9. DATATABLES 1.9.4 — estilo completo alineado con paleta
+   (DataTables 1.9 no tiene hoja propia para el modo bJQueryUI:false)
+   ------------------------------------------------------------------ */
 table.dataTable {
-    width: 100%;
+    width:           100%;
     border-collapse: collapse;
-    clear: both;
-    margin: 0;
-    font-size: 12px;
+    clear:           both;
+    margin:          0;
+    font-family:     var(--blx-font);
+    font-size:       0.82rem;
+    color:           var(--blx-text);
 }
 
 table.dataTable thead th {
-    padding: 6px 18px 6px 8px;
-    border-top: 1px solid #aec0d7;
-    border-bottom: 2px solid #718ABE;
-    background-color: #e8edf5;
-    color: #333;
-    font-weight: bold;
-    white-space: nowrap;
-    cursor: pointer;
-    position: relative;
+    padding:          8px 22px 8px 10px;
+    background:       var(--blx-navy);
+    color:            #fff;
+    font-weight:      600;
+    font-size:        0.78rem;
+    letter-spacing:   0.04em;
+    white-space:      nowrap;
+    cursor:           pointer;
+    border-bottom:    2px solid var(--blx-accent);
+    position:         relative;
+    border-top:       none;
 }
 
-/* sort state indicators via pseudo-element (no image files needed) */
-table.dataTable thead th.sorting::after    { content: " \21C5"; opacity: 0.4; font-size: 10px; }
-table.dataTable thead th.sorting_asc::after  { content: " \2191"; font-size: 11px; }
-table.dataTable thead th.sorting_desc::after { content: " \2193"; font-size: 11px; }
-table.dataTable thead th.sorting_asc  { background-color: #d5dff0; }
-table.dataTable thead th.sorting_desc { background-color: #d5dff0; }
+/* Indicadores de ordenamiento — pseudo-element, sin imagenes */
+table.dataTable thead th.sorting::after      { content: " \21C5"; opacity: 0.45; font-size: 10px; }
+table.dataTable thead th.sorting_asc::after  { content: " \2191"; font-size: 11px; opacity: 0.9; }
+table.dataTable thead th.sorting_desc::after { content: " \2193"; font-size: 11px; opacity: 0.9; }
+table.dataTable thead th.sorting_asc  { background-color: var(--blx-navy-light); }
+table.dataTable thead th.sorting_desc { background-color: var(--blx-navy-light); }
 table.dataTable thead th.sorting_disabled { cursor: default; }
 
-table.dataTable tbody tr.odd  { background-color: #ffffff; }
-table.dataTable tbody tr.even { background-color: #f5f7fc; }
-table.dataTable tbody tr:hover { background-color: #edf1fa; }
+table.dataTable tbody tr.odd  { background-color: var(--blx-surface); }
+table.dataTable tbody tr.even { background-color: #f7f9fd; }
+table.dataTable tbody tr:hover { background-color: var(--blx-accent-light); }
 
 table.dataTable tbody td {
-    padding: 5px 8px;
-    border-bottom: 1px solid #e0e0e0;
+    padding:       7px 10px;
+    border-bottom: 1px solid var(--blx-border);
     vertical-align: top;
+    color:         var(--blx-text);
 }
 
 table.dataTable tfoot th,
 table.dataTable tfoot td {
-    padding: 5px 8px;
-    border-top: 2px solid #718ABE;
-    font-weight: bold;
+    padding:    7px 10px;
+    border-top: 2px solid var(--blx-accent);
+    font-weight: 600;
+    background: var(--blx-bg);
+    color:      var(--blx-text-muted);
 }
 
-/* --- Wrapper clearfix --- */
+/* Clearfix del wrapper */
 .dataTables_wrapper::after {
     content: "";
     display: table;
-    clear: both;
+    clear:   both;
 }
-
 .dataTables_wrapper {
-    padding-bottom: 8px;
-    font-size: 12px;
+    padding-bottom: var(--blx-gap-sm);
+    font-family:    var(--blx-font);
+    font-size:      0.8rem;
 }
 
-/* --- Top controls row (length + filter) --- */
-.dataTables_length {
-    float: left;
-    margin-bottom: 6px;
-}
-
-.dataTables_filter {
-    float: left;
-    margin-bottom: 6px;
-    margin-left: 20px;
-}
+/* Controles superiores (length + filter) */
+.dataTables_length { float: left;  margin-bottom: 8px; }
+.dataTables_filter { float: left;  margin-bottom: 8px; margin-left: 16px; }
 
 .dataTables_filter input,
 .dataTables_length select {
-    border: 1px solid #b8cce4;
-    padding: 2px 5px;
-    border-radius: 3px;
-    font-size: 12px;
-    font-family: Tahoma, Verdana, Arial, sans-serif;
+    border:        1px solid var(--blx-border);
+    border-radius: var(--blx-radius-sm);
+    padding:       3px 7px;
+    font-family:   var(--blx-font);
+    font-size:     0.8rem;
+    color:         var(--blx-text);
+    background:    var(--blx-surface);
+    transition:    border-color var(--blx-transition);
+}
+.dataTables_filter input:focus,
+.dataTables_length select:focus {
+    border-color: var(--blx-border-focus);
+    outline:      none;
+    box-shadow:   0 0 0 3px rgba(74,127,193,0.15);
 }
 
-/* --- Footer bar (info + pagination agrupados por sDom: "dt-footer") --- */
+/* Franja de pie (info + paginacion, sDom: "dt-footer") */
 .dt-footer {
-    background-color: #e8edf5;
-    border-top: 2px solid #718ABE;
-    border-bottom: 1px solid #aec0d7;
-    padding: 6px 8px;
+    background:   var(--blx-bg);
+    border-top:   2px solid var(--blx-accent);
+    border-bottom: 1px solid var(--blx-border);
+    padding:      6px 10px;
+    overflow:     hidden;
 }
 
 .dataTables_info {
-    float: left;
-    padding-top: 4px;
-    color: #444;
-    font-weight: normal;
+    float:       left;
+    padding-top: 5px;
+    color:       var(--blx-text-muted);
+    font-size:   0.78rem;
 }
 
 .dataTables_paginate {
-    float: left;
-    padding-top: 2px;
-    margin-left: 16px;
-    display: block;
+    float:       right;
+    padding-top: 3px;
     line-height: 0;
 }
 
-/* Pagination buttons — both enabled and disabled are <a> elements */
+/* Botones de paginacion DataTables */
 .dataTables_paginate a {
-    display: inline-block !important;
-    padding: 5px 14px !important;
-    margin: 0 2px !important;
-    border: 1px solid #b8cce4 !important;
-    background-color: #e8edf5 !important;
-    color: #333 !important;
-    border-radius: 3px !important;
-    font-size: 12px !important;
-    line-height: 1.5 !important;
+    display:         inline-flex !important;
+    align-items:     center !important;
+    justify-content: center !important;
+    min-width:       30px !important;
+    height:          30px !important;
+    padding:         0 8px !important;
+    margin:          0 2px !important;
+    border:          1px solid var(--blx-border) !important;
+    border-radius:   var(--blx-radius-sm) !important;
+    background:      var(--blx-surface) !important;
+    color:           var(--blx-accent) !important;
+    font-size:       0.8rem !important;
+    font-family:     var(--blx-font) !important;
+    font-weight:     600 !important;
+    line-height:     1 !important;
     text-decoration: none !important;
-    vertical-align: middle !important;
-    cursor: pointer !important;
-    font-family: Tahoma, Verdana, Arial, sans-serif !important;
+    cursor:          pointer !important;
+    transition:      background var(--blx-transition), color var(--blx-transition) !important;
 }
-
 .dataTables_paginate a:hover {
-    background-color: #718ABE !important;
-    border-color: #5a73a8 !important;
-    color: #fff !important;
-    text-decoration: none !important;
+    background:  var(--blx-accent) !important;
+    color:       #fff !important;
+    border-color: var(--blx-accent-hover) !important;
 }
-
 .dataTables_paginate a.paginate_disabled_previous,
 .dataTables_paginate a.paginate_disabled_next {
-    opacity: 0.4 !important;
-    cursor: default !important;
+    opacity:        0.38 !important;
+    cursor:         default !important;
     pointer-events: none !important;
 }
 
-/* Processing overlay */
+/* Overlay de procesamiento */
 .dataTables_processing {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 200px;
-    margin-left: -100px;
-    margin-top: -26px;
+    position:   absolute;
+    top:        50%;
+    left:       50%;
+    width:      220px;
+    margin-left: -110px;
+    margin-top: -28px;
     text-align: center;
-    padding: 6px 0;
-    border: 1px solid #aaa;
-    background-color: #fff;
-    font-size: 14px;
+    padding:    8px 0;
+    border:     1px solid var(--blx-border);
+    border-radius: var(--blx-radius-sm);
+    background: var(--blx-surface);
+    box-shadow: var(--blx-shadow);
+    font-size:  0.85rem;
+    color:      var(--blx-text-muted);
+}
+
+/* ------------------------------------------------------------------
+   10. TELERIK 2011 — ajustes visuales para coherencia
+   Los estilos de Telerik se generan en telerik.windows7.css;
+   aqui solo ajustamos lo que rompe la coherencia visual.
+   ------------------------------------------------------------------ */
+
+/* Fuente y color base de todos los widgets Telerik */
+.t-widget,
+.t-dropdown-wrap,
+.t-picker-wrap {
+    font-family: var(--blx-font) !important;
+    font-size:   var(--blx-font-size) !important;
+}
+
+/* Ancho de ComboBox / DropDownList / AutoComplete: heredar del contenedor */
+.t-combobox,
+.t-dropdown,
+.t-selectbox,
+.t-autocomplete {
+    width: 100% !important;
+}
+
+/* Inputs internos de Telerik no numericos */
+.t-dropdown-wrap .t-input,
+.t-picker-wrap   .t-input,
+.t-combobox      .t-input {
+    color:         var(--blx-text) !important;
+    border-color:  var(--blx-border) !important;
+    border-radius: var(--blx-radius-sm) !important;
+    background:    var(--blx-surface) !important;
+}
+
+/* Reset completo de estilos globales de input[type=text] sobre inputs internos Telerik.
+   La regla global aplica height/width/border/padding/radius que rompen el widget. */
+.t-dropdown-wrap .t-input,
+.t-picker-wrap   .t-input,
+.t-combobox      .t-input {
+    height:        auto !important;
+    min-height:    0 !important;
+    padding:       0 !important;
+    border:        none !important;
+    border-radius: 0 !important;
+    background:    transparent !important;
+    box-shadow:    none !important;
+}
+/* Dropdowns y combobox: el width lo controla el wrapper, no debe ser 100% */
+.t-dropdown-wrap .t-input,
+.t-combobox      .t-input {
+    width: auto !important;
+}
+
+/* Numeric/Currency Telerik usa un input real y .t-formatted-value superpuestos.
+   No forzar color/background en el input real: Telerik lo oculta en blur. */
+.t-numerictextbox .t-input {
+    height:        auto !important;
+    min-height:    0 !important;
+    padding:       0 !important;
+    border:        none !important;
+    border-radius: 0 !important;
+    background:    transparent !important;
+    box-shadow:    none !important;
+    width:         auto !important;
+}
+
+.t-numerictextbox .t-input,
+.t-numerictextbox .t-formatted-value {
+    text-transform: none !important;
+}
+
+.t-numerictextbox .t-formatted-value {
+    color: var(--blx-text) !important;
+}
+
+/* Popup de dropdown Telerik */
+.t-popup,
+.t-animation-container {
+    border:        1px solid var(--blx-border) !important;
+    border-radius: 0 0 var(--blx-radius-sm) var(--blx-radius-sm) !important;
+    box-shadow:    var(--blx-shadow) !important;
+}
+.t-item:hover,
+.t-state-hover {
+    background: var(--blx-accent-light) !important;
+    color:      var(--blx-navy) !important;
+}
+.t-state-selected {
+    background: var(--blx-accent) !important;
+    color:      #fff !important;
+}
+
+/* Cabecera del DatePicker Telerik */
+.t-header,
+.t-link.t-nav-prev,
+.t-link.t-nav-next {
+    color: var(--blx-navy) !important;
+}
+
+/* Grid Telerik (MakerChecker/Index.aspx — unico uso) */
+.t-grid {
+    font-family:   var(--blx-font) !important;
+    font-size:     0.82rem !important;
+    border:        1px solid var(--blx-border) !important;
+    border-radius: var(--blx-radius) !important;
+    overflow:      hidden;
+}
+.t-grid th.t-header {
+    background:  var(--blx-navy) !important;
+    color:       #fff !important;
+    font-weight: 600 !important;
+    font-size:   0.78rem !important;
+    padding:     8px 10px !important;
+    border:      none !important;
+}
+.t-grid td {
+    padding:    7px 10px !important;
+    border-bottom: 1px solid var(--blx-border) !important;
+    color:      var(--blx-text) !important;
+    background: var(--blx-surface) !important;
+}
+.t-grid tr.t-alt td {
+    background: #f7f9fd !important;
+}
+.t-grid tr:hover td {
+    background: var(--blx-accent-light) !important;
+}
+
+/* Paginacion del Grid Telerik */
+.t-pager {
+    background:  var(--blx-bg) !important;
+    border-top:  1px solid var(--blx-border) !important;
+    padding:     6px 10px !important;
+    font-size:   0.78rem !important;
+    color:       var(--blx-text-muted) !important;
+}
+.t-pager .t-link {
+    border:        1px solid var(--blx-border) !important;
+    border-radius: var(--blx-radius-sm) !important;
+    color:         var(--blx-accent) !important;
+    padding:       3px 8px !important;
+    background:    var(--blx-surface) !important;
+}
+.t-pager .t-link:hover {
+    background: var(--blx-accent) !important;
+    color:      #fff !important;
+}
+.t-pager .t-state-active {
+    background:   var(--blx-navy) !important;
+    color:        #fff !important;
+    border-color: var(--blx-navy) !important;
+}
+
+/* Filtro del Grid Telerik */
+.t-filter-row td {
+    background: var(--blx-bg) !important;
+    border-bottom: 1px solid var(--blx-border) !important;
+    padding:    4px 8px !important;
 }

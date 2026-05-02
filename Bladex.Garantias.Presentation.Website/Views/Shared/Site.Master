@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
 
 <%@ Import Namespace="Bladex.Garantias.DomainModel.DomainBase" %>
 <!DOCTYPE html>
@@ -7,100 +7,152 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
-        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" /> — Bladex Garantias
     </title>
-    <link href="../../Content/app-styles.css" rel="stylesheet" type="text/css" />
-    <!--[if lte IE 8]>
-    <link rel="stylesheet" href="../../Content/ie8.css" type="text/css" />
-    <![endif]-->
-    <!--[if lte IE 6]>
-    <link rel="stylesheet" href="../../Content/ie6.css" type="text/css" />
-    <![endif]-->
-    <!--<link href="../../Content/css/redmond/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />-->
-    <!--<link href="../../Content/jquery.bt.css" rel="stylesheet" type="text/css" />-->
+
+    <%-- Telerik theme (requerido por DatePicker, ComboBox, CurrencyTextBox, etc.) --%>
+    <%: Html.Telerik().StyleSheetRegistrar().DefaultGroup(group => group.Add("telerik.common.css").Add("telerik.windows7.css").Combined(false).Compress(false).Version("2011.2.712"))%>
+
+    <%-- jQuery UI --%>
     <link href="<%= Url.Content("~/Content/jquery-ui-1.13.3.min.css") %>" rel="stylesheet" type="text/css" />
+
+    <%-- Bootstrap 5 --%>
     <link href="<%= Url.Content("~/Content/bootstrap-5.3.3.min.css") %>" rel="stylesheet" type="text/css" />
+
+    <%-- Estilos de la aplicacion (custom properties, componentes, formularios) --%>
+    <link href="<%= Url.Content("~/Content/app-styles.css") %>" rel="stylesheet" type="text/css" />
+
+    <%-- Overrides de Bootstrap y Telerik para coherencia visual --%>
     <link href="<%= Url.Content("~/Content/bootstrap-overrides.css") %>" rel="stylesheet" type="text/css" />
+
+    <%-- Tooltip plugin --%>
     <link href="<%= Url.Content("~/Content/jquery.bt.css") %>" rel="stylesheet" type="text/css" />
+
+    <%-- jQuery 3.7.1 + migrate + browser shim (requerido por Telerik 2011) --%>
     <script src="<%= Url.Content("~/Scripts/jquery-3.7.1.min.js") %>" type="text/javascript"></script>
     <script src="<%= Url.Content("~/Scripts/jquery-migrate-3.4.1.min.js") %>" type="text/javascript"></script>
     <script src="<%= Url.Content("~/Scripts/jquery.browser-shim.js") %>" type="text/javascript"></script>
+
+    <%-- jQuery UI + Bootstrap 5 --%>
     <script src="<%= Url.Content("~/Scripts/jquery-ui-1.13.3.min.js") %>" type="text/javascript"></script>
     <script src="<%= Url.Content("~/Scripts/bootstrap-5.3.3.bundle.min.js") %>" type="text/javascript"></script>
-    <script src="<%= Url.Content("~/Scripts/json2.js") %>" type="text/javascript"></script>
-    <%--<script src="<%= Url.Content("~/Scripts/jquery.dataTables.min.js") %>" type="text/javascript"></script>--%>
-    <script src="<%= Url.Content("~/Scripts/jquery.dataTables-1.9.4.min.js") %>" type="text/javascript"></script>
 
+    <%-- Utilitarios --%>
+    <script src="<%= Url.Content("~/Scripts/json2.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.Content("~/Scripts/jquery.dataTables-1.9.4.min.js") %>" type="text/javascript"></script>
     <script src="<%= Url.Content("~/Scripts/excanvas.compiled.js") %>" type="text/javascript"></script>
     <script src="<%= Url.Content("~/Scripts/hoverIntent.js") %>" type="text/javascript"></script>
+    <%-- Shim: jQuery.curCSS fue eliminado en jQuery 1.9, requerido por jquery.bt --%>
+    <script>jQuery.curCSS = function(e, p) { return jQuery(e).css(p); };</script>
     <script src="<%= Url.Content("~/Scripts/jquery.bt.min.js") %>" type="text/javascript"></script>
     <script src="<%= Url.Content("~/Scripts/jquery.query.js") %>" type="text/javascript"></script>
+
+    <%-- Validacion unobtrusive (no requiere MicrosoftAjax.js) --%>
+    <script src="<%= Url.Content("~/Scripts/jquery.validate.min.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js") %>" type="text/javascript"></script>
+
+    <%-- Logica comun de la aplicacion --%>
     <script src="<%= Url.Content("~/Scripts/common.js") %>" type="text/javascript"></script>
+
+    <%-- Slot para scripts y CSS especificos de cada vista --%>
     <asp:ContentPlaceHolder ID="HeaderContent" runat="server">
     </asp:ContentPlaceHolder>
-    <%--<%: Html.Telerik().StyleSheetRegistrar().DefaultGroup(group => group.Add("telerik.common.css").Add("telerik.windows7.css").Combined(false).Compress(false).Version("2011.1.315"))%>--%>
-    <%--<%: Html.Telerik().StyleSheetRegistrar().DefaultGroup(group => group.Add("telerik.common.css").Add("telerik.windows7.css").Combined(false).Compress(false))%>--%>
-    <%--<%: Html.Telerik().StyleSheetRegistrar().DefaultGroup(group => group.Add("telerik.common.css").Add("telerik.windows7.css").Combined(false).Compress(false).Version("2011.2.712"))%>--%>
-    <%: Html.Telerik().StyleSheetRegistrar().DefaultGroup(group => group.Add("telerik.common.css").Add("telerik.windows7.css").Combined(false).Compress(false).Version("2011.2.712"))%>
 </head>
 <body>
-    <div class="scripts">
-        <script src="<%= Url.Content("~/Scripts/jquery.validate.min.js")%>" type="text/javascript"></script>
-        <script src="<%= Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")%>" type="text/javascript"></script>
-        <script src="<%= Url.Content("~/Scripts/MicrosoftAjax.js") %>" type="text/javascript"></script>
-        <script src="<%= Url.Content("~/Scripts/MicrosoftMvcAjax.js") %>" type="text/javascript"></script>
-        <script src="<%= Url.Content("~/Scripts/MicrosoftMvcValidation.js") %>" type="text/javascript"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                var user = '<%= Session["User"] != null ? ((User)Session["User"]).UserName : Page.User.Identity.Name %>';
+    <%-- Navbar principal --%>
+    <nav class="blx-navbar navbar navbar-expand-lg" aria-label="Navegacion principal">
+        <div class="container-fluid px-3">
+            <%-- Marca / Logo --%>
+            <a class="navbar-brand blx-brand" href="<%= Url.Content("~/") %>">
+                <img src="<%= Url.Content("~/Content/Images/bladex.png") %>" alt="Bladex" class="blx-brand-logo" />
+                <span class="blx-brand-name">Garantias</span>
+            </a>
 
-                if (!user || user == 'undefined') {
-                    user = $("#logged-user").val();
-                }
-                if (!user) { user = "(not logged)"; }
-                $("#user_label").text(user);
-            });
-        </script>
-    </div>
-    <div class="page">
-        <div id="header" class="bgHeader">
-            <span>M&oacute;dulo de Garant&iacute;as</span>
-            <div id="title" class="sublogo">
-                <img src="<%=Url.Content("~/Content/Images/bladex.png") %>" alt="Bladex" />
-                <%if (Context.User.IsInRole("Power User"))
-                  {%>
-                <p id="user_label" class="admin-user">
+            <%-- Toggler movil --%>
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#blxNavMenu"
+                    aria-controls="blxNavMenu" aria-expanded="false" aria-label="Abrir menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <%-- Menu de navegacion --%>
+            <div class="collapse navbar-collapse" id="blxNavMenu">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%= Url.Action("Index", "GarantiaInmueble") %>">Inmueble</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%= Url.Action("Index", "GarantiaDeposito") %>">Deposito</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%= Url.Action("Index", "GarantiaMueble") %>">Mueble</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%= Url.Action("Index", "GarantiaPrenda") %>">Prenda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%= Url.Action("Index", "GarantiaDepositoOtroBanco") %>">Deposito Otro Banco</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%= Url.Action("Index", "GarantiaOtra") %>">Otra</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%= Url.Action("Index", "MakerChecker") %>">MakerChecker</a>
+                    </li>
+                </ul>
+
+                <%-- Usuario autenticado --%>
+                <div class="blx-user-badge d-flex align-items-center gap-2">
+                    <%if (Context.User.IsInRole("Power User"))
+                      {%>
+                    <span class="blx-user-icon blx-user-icon--power" title="Power User" aria-label="Power User"></span>
                     <%}
-                  else
-                  {%>
-                <p id="user_label" class="readonly-user">
+                      else
+                      {%>
+                    <span class="blx-user-icon blx-user-icon--readonly" title="Solo lectura" aria-label="Usuario de solo lectura"></span>
                     <%}%>
-                </p>
+                    <span id="user_label" class="blx-username"></span>
+                </div>
             </div>
         </div>
-        <!-- changeset viewer insertion point -->
+    </nav>
+
+    <%-- Franja MakerChecker: changeset pendiente visible en toda la app --%>
+    <div id="blx-changeset-bar">
         <%Html.RenderAction("Current", "MakerChecker"); %>
-        
-        <!-- end of changeset viewer -->
-        <div id="main" class="main">
+    </div>
+
+    <%-- Contenido principal --%>
+    <main id="blx-main" class="blx-main-content">
+        <div class="container-fluid">
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />
         </div>
-        <div id="footer">
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-        </div>
-        <div id="changeTypeContainer">
-        </div>
-    </div>
-    <div>
-        <input id="logged-user" type="hidden" />
-    </div>
-    <%--<%: Html.Telerik().ScriptRegistrar().jQuery(false).DefaultGroup(group => group.Combined(false).Compress(false).Version("2011.1.315")) %>--%>
-    <%--<%: Html.Telerik().ScriptRegistrar().jQuery(false).DefaultGroup(group => group.Combined(false).Compress(false)) %> --%>
-    <%--<%: Html.Telerik().ScriptRegistrar().jQuery(false).DefaultGroup(group => group.Combined(false).Compress(false).Version("2011.2.712")) %>--%>
+    </main>
+
+    <%-- Footer minimo --%>
+    <footer class="blx-footer">
+        <span>Bladex Garantias &mdash; Intelledata LLC</span>
+    </footer>
+
+    <%-- Contenedor auxiliar para cambio de tipo de garantia (usado por common.js) --%>
+    <div id="changeTypeContainer"></div>
+
+    <%-- Campo oculto de respaldo para usuario (fallback de common.js) --%>
+    <input id="logged-user" type="hidden" />
+
+    <%-- Script de inicializacion del navbar --%>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var user = '<%= Session["User"] != null ? ((User)Session["User"]).UserName : Page.User.Identity.Name %>';
+            if (!user || user === 'undefined') {
+                user = $("#logged-user").val();
+            }
+            if (!user) { user = "(sin sesion)"; }
+            $("#user_label").text(user);
+        });
+    </script>
+
+    <%-- Telerik scripts (al final del body para no bloquear render) --%>
     <%: Html.Telerik().ScriptRegistrar().jQuery(false).DefaultGroup(group => group.Combined(false).Compress(false).Version("2011.2.712")) %>
 </body>
 </html>

@@ -1,16 +1,14 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<System.Web.Mvc.HandleErrorInfo>" %>
-
+<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<System.Web.Mvc.HandleErrorInfo>" %>
+<%@ Import Namespace="System.Text" %>
 <asp:Content ID="errorTitle" ContentPlaceHolderID="TitleContent" runat="server">
-    Invalid User
+    Usuario no autorizado
 </asp:Content>
 <asp:Content ID="errorHeader" ContentPlaceHolderID="HeaderContent" runat="server">
     <script type="text/javascript">
         $(document).ready(function () {
-            $("#changeset-viewer-action-container").hide();
-            $("#changeset_viewer_container").hide();
+            $("#blx-changeset-bar").hide();
             $("#btnShowDetails").click(function (e) {
-                var options = {};
-                $(".collapsePanel").toggle('slide', options, 500);
+                $("#collapsePanel").slideToggle(200);
                 e.preventDefault();
                 return false;
             });
@@ -18,33 +16,44 @@
     </script>
 </asp:Content>
 <asp:Content ID="errorContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>
-        Acceso denegado. Usted no posee los privilegios necesarios para acceder al sistema.
-    </h2>
-    <% StringBuilder messageBuilder = new StringBuilder(); %>
-    <% string errorName = (Model != null && Model.Exception != null) ? Model.Exception.GetType().Name : "Unhandled error";  %>
-    <% string errorMessage = (Model != null && Model.Exception != null) ? Model.Exception.Message : "No information available.";  %>
-    <% string actionName = (Model != null) ? Model.ActionName : "undefined"; %>
-    <% string controllerName = (Model != null) ? Model.ControllerName : "undefined"; %>
-    
-    <% messageBuilder.Append("<br/><a id='btnShowDetails' href='#'>Detailed information:</a><br/>"); %>
-    <% messageBuilder.AppendFormat("<div id='collapsePanel' class='collapsePanel' style='display:none;'><p>Message: {0}.</p>", errorMessage); %>
-	<% messageBuilder.AppendFormat("<p>An error of type {0} has occurred into the {1} controller while performing the {2} action.</p>", errorName, controllerName, actionName); %>
-    <%if (Model != null && Model.Exception != null)
-      {%>
     <%
-          string exceptionStackTrace = Model.Exception.StackTrace;%>
-            <% messageBuilder.AppendFormat("<p>Stack Trace: {0}<p/>", exceptionStackTrace ); %>       
-    <%
-      }%>
-      <% messageBuilder.Append("</div>"); %>
-      <div id="errorContainer">
-        <p>
-            <%= messageBuilder.ToString() %>           
-        </p>
-      </div>
-      <h3>
-        Please, contact support using the information displayed on this page.
-      </h3>
-      
+    string errorName    = (Model != null && Model.Exception != null) ? Model.Exception.GetType().Name : "Error de autenticacion";
+    string errorMessage = (Model != null && Model.Exception != null) ? Model.Exception.Message : "Sin informacion disponible.";
+    string actionName   = (Model != null) ? Model.ActionName : "undefined";
+    string controllerName = (Model != null) ? Model.ControllerName : "undefined";
+    string stackTrace   = (Model != null && Model.Exception != null) ? Model.Exception.StackTrace : string.Empty;
+    %>
+
+    <div class="blx-card" style="max-width: 600px; margin: var(--blx-gap-xl) auto;">
+        <div class="blx-card-header" style="background: #fce4ec; border-bottom-color: #f48fb1;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#880e4f" viewBox="0 0 16 16" aria-hidden="true" style="flex-shrink:0">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+            </svg>
+            <h2 class="blx-card-header-title" style="color: #880e4f;">Usuario no autorizado</h2>
+        </div>
+        <div class="blx-card-body">
+
+            <div class="alert alert-danger" role="alert">
+                Usted no posee los privilegios necesarios para acceder al sistema.
+            </div>
+
+            <p class="blx-operation-meta">
+                Si considera que esto es un error, contacte al administrador del sistema.
+            </p>
+
+            <%if (!string.IsNullOrEmpty(errorMessage)) {%>
+            <p>
+                <a id="btnShowDetails" href="#" class="small">Ver detalle tecnico</a>
+            </p>
+            <div id="collapsePanel" style="display:none;">
+                <p class="small"><strong>Tipo:</strong> <%: errorName %></p>
+                <p class="small"><strong>Mensaje:</strong> <%: errorMessage %></p>
+                <p class="small"><strong>Controlador:</strong> <%: controllerName %> / <strong>Accion:</strong> <%: actionName %></p>
+                <%if (!string.IsNullOrEmpty(stackTrace)) {%>
+                <pre style="font-size:0.72rem; background:#f5f5f5; border:1px solid var(--blx-border); border-radius:var(--blx-radius-sm); padding:var(--blx-gap-sm); overflow:auto; max-height:200px; white-space:pre-wrap;"><%: stackTrace %></pre>
+                <%}%>
+            </div>
+            <%}%>
+        </div>
+    </div>
 </asp:Content>
