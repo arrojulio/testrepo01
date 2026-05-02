@@ -35,7 +35,7 @@ namespace Bladex.Garantias.Presentation.Website.Controllers
             String customerId;
             String customerName;
             IList<GarantiaContrato> usedContracts;
-            List<String> usedContractDealReferences;
+            HashSet<String> usedContractDealReferences;
 
             if (!useRepository.HasValue)
                 useRepository = true;
@@ -64,12 +64,8 @@ namespace Bladex.Garantias.Presentation.Website.Controllers
                     var dealReferences = ServiceFacade.Instance.GarantiaContratoService.GetDealReferencesByCustomer(customerId);
 
                     // Ticket #1954 - Fix listado de deals disponibles
-                    usedContractDealReferences = contratos.Select(c => c.DealReference).ToList(); 
-                    var dealReferencesAvailableCount = 0;
-                    foreach (GarantiaContratoDealReference deal in dealReferences)
-                    {
-                        if (!usedContractDealReferences.Contains(deal.DealReference)) dealReferencesAvailableCount += 1;
-                    }
+                    usedContractDealReferences = new HashSet<String>(contratos.Select(c => c.DealReference));
+                    var dealReferencesAvailableCount = dealReferences.Count(deal => !usedContractDealReferences.Contains(deal.DealReference));
                     // perform a filter to exclude the contracts already selected.
 
 
@@ -96,16 +92,12 @@ namespace Bladex.Garantias.Presentation.Website.Controllers
                     customerId = garantia.Cliente.GetKeyAs<string>();
                     customerName = garantia.Cliente.Nombre;
 
-                    contratos = AutoMapper.Mapper.Map<List<GarantiaContrato>, List<GarantiaContratoModel>>(ServiceFacade.Instance.GarantiaContratoService.GetByGarantiaId(garantiaId.Value).ToList());
+                    contratos = AutoMapper.Mapper.Map<IList<GarantiaContrato>, List<GarantiaContratoModel>>(usedContracts);
                     var dealReferences = ServiceFacade.Instance.GarantiaContratoService.GetDealReferencesByCustomer(customerId);
 
                     // Ticket #1954 - Fix listado de deals disponibles
-                    usedContractDealReferences = contratos.Select(c => c.DealReference).ToList();
-                    var dealReferencesAvailableCount = 0;
-                    foreach (GarantiaContratoDealReference deal in dealReferences)
-                    {
-                        if (!usedContractDealReferences.Contains(deal.DealReference)) dealReferencesAvailableCount += 1;
-                    }
+                    usedContractDealReferences = new HashSet<String>(contratos.Select(c => c.DealReference));
+                    var dealReferencesAvailableCount = dealReferences.Count(deal => !usedContractDealReferences.Contains(deal.DealReference));
 
                     //this.ViewBag.AvailableContracts = dealReferences.Count != dealReferencesAvailableCount;
                     this.ViewBag.AvailableContracts = dealReferencesAvailableCount > 0;

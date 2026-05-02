@@ -1,0 +1,7 @@
+interface:
+  display_name: "Bladex Data Performance Review"
+  short_description: "Bladex data performance reviews."
+  default_prompt: "Use $bladex-data-performance-review to analyze data-access performance for the selected Bladex Garantias workflow, trace UI to SQL, identify bottlenecks, and propose safe incremental fixes."
+
+policy:
+  allow_implicit_invocation: true

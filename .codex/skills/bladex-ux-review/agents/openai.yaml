@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bladex UX Review"
+  short_description: "Review Bladex Garantias UI, controls, styles, and read-only UX."
+  default_prompt: "Analyze the selected Bladex Garantias UI workflow, inspect MVC/Telerik controls, styles, JavaScript behavior, read-only states, accessibility, and propose safe incremental UX fixes."

@@ -90,6 +90,8 @@ $(document).ready(function () {
 
     // Deshabilitar campos
     DisableFields(true);
+
+    ApplyGarantiaReadOnlyModeWhenNeeded();
 });
 
 $(document).keydown(function (e) {
@@ -112,6 +114,67 @@ function DisableFields(disable) {
             $("#Garantia_NombreOrganismo").removeAttr("disabled");
         }
     }
+}
+
+function IsGarantiaReadOnlyMode() {
+    var readOnly = $("#IsReadOnly").val();
+    return readOnly == "True" || readOnly == "true";
+}
+
+function ApplyGarantiaReadOnlyModeWhenNeeded() {
+    if (!IsGarantiaReadOnlyMode()) {
+        return;
+    }
+
+    ApplyGarantiaReadOnlyMode();
+    window.setTimeout(ApplyGarantiaReadOnlyMode, 0);
+    window.setTimeout(ApplyGarantiaReadOnlyMode, 250);
+}
+
+function ApplyGarantiaReadOnlyMode() {
+    var widgetNames = [
+        "tComboBox",
+        "tDropDownList",
+        "tDatePicker",
+        "tDateTimePicker",
+        "tTimePicker",
+        "tTextBox",
+        "tNumericTextBox"
+    ];
+
+    $("input, select, textarea, .t-widget, .t-combobox, .t-dropdownlist, .t-datepicker, .t-numerictextbox").each(function () {
+        var control = $(this);
+
+        $.each(widgetNames, function (index, widgetName) {
+            var widget = control.data(widgetName);
+            if (widget && widget.disable) {
+                widget.disable();
+            }
+        });
+    });
+
+    $("input[type='text'], input[type='password'], input:not([type]), textarea")
+        .not("#logged-user")
+        .prop("readOnly", true)
+        .attr("readonly", "readonly")
+        .addClass("readonly");
+
+    $("#Garantia_IdentificacionFideicomiso")
+        .prop("readOnly", true)
+        .attr("readonly", "readonly")
+        .addClass("readonly")
+        .unbind(".garantiaReadOnly")
+        .bind("keydown.garantiaReadOnly paste.garantiaReadOnly drop.garantiaReadOnly", function (e) {
+            e.preventDefault();
+            return false;
+        });
+
+    $("select, input[type='checkbox'], input[type='radio'], input[type='file']")
+        .attr("disabled", "disabled");
+
+    $("#btnSaveGarantia, input[type='submit']")
+        .attr("disabled", "disabled")
+        .hide();
 }
 
 function onAutocompleteChange(e) {

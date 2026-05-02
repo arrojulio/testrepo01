@@ -475,6 +475,8 @@ namespace Bladex.Garantias.Presentation.Website.Controllers
         /// <param name="garantia">The garantia of type <see cref="Bladex.Garantias.Presentation.Website.Models.GarantiaBaseModel"/></param>
         protected virtual void PopulateModelWithLists(GarantiaBaseModel garantia)
         {
+            var paises = ServiceFacade.Instance.PaisService.GetAll().OrderBy(o => o.Nombre).ToList();
+
             if (garantia.Cliente == null) garantia.Cliente = new ClienteViewModel();
             if (garantia.Cliente.List == null)
             {                
@@ -499,7 +501,7 @@ namespace Bladex.Garantias.Presentation.Website.Controllers
                         
             if (garantia.PaisGarantia.List == null)
             {                
-                garantia.PaisGarantia.List = ServiceFacade.Instance.PaisService.GetAll().OrderBy(o => o.Nombre).Select(entity => new SelectListItem { Text = entity.Nombre, Value = entity.Key.ToString() }).ToList();             
+                garantia.PaisGarantia.List = paises.Select(entity => new SelectListItem { Text = entity.Nombre, Value = entity.Key.ToString() }).ToList();             
             }
 
             // Ticket #1619 - 1
@@ -518,50 +520,50 @@ namespace Bladex.Garantias.Presentation.Website.Controllers
                 garantia.TipoPoliza.List = ServiceFacade.Instance.TipoPolizaService.GetAll().OrderBy(o => o.Nombre).Select(entity => new SelectListItem { Text = entity.Nombre, Value = entity.Key.ToString() }).ToList();
             }
             
-            var listOfActors = ServiceFacade.Instance.ActorService.GetAll().Select(entity => new SelectListItem { Text = entity != null ? entity.Nombre : "(empty)", Value = (entity != null && entity.Key != null) ? entity.Key as string : string.Empty }).ToList();
+            var listOfActors = ServiceFacade.Instance.ActorService.GetAll().Select(entity => new SelectListItem { Text = entity != null ? entity.Nombre : "(empty)", Value = (entity != null && entity.Key != null) ? entity.Key as string : string.Empty }).OrderBy(o => o.Text).ToList();
                                     
             if (garantia.Administrador == null) garantia.Administrador = new ActorViewModel();
             
-                garantia.Administrador.List = listOfActors.OrderBy(o=>o.Text);
+                garantia.Administrador.List = listOfActors;
             if (garantia.Administrador.Pais == null) garantia.Administrador.Pais = new PaisViewModel();
             if (garantia.Administrador.Pais.List == null)
             {            
-                garantia.Administrador.Pais.List = ServiceFacade.Instance.PaisService.GetAll().OrderBy(o => o.Nombre).Select(entity => new SelectListItem { Text = entity.Nombre, Value = entity.Key.ToString() }).ToList();
-            
+                garantia.Administrador.Pais.List = paises.Select(entity => new SelectListItem { Text = entity.Nombre, Value = entity.Key.ToString() }).ToList();
+             
             }
             
             if (garantia.Asegurador == null) garantia.Asegurador = new ActorViewModel();            
-                garantia.Asegurador.List = listOfActors.OrderBy(o => o.Text);
+                garantia.Asegurador.List = listOfActors;
             if (garantia.Asegurador.Pais == null) garantia.Asegurador.Pais = new PaisViewModel();
             if (garantia.Asegurador.Pais.List == null)
             {                
-                garantia.Asegurador.Pais.List = ServiceFacade.Instance.PaisService.GetAll().OrderBy(o => o.Nombre).Select(entity => new SelectListItem { Text = entity.Nombre, Value = entity.Key.ToString() }).ToList();             
+                garantia.Asegurador.Pais.List = paises.Select(entity => new SelectListItem { Text = entity.Nombre, Value = entity.Key.ToString() }).ToList();             
             }
             
             if (garantia.Depositante == null) garantia.Depositante = new ActorViewModel();            
-                garantia.Depositante.List = listOfActors.OrderBy(o => o.Text);
+                garantia.Depositante.List = listOfActors;
             if (garantia.Depositante.Pais == null) garantia.Depositante.Pais = new PaisViewModel();
             if (garantia.Depositante.Pais.List == null)
             {                
-                garantia.Depositante.Pais.List = ServiceFacade.Instance.PaisService.GetAll().OrderBy(o => o.Nombre).Select(entity => new SelectListItem { Text = entity.Nombre, Value = entity.Key.ToString() }).ToList();             
+                garantia.Depositante.Pais.List = paises.Select(entity => new SelectListItem { Text = entity.Nombre, Value = entity.Key.ToString() }).ToList();             
             }
             
             if (garantia.Evaluador == null) garantia.Evaluador = new ActorViewModel();            
-                garantia.Evaluador.List = listOfActors.OrderBy(o => o.Text);
+                garantia.Evaluador.List = listOfActors;
             
             if (garantia.Evaluador.Pais == null) garantia.Evaluador.Pais = new PaisViewModel();
             if (garantia.Evaluador.Pais.List == null)
             {                
-                garantia.Evaluador.Pais.List = ServiceFacade.Instance.PaisService.GetAll().OrderBy(o => o.Nombre).Select(entity => new SelectListItem { Text = entity.Nombre, Value = entity.Key.ToString() }).ToList();             
+                garantia.Evaluador.Pais.List = paises.Select(entity => new SelectListItem { Text = entity.Nombre, Value = entity.Key.ToString() }).ToList();             
             }
             
             if (garantia.Revisor == null) garantia.Revisor = new ActorViewModel();            
-                garantia.Revisor.List = listOfActors.OrderBy(o => o.Text);
+                garantia.Revisor.List = listOfActors;
             
             if (garantia.Revisor.Pais == null) garantia.Revisor.Pais = new PaisViewModel();
             if (garantia.Revisor.Pais.List == null)
             {                
-                garantia.Revisor.Pais.List = ServiceFacade.Instance.PaisService.GetAll().OrderBy(o => o.Nombre).Select(entity => new SelectListItem { Text = entity.Nombre, Value = entity.Key.ToString() }).ToList();             
+                garantia.Revisor.Pais.List = paises.Select(entity => new SelectListItem { Text = entity.Nombre, Value = entity.Key.ToString() }).ToList();             
             }
             
             
