@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "bladex-business-faq": {
+      "command": "python",
+      "args": [
+        "C:/dev/ap.elcazal/testrepo01/.codex/mcp/bladex-business-faq-server/server.py"
+      ]
+    }
+  }
+}
